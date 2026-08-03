@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dwellingly Dashboard | Sarah</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed": "#27ffcc",
+                    "surface-container": "#eceef0",
+                    "secondary-fixed-dim": "#00e0b2",
+                    "on-tertiary-fixed": "#002111",
+                    "surface": "#f8f9fb",
+                    "on-error-container": "#93000a",
+                    "surface-container-highest": "#e0e3e5",
+                    "on-tertiary-fixed-variant": "#005232",
+                    "surface-tint": "#654eaf",
+                    "on-primary-container": "#967fe4",
+                    "primary-fixed-dim": "#cdbdff",
+                    "on-secondary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "intelligent-teal": "#07FFCB",
+                    "error": "#D13438",
+                    "outline": "#797583",
+                    "primary-fixed": "#e7deff",
+                    "on-primary-fixed": "#20005f",
+                    "on-primary": "#ffffff",
+                    "on-background": "#191c1e",
+                    "on-secondary-fixed": "#002118",
+                    "surface-bright": "#f8f9fb",
+                    "inverse-primary": "#cdbdff",
+                    "on-tertiary": "#ffffff",
+                    "on-surface": "#191c1e",
+                    "spring-green": "#2FFBA5",
+                    "tertiary-fixed-dim": "#00e292",
+                    "on-primary-fixed-variant": "#4c3496",
+                    "deep-navy": "#2C0A75",
+                    "surface-dim": "#d8dadc",
+                    "inverse-on-surface": "#eff1f3",
+                    "secondary-container": "#00fdc9",
+                    "error-container": "#ffdad6",
+                    "surface-container-high": "#e6e8ea",
+                    "on-surface-variant": "#484551",
+                    "tertiary-container": "#002e1a",
+                    "secondary": "#006b54",
+                    "surface-mica": "#F8F9FA",
+                    "background": "#f8f9fb",
+                    "primary-container": "#2c0a75",
+                    "surface-variant": "#e0e3e5",
+                    "outline-variant": "#cac4d3",
+                    "tertiary-fixed": "#51ffad",
+                    "success": "#107C10",
+                    "on-secondary-container": "#007058",
+                    "tertiary": "#00170a",
+                    "inverse-surface": "#2d3133",
+                    "on-tertiary-container": "#00a367",
+                    "primary": "#160047",
+                    "on-secondary-fixed-variant": "#00513f",
+                    "surface-container-low": "#f2f4f6",
+                    "surface-acrylic": "rgba(255, 255, 255, 0.7)",
+                    "surface-container-lowest": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin-mobile": "1rem",
+                    "unit": "4px",
+                    "margin-desktop": "2.5rem",
+                    "gutter": "1.5rem",
+                    "container-max": "1280px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "label-md": ["Inter"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "body-lg": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-xl": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .acrylic-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(229, 229, 229, 0.5);
+        }
+        .mica-surface {
+            background-color: #F8F9FA;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cac4d3;
+            border-radius: 10px;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md selection:bg-intelligent-teal selection:text-primary">
+<!-- TopNavBar -->
+<nav class="bg-surface-acrylic backdrop-blur-md border-b border-outline-variant shadow-sm docked full-width top-0 sticky z-50">
+<div class="flex justify-between items-center w-full px-margin-desktop py-4 max-w-container-max mx-auto">
+<div class="flex items-center gap-8">
+<span class="font-headline-md text-headline-md font-bold text-primary">Dwellingly</span>
+<div class="hidden md:flex gap-6 items-center">
+<a class="text-primary border-b-2 border-primary font-bold pb-1 font-body-md" href="#">Dashboard</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="#">Search</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="#">Deals</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="#">Portfolio</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden lg:flex items-center bg-surface-container rounded-full px-4 py-2 border border-outline-variant">
+<span class="material-symbols-outlined text-outline">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-sm w-48" placeholder="Search properties..." type="text"/>
+</div>
+<button class="p-2 hover:bg-surface-container-low rounded-lg transition-all relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full border-2 border-surface"></span>
+</button>
+<button class="flex items-center gap-2 p-1 hover:bg-surface-container-low rounded-lg transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">account_circle</span>
+<span class="font-label-md hidden sm:block">Sarah M.</span>
+</button>
+</div>
+</div>
+</nav>
+<main class="max-w-container-max mx-auto px-margin-desktop py-8 grid grid-cols-12 gap-gutter">
+<!-- Left Content Area (Col 1-9) -->
+<div class="col-span-12 lg:col-span-9 space-y-8">
+<!-- Personalized Greeting -->
+<header>
+<h1 class="font-headline-xl text-headline-xl text-primary">Good morning, Sarah.</h1>
+<p class="text-on-surface-variant font-body-lg">Here's what's happening with your real estate portfolio today.</p>
+</header>
+<!-- Main Status Card (Bento Large) -->
+<section class="acrylic-card rounded-xl overflow-hidden shadow-sm flex flex-col md:flex-row">
+<div class="md:w-1/3 h-64 md:h-auto">
+<div class="w-full h-full bg-cover bg-center" data-alt="A cinematic, high-quality photograph of a modern residential home at 124 Maple Street. The house features clean architectural lines, large windows, and a manicured front lawn. The lighting is soft morning sun, creating a warm, inviting atmosphere consistent with a professional real estate portal. The colors are natural and balanced, emphasizing high-end suburban living." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDAcmqQzqJg4ro7c21muf4f6hSTMmK5BCCUHaSiFbyPRfxZxShs8QzokjRzrc-RW_Y5OODfv79Ska40kkzN2keaeFaJocvr6fFXU6uGq9PDgmW4GDNX7c4ksfilvsX5YrNgJCBD-pMBnLhpBPCcl-7Eu-S1DRzLY2c8YyRly3w3IHQKd14M_Yxk4y4ta17kyBCT5o0qkKYfvww6MQDwWB_J5LKR0gfUrMr_zKI0GUWQZO2T5LbxMMA')"></div>
+</div>
+<div class="md:w-2/3 p-8 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-4">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary">124 Maple Street</h2>
+<p class="text-on-surface-variant">Closing in progress • Est. Value $842,000</p>
+</div>
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full font-label-md">PURCHASE PHASE</span>
+</div>
+<div class="mb-6">
+<div class="flex justify-between text-body-sm mb-2">
+<span class="font-medium">Closing Progress</span>
+<span class="text-on-surface-variant">65% Complete</span>
+</div>
+<div class="w-full bg-surface-container-highest h-2 rounded-full overflow-hidden">
+<div class="bg-intelligent-teal h-full w-[65%] transition-all duration-1000 ease-out"></div>
+</div>
+</div>
+<div class="bg-primary-container/5 rounded-xl p-4 border border-primary/10 flex items-center gap-4">
+<div class="bg-primary-container text-white p-2 rounded-lg">
+<span class="material-symbols-outlined">description</span>
+</div>
+<div>
+<p class="font-label-md text-primary uppercase tracking-wider">Next Step</p>
+<p class="font-body-md font-semibold">Review &amp; Sign Inspection Report</p>
+</div>
+<button class="ml-auto bg-deep-navy text-white px-4 py-2 rounded-lg font-label-md hover:opacity-90 transition-all">
+                                Action Required
+                            </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Stats Grid -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Saved Properties -->
+<div class="acrylic-card p-6 rounded-xl shadow-sm border border-outline-variant">
+<div class="flex justify-between items-start mb-2">
+<span class="text-on-surface-variant font-label-md">Saved Properties</span>
+<span class="material-symbols-outlined text-primary">bookmark</span>
+</div>
+<div class="text-headline-md font-headline-md">24</div>
+<p class="text-body-sm text-success flex items-center gap-1 mt-2">
+<span class="material-symbols-outlined text-sm">trending_up</span> +3 this week
+                    </p>
+</div>
+<!-- Avg Rate Est -->
+<div class="acrylic-card p-6 rounded-xl shadow-sm border border-outline-variant">
+<div class="flex justify-between items-start mb-2">
+<span class="text-on-surface-variant font-label-md">Avg Rate Est</span>
+<span class="material-symbols-outlined text-primary">percent</span>
+</div>
+<div class="text-headline-md font-headline-md">6.42%</div>
+<p class="text-body-sm text-error flex items-center gap-1 mt-2">
+<span class="material-symbols-outlined text-sm">trending_up</span> +0.1% today
+                    </p>
+</div>
+<!-- Market Trend -->
+<div class="acrylic-card p-6 rounded-xl shadow-sm border border-outline-variant relative overflow-hidden">
+<div class="flex justify-between items-start mb-2">
+<span class="text-on-surface-variant font-label-md">Market Trend</span>
+<span class="material-symbols-outlined text-primary">monitoring</span>
+</div>
+<div class="text-headline-md font-headline-md">Bullish</div>
+<!-- Sparkline Simulation -->
+<div class="mt-4 h-8 flex items-end gap-1">
+<div class="bg-intelligent-teal w-full h-[40%] rounded-t-sm"></div>
+<div class="bg-intelligent-teal w-full h-[60%] rounded-t-sm"></div>
+<div class="bg-intelligent-teal w-full h-[55%] rounded-t-sm"></div>
+<div class="bg-intelligent-teal w-full h-[80%] rounded-t-sm"></div>
+<div class="bg-intelligent-teal w-full h-[70%] rounded-t-sm"></div>
+<div class="bg-intelligent-teal w-full h-[95%] rounded-t-sm"></div>
+</div>
+</div>
+</section>
+<!-- Toolkit Section -->
+<section>
+<h3 class="font-headline-md text-headline-md text-primary mb-6">Your Real Estate Toolkit</h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Mortgage Calc -->
+<button class="acrylic-card p-8 rounded-xl border border-outline-variant hover:border-primary hover:shadow-lg transition-all text-left group">
+<div class="bg-surface-container-highest p-3 rounded-xl inline-block mb-4 group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">calculate</span>
+</div>
+<h4 class="font-headline-md text-headline-md mb-2">Mortgage Calc</h4>
+<p class="text-on-surface-variant text-body-sm">Simulate loan scenarios and down payments with real-time rates.</p>
+</button>
+<!-- Market Analysis -->
+<button class="acrylic-card p-8 rounded-xl border border-outline-variant hover:border-primary hover:shadow-lg transition-all text-left group">
+<div class="bg-surface-container-highest p-3 rounded-xl inline-block mb-4 group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">analytics</span>
+</div>
+<h4 class="font-headline-md text-headline-md mb-2">Market Analysis</h4>
+<p class="text-on-surface-variant text-body-sm">Deep-dive data on neighborhoods, schools, and investment yields.</p>
+</button>
+<!-- Utility Management -->
+<button class="acrylic-card p-8 rounded-xl border border-outline-variant hover:border-primary hover:shadow-lg transition-all text-left group">
+<div class="bg-surface-container-highest p-3 rounded-xl inline-block mb-4 group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">bolt</span>
+</div>
+<h4 class="font-headline-md text-headline-md mb-2">Utility Management</h4>
+<p class="text-on-surface-variant text-body-sm">Seamlessly transfer and track utilities for your new property.</p>
+</button>
+</div>
+</section>
+</div>
+<!-- Right Sidebar (Notifications/Activity) -->
+<aside class="col-span-12 lg:col-span-3 space-y-6">
+<div class="acrylic-card rounded-xl p-6 shadow-sm h-full flex flex-col border border-outline-variant">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline-md text-[20px] text-primary">Activity</h3>
+<button class="text-primary font-label-md hover:underline">Clear all</button>
+</div>
+<div class="space-y-6 flex-1 custom-scrollbar overflow-y-auto pr-2">
+<!-- Notification Item -->
+<div class="flex gap-4 group">
+<div class="w-2 h-2 mt-2 rounded-full bg-intelligent-teal shrink-0"></div>
+<div>
+<p class="text-body-sm font-semibold">Price Drop Alert</p>
+<p class="text-body-sm text-on-surface-variant">The property at "22B Oak Avenue" just dropped by $15k.</p>
+<span class="text-[11px] text-outline font-medium">2 hours ago</span>
+</div>
+</div>
+<!-- Notification Item -->
+<div class="flex gap-4 group">
+<div class="w-2 h-2 mt-2 rounded-full bg-primary shrink-0"></div>
+<div>
+<p class="text-body-sm font-semibold">New Document</p>
+<p class="text-body-sm text-on-surface-variant">Agent uploaded "Closing_Disclosure_Draft.pdf".</p>
+<span class="text-[11px] text-outline font-medium">5 hours ago</span>
+</div>
+</div>
+<!-- Notification Item -->
+<div class="flex gap-4 group opacity-70">
+<div class="w-2 h-2 mt-2 rounded-full bg-outline shrink-0"></div>
+<div>
+<p class="text-body-sm font-semibold">Tour Confirmed</p>
+<p class="text-body-sm text-on-surface-variant">Visit to "99 Cedar Ln" scheduled for tomorrow at 2 PM.</p>
+<span class="text-[11px] text-outline font-medium">Yesterday</span>
+</div>
+</div>
+<!-- Notification Item -->
+<div class="flex gap-4 group opacity-70">
+<div class="w-2 h-2 mt-2 rounded-full bg-outline shrink-0"></div>
+<div>
+<p class="text-body-sm font-semibold">Market Report</p>
+<p class="text-body-sm text-on-surface-variant">Monthly local market trends report is now available.</p>
+<span class="text-[11px] text-outline font-medium">2 days ago</span>
+</div>
+</div>
+</div>
+<!-- Sticky AI Buddy Preview -->
+<div class="mt-8 p-4 bg-primary text-white rounded-xl relative overflow-hidden group cursor-pointer">
+<div class="relative z-10">
+<p class="font-label-md text-intelligent-teal mb-1">DWELLINGLY AI</p>
+<p class="text-body-sm">"I've found 3 new properties matching your 'Maple' criteria."</p>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-10 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[80px]">auto_awesome</span>
+</div>
+</div>
+</div>
+</aside>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-highest dark:bg-inverse-surface border-t border-outline-variant dark:border-outline">
+<div class="w-full px-margin-desktop py-12 grid grid-cols-1 md:grid-cols-4 gap-gutter max-w-container-max mx-auto">
+<div class="col-span-1 md:col-span-1">
+<span class="font-headline-sm text-headline-sm font-black text-primary mb-4 block">Dwellingly</span>
+<p class="text-on-surface-variant font-body-sm">© 2024 Dwellingly AI. Empowering Real Estate Professionals.</p>
+</div>
+<div class="flex flex-col gap-2">
+<p class="font-label-md text-primary font-bold uppercase mb-2">Product</p>
+<a class="text-on-surface-variant hover:text-primary underline transition-all font-body-sm" href="#">About Us</a>
+<a class="text-on-surface-variant hover:text-primary underline transition-all font-body-sm" href="#">Agent Portal</a>
+</div>
+<div class="flex flex-col gap-2">
+<p class="font-label-md text-primary font-bold uppercase mb-2">Support</p>
+<a class="text-on-surface-variant hover:text-primary underline transition-all font-body-sm" href="#">Contact Support</a>
+<a class="text-on-surface-variant hover:text-primary underline transition-all font-body-sm" href="#">Privacy Policy</a>
+</div>
+<div class="flex flex-col gap-2">
+<p class="font-label-md text-primary font-bold uppercase mb-2">Legal</p>
+<a class="text-on-surface-variant hover:text-primary underline transition-all font-body-sm" href="#">Terms of Service</a>
+</div>
+</div>
+</footer>
+<!-- AI Assistant FAB -->
+<button class="fixed bottom-8 right-8 w-14 h-14 rounded-full bg-gradient-to-br from-deep-navy to-intelligent-teal text-white shadow-2xl flex items-center justify-center animate-float z-[60] group">
+<span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<div class="absolute right-full mr-4 bg-white text-primary px-4 py-2 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap font-label-md border border-outline-variant">
+            Ask Dwellingly AI
+        </div>
+</button>
+<script>
+        // Simple Interaction: Mock document download
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                if(btn.innerText.includes('Action Required')) {
+                    const originalText = btn.innerText;
+                    btn.innerText = 'Processing...';
+                    setTimeout(() => {
+                        btn.innerText = 'Redirecting...';
+                        btn.classList.replace('bg-deep-navy', 'bg-success');
+                    }, 800);
+                }
+            });
+        });
+
+        // Dynamic Header Scroll Effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 20) {
+                nav.classList.add('shadow-md');
+            } else {
+                nav.classList.remove('shadow-md');
+            }
+        });
+    </script>
+</body></html>

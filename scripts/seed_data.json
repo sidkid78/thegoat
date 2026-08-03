@@ -1,0 +1,2602 @@
+[
+  {
+    "address": "2690 Maple Dr",
+    "city": "Pflugerville",
+    "state": "TX",
+    "zip_code": "78660",
+    "price": 629990.0,
+    "bedrooms": 3,
+    "bathrooms": 2.0,
+    "square_feet": 2347,
+    "property_type": "single_family",
+    "description": "Stunning 3-bedroom, 2.0-bathroom single family located in prime Pflugerville, TX. Featuring 2,347 sq. ft. of living space, natural sunlight, upgraded kitchen amenities, and modern finishes throughout.",
+    "features": {
+      "yearBuilt": 2005,
+      "hasPool": false,
+      "garageSpaces": 1,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 380
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1580587771525-78b9dba3b914",
+      "https://images.unsplash.com/photo-1567496898669-ee935f5f647a",
+      "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "6689 Elm St",
+    "city": "Austin",
+    "state": "TX",
+    "zip_code": "78757",
+    "price": 799990.0,
+    "bedrooms": 3,
+    "bathrooms": 3.0,
+    "square_feet": 1968,
+    "property_type": "single_family",
+    "description": "Charming single family offering 3 beds and 3.0 baths in desirable Austin, TX. High ceilings, energy-efficient appliances, attached garage, and convenient access to local dining and parks.",
+    "features": {
+      "yearBuilt": 2003,
+      "hasPool": true,
+      "garageSpaces": 3,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 250
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c",
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750",
+      "https://images.unsplash.com/photo-1567496898669-ee935f5f647a"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "4121 Highland Rd",
+    "city": "Georgetown",
+    "state": "TX",
+    "zip_code": "78633",
+    "price": 499000.0,
+    "bedrooms": 2,
+    "bathrooms": 2.0,
+    "square_feet": 1802,
+    "property_type": "single_family",
+    "description": "Stunning 2-bedroom, 2.0-bathroom single family located in prime Georgetown, TX. Featuring 1,802 sq. ft. of living space, natural sunlight, upgraded kitchen amenities, and modern finishes throughout.",
+    "features": {
+      "yearBuilt": 1992,
+      "hasPool": true,
+      "garageSpaces": 1,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 250
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c",
+      "https://images.unsplash.com/photo-1513694203232-719a280e022f"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "4356 Pine Rd",
+    "city": "Austin",
+    "state": "TX",
+    "zip_code": "78747",
+    "price": 546622.0,
+    "bedrooms": 3,
+    "bathrooms": 3.0,
+    "square_feet": 1900,
+    "property_type": "townhouse",
+    "description": "Charming townhouse offering 3 beds and 3.0 baths in desirable Austin, TX. High ceilings, energy-efficient appliances, attached garage, and convenient access to local dining and parks.",
+    "features": {
+      "yearBuilt": 1994,
+      "hasPool": false,
+      "garageSpaces": 3,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 150
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1580587771525-78b9dba3b914",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+      "https://images.unsplash.com/photo-1572120360610-d971b9d7767c"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "2910 Cedar St",
+    "city": "Leander",
+    "state": "TX",
+    "zip_code": "78641",
+    "price": 495500.0,
+    "bedrooms": 3,
+    "bathrooms": 3.0,
+    "square_feet": 1797,
+    "property_type": "townhouse",
+    "description": "Stunning 3-bedroom, 3.0-bathroom townhouse located in prime Leander, TX. Featuring 1,797 sq. ft. of living space, natural sunlight, upgraded kitchen amenities, and modern finishes throughout.",
+    "features": {
+      "yearBuilt": 2011,
+      "hasPool": false,
+      "garageSpaces": 2,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 250
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9",
+      "https://images.unsplash.com/photo-1572120360610-d971b9d7767c",
+      "https://images.unsplash.com/photo-1513694203232-719a280e022f"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "6270 Washington Blvd",
+    "city": "Dripping Springs",
+    "state": "TX",
+    "zip_code": "78620",
+    "price": 715000.0,
+    "bedrooms": 3,
+    "bathrooms": 4.0,
+    "square_feet": 2044,
+    "property_type": "single_family",
+    "description": "Modern retreat in the heart of Dripping Springs, TX. Offers 2,044 square feet with 3 bedrooms, 4.0 bathrooms, updated flooring, and high-end fixtures.",
+    "features": {
+      "yearBuilt": 2010,
+      "hasPool": false,
+      "garageSpaces": 3,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 380
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6",
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750",
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "4503 Pine Rd",
+    "city": "Round Rock",
+    "state": "TX",
+    "zip_code": "78665",
+    "price": 485000.0,
+    "bedrooms": 2,
+    "bathrooms": 2.0,
+    "square_feet": 1719,
+    "property_type": "townhouse",
+    "description": "Charming townhouse offering 2 beds and 2.0 baths in desirable Round Rock, TX. High ceilings, energy-efficient appliances, attached garage, and convenient access to local dining and parks.",
+    "features": {
+      "yearBuilt": 2020,
+      "hasPool": false,
+      "garageSpaces": 1,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 250
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3",
+      "https://images.unsplash.com/photo-1572120360610-d971b9d7767c",
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "4455 Pine Rd",
+    "city": "San Marcos",
+    "state": "TX",
+    "zip_code": "78666",
+    "price": 892218.0,
+    "bedrooms": 4,
+    "bathrooms": 4.0,
+    "square_feet": 3050,
+    "property_type": "single_family",
+    "description": "Exceptional value in San Marcos, TX! This beautiful 3,050 sq. ft. home boasts 4 spacious bedrooms, 4.0 baths, open-concept living area, and private outdoor space.",
+    "features": {
+      "yearBuilt": 2007,
+      "hasPool": false,
+      "garageSpaces": 2,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 380
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c",
+      "https://images.unsplash.com/photo-1570129477492-45c003edd2be",
+      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "4360 Maple Dr",
+    "city": "Round Rock",
+    "state": "TX",
+    "zip_code": "78665",
+    "price": 499000.0,
+    "bedrooms": 4,
+    "bathrooms": 3.0,
+    "square_feet": 2146,
+    "property_type": "single_family",
+    "description": "Exceptional value in Round Rock, TX! This beautiful 2,146 sq. ft. home boasts 4 spacious bedrooms, 3.0 baths, open-concept living area, and private outdoor space.",
+    "features": {
+      "yearBuilt": 2015,
+      "hasPool": false,
+      "garageSpaces": 3,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 0
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1570129477492-45c003edd2be",
+      "https://images.unsplash.com/photo-1580587771525-78b9dba3b914",
+      "https://images.unsplash.com/photo-1600573472592-401b489a3cdc"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "7270 Sunset Blvd",
+    "city": "Austin",
+    "state": "TX",
+    "zip_code": "78731",
+    "price": 1395000.0,
+    "bedrooms": 3,
+    "bathrooms": 5.0,
+    "square_feet": 2608,
+    "property_type": "townhouse",
+    "description": "Stunning 3-bedroom, 5.0-bathroom townhouse located in prime Austin, TX. Featuring 2,608 sq. ft. of living space, natural sunlight, upgraded kitchen amenities, and modern finishes throughout.",
+    "features": {
+      "yearBuilt": 1998,
+      "hasPool": false,
+      "garageSpaces": 3,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 150
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6",
+      "https://images.unsplash.com/photo-1570129477492-45c003edd2be",
+      "https://images.unsplash.com/photo-1600573472592-401b489a3cdc"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "5122 Washington Blvd",
+    "city": "Austin",
+    "state": "TX",
+    "zip_code": "78758",
+    "price": 565000.0,
+    "bedrooms": 3,
+    "bathrooms": 3.0,
+    "square_feet": 1424,
+    "property_type": "townhouse",
+    "description": "Stunning 3-bedroom, 3.0-bathroom townhouse located in prime Austin, TX. Featuring 1,424 sq. ft. of living space, natural sunlight, upgraded kitchen amenities, and modern finishes throughout.",
+    "features": {
+      "yearBuilt": 1998,
+      "hasPool": false,
+      "garageSpaces": 1,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 150
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9",
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3",
+      "https://images.unsplash.com/photo-1570129477492-45c003edd2be"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "5945 Cedar St",
+    "city": "Kyle",
+    "state": "TX",
+    "zip_code": "78640",
+    "price": 625000.0,
+    "bedrooms": 4,
+    "bathrooms": 3.0,
+    "square_feet": 3254,
+    "property_type": "single_family",
+    "description": "Modern retreat in the heart of Kyle, TX. Offers 3,254 square feet with 4 bedrooms, 3.0 bathrooms, updated flooring, and high-end fixtures.",
+    "features": {
+      "yearBuilt": 2021,
+      "hasPool": false,
+      "garageSpaces": 2,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 380
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1572120360610-d971b9d7767c",
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3",
+      "https://images.unsplash.com/photo-1567496898669-ee935f5f647a"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "8466 Main St",
+    "city": "Cedar Park",
+    "state": "TX",
+    "zip_code": "78613",
+    "price": 750000.0,
+    "bedrooms": 4,
+    "bathrooms": 4.0,
+    "square_feet": 3614,
+    "property_type": "single_family",
+    "description": "Charming single family offering 4 beds and 4.0 baths in desirable Cedar Park, TX. High ceilings, energy-efficient appliances, attached garage, and convenient access to local dining and parks.",
+    "features": {
+      "yearBuilt": 2018,
+      "hasPool": true,
+      "garageSpaces": 2,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 0
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9",
+      "https://images.unsplash.com/photo-1600573472592-401b489a3cdc",
+      "https://images.unsplash.com/photo-1513694203232-719a280e022f"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "2914 Highland Rd",
+    "city": "Round Rock",
+    "state": "TX",
+    "zip_code": "78681",
+    "price": 299000.0,
+    "bedrooms": 3,
+    "bathrooms": 2.0,
+    "square_feet": 1133,
+    "property_type": "townhouse",
+    "description": "Modern retreat in the heart of Round Rock, TX. Offers 1,133 square feet with 3 bedrooms, 2.0 bathrooms, updated flooring, and high-end fixtures.",
+    "features": {
+      "yearBuilt": 2021,
+      "hasPool": true,
+      "garageSpaces": 2,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 150
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1580587771525-78b9dba3b914",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "6805 Oak Ave",
+    "city": "Austin",
+    "state": "TX",
+    "zip_code": "78745",
+    "price": 775000.0,
+    "bedrooms": 4,
+    "bathrooms": 3.0,
+    "square_feet": 1494,
+    "property_type": "townhouse",
+    "description": "Exceptional value in Austin, TX! This beautiful 1,494 sq. ft. home boasts 4 spacious bedrooms, 3.0 baths, open-concept living area, and private outdoor space.",
+    "features": {
+      "yearBuilt": 2007,
+      "hasPool": false,
+      "garageSpaces": 1,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 150
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6",
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3",
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "1855 Maple Dr",
+    "city": "Austin",
+    "state": "TX",
+    "zip_code": "78745",
+    "price": 524900.0,
+    "bedrooms": 3,
+    "bathrooms": 2.0,
+    "square_feet": 1475,
+    "property_type": "townhouse",
+    "description": "Stunning 3-bedroom, 2.0-bathroom townhouse located in prime Austin, TX. Featuring 1,475 sq. ft. of living space, natural sunlight, upgraded kitchen amenities, and modern finishes throughout.",
+    "features": {
+      "yearBuilt": 2008,
+      "hasPool": true,
+      "garageSpaces": 3,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 0
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6",
+      "https://images.unsplash.com/photo-1572120360610-d971b9d7767c",
+      "https://images.unsplash.com/photo-1513694203232-719a280e022f"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "3566 Park Ave",
+    "city": "Austin",
+    "state": "TX",
+    "zip_code": "78732",
+    "price": 735000.0,
+    "bedrooms": 4,
+    "bathrooms": 3.0,
+    "square_feet": 2186,
+    "property_type": "townhouse",
+    "description": "Modern retreat in the heart of Austin, TX. Offers 2,186 square feet with 4 bedrooms, 3.0 bathrooms, updated flooring, and high-end fixtures.",
+    "features": {
+      "yearBuilt": 2001,
+      "hasPool": false,
+      "garageSpaces": 1,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 0
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1600573472592-401b489a3cdc",
+      "https://images.unsplash.com/photo-1567496898669-ee935f5f647a",
+      "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "5509 Pine Rd",
+    "city": "Austin",
+    "state": "TX",
+    "zip_code": "78747",
+    "price": 499000.0,
+    "bedrooms": 3,
+    "bathrooms": 3.0,
+    "square_feet": 2628,
+    "property_type": "single_family",
+    "description": "Exceptional value in Austin, TX! This beautiful 2,628 sq. ft. home boasts 3 spacious bedrooms, 3.0 baths, open-concept living area, and private outdoor space.",
+    "features": {
+      "yearBuilt": 2017,
+      "hasPool": true,
+      "garageSpaces": 3,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 380
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750",
+      "https://images.unsplash.com/photo-1567496898669-ee935f5f647a",
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "5011 Maple Dr",
+    "city": "Georgetown",
+    "state": "TX",
+    "zip_code": "78626",
+    "price": 424900.0,
+    "bedrooms": 4,
+    "bathrooms": 2.0,
+    "square_feet": 1755,
+    "property_type": "single_family",
+    "description": "Exceptional value in Georgetown, TX! This beautiful 1,755 sq. ft. home boasts 4 spacious bedrooms, 2.0 baths, open-concept living area, and private outdoor space.",
+    "features": {
+      "yearBuilt": 2010,
+      "hasPool": true,
+      "garageSpaces": 2,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 150
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1513694203232-719a280e022f",
+      "https://images.unsplash.com/photo-1600573472592-401b489a3cdc",
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "1597 Maple Dr",
+    "city": "Austin",
+    "state": "TX",
+    "zip_code": "78724",
+    "price": 330000.0,
+    "bedrooms": 2,
+    "bathrooms": 2.0,
+    "square_feet": 939,
+    "property_type": "townhouse",
+    "description": "Stunning 2-bedroom, 2.0-bathroom townhouse located in prime Austin, TX. Featuring 939 sq. ft. of living space, natural sunlight, upgraded kitchen amenities, and modern finishes throughout.",
+    "features": {
+      "yearBuilt": 1993,
+      "hasPool": false,
+      "garageSpaces": 2,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 250
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1513694203232-719a280e022f",
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "2312 Maple Dr",
+    "city": "Austin",
+    "state": "TX",
+    "zip_code": "78734",
+    "price": 2495000.0,
+    "bedrooms": 4,
+    "bathrooms": 4.0,
+    "square_feet": 3712,
+    "property_type": "single_family",
+    "description": "Stunning 4-bedroom, 4.0-bathroom single family located in prime Austin, TX. Featuring 3,712 sq. ft. of living space, natural sunlight, upgraded kitchen amenities, and modern finishes throughout.",
+    "features": {
+      "yearBuilt": 1996,
+      "hasPool": true,
+      "garageSpaces": 3,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 0
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1513694203232-719a280e022f",
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750",
+      "https://images.unsplash.com/photo-1567496898669-ee935f5f647a"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "8422 Elm St",
+    "city": "Georgetown",
+    "state": "TX",
+    "zip_code": "78626",
+    "price": 478990.0,
+    "bedrooms": 4,
+    "bathrooms": 3.0,
+    "square_feet": 2204,
+    "property_type": "single_family",
+    "description": "Charming single family offering 4 beds and 3.0 baths in desirable Georgetown, TX. High ceilings, energy-efficient appliances, attached garage, and convenient access to local dining and parks.",
+    "features": {
+      "yearBuilt": 2016,
+      "hasPool": false,
+      "garageSpaces": 1,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 0
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c",
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "6679 Cedar St",
+    "city": "Cedar Park",
+    "state": "TX",
+    "zip_code": "78613",
+    "price": 410000.0,
+    "bedrooms": 3,
+    "bathrooms": 2.0,
+    "square_feet": 1655,
+    "property_type": "townhouse",
+    "description": "Exceptional value in Cedar Park, TX! This beautiful 1,655 sq. ft. home boasts 3 spacious bedrooms, 2.0 baths, open-concept living area, and private outdoor space.",
+    "features": {
+      "yearBuilt": 2006,
+      "hasPool": true,
+      "garageSpaces": 3,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 0
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+      "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b",
+      "https://images.unsplash.com/photo-1513694203232-719a280e022f"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "2167 Cedar St",
+    "city": "Manor",
+    "state": "TX",
+    "zip_code": "78653",
+    "price": 399000.0,
+    "bedrooms": 3,
+    "bathrooms": 3.0,
+    "square_feet": 1580,
+    "property_type": "townhouse",
+    "description": "Stunning 3-bedroom, 3.0-bathroom townhouse located in prime Manor, TX. Featuring 1,580 sq. ft. of living space, natural sunlight, upgraded kitchen amenities, and modern finishes throughout.",
+    "features": {
+      "yearBuilt": 1994,
+      "hasPool": false,
+      "garageSpaces": 1,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 250
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9",
+      "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b",
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "8395 Oak Ave",
+    "city": "Leander",
+    "state": "TX",
+    "zip_code": "78641",
+    "price": 1295000.0,
+    "bedrooms": 4,
+    "bathrooms": 4.0,
+    "square_feet": 3674,
+    "property_type": "single_family",
+    "description": "Stunning 4-bedroom, 4.0-bathroom single family located in prime Leander, TX. Featuring 3,674 sq. ft. of living space, natural sunlight, upgraded kitchen amenities, and modern finishes throughout.",
+    "features": {
+      "yearBuilt": 2024,
+      "hasPool": false,
+      "garageSpaces": 3,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 0
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6",
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9",
+      "https://images.unsplash.com/photo-1600573472592-401b489a3cdc"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "8112 Elm St",
+    "city": "Taylor",
+    "state": "TX",
+    "zip_code": "76574",
+    "price": 385000.0,
+    "bedrooms": 2,
+    "bathrooms": 1.0,
+    "square_feet": 1600,
+    "property_type": "townhouse",
+    "description": "Modern retreat in the heart of Taylor, TX. Offers 1,600 square feet with 2 bedrooms, 1.0 bathrooms, updated flooring, and high-end fixtures.",
+    "features": {
+      "yearBuilt": 1995,
+      "hasPool": true,
+      "garageSpaces": 3,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 0
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "8315 Highland Rd",
+    "city": "Austin",
+    "state": "TX",
+    "zip_code": "78705",
+    "price": 358999.0,
+    "bedrooms": 2,
+    "bathrooms": 1.0,
+    "square_feet": 715,
+    "property_type": "condo",
+    "description": "Charming condo offering 2 beds and 1.0 baths in desirable Austin, TX. High ceilings, energy-efficient appliances, attached garage, and convenient access to local dining and parks.",
+    "features": {
+      "yearBuilt": 2003,
+      "hasPool": false,
+      "garageSpaces": 1,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 250
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1570129477492-45c003edd2be",
+      "https://images.unsplash.com/photo-1513694203232-719a280e022f",
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "6483 Elm St",
+    "city": "Austin",
+    "state": "TX",
+    "zip_code": "78721",
+    "price": 1045000.0,
+    "bedrooms": 3,
+    "bathrooms": 3.0,
+    "square_feet": 2439,
+    "property_type": "townhouse",
+    "description": "Modern retreat in the heart of Austin, TX. Offers 2,439 square feet with 3 bedrooms, 3.0 bathrooms, updated flooring, and high-end fixtures.",
+    "features": {
+      "yearBuilt": 2020,
+      "hasPool": true,
+      "garageSpaces": 3,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 0
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9",
+      "https://images.unsplash.com/photo-1600585152220-90363fe7e115",
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "6342 Main St",
+    "city": "Austin",
+    "state": "TX",
+    "zip_code": "78748",
+    "price": 590000.0,
+    "bedrooms": 4,
+    "bathrooms": 3.0,
+    "square_feet": 2285,
+    "property_type": "townhouse",
+    "description": "Stunning 4-bedroom, 3.0-bathroom townhouse located in prime Austin, TX. Featuring 2,285 sq. ft. of living space, natural sunlight, upgraded kitchen amenities, and modern finishes throughout.",
+    "features": {
+      "yearBuilt": 2005,
+      "hasPool": true,
+      "garageSpaces": 2,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 250
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9",
+      "https://images.unsplash.com/photo-1513694203232-719a280e022f",
+      "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "3742 Elm St",
+    "city": "San Marcos",
+    "state": "TX",
+    "zip_code": "78666",
+    "price": 569900.0,
+    "bedrooms": 4,
+    "bathrooms": 4.0,
+    "square_feet": 3100,
+    "property_type": "single_family",
+    "description": "Stunning 4-bedroom, 4.0-bathroom single family located in prime San Marcos, TX. Featuring 3,100 sq. ft. of living space, natural sunlight, upgraded kitchen amenities, and modern finishes throughout.",
+    "features": {
+      "yearBuilt": 2016,
+      "hasPool": false,
+      "garageSpaces": 3,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 0
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1570129477492-45c003edd2be",
+      "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b",
+      "https://images.unsplash.com/photo-1600585152220-90363fe7e115"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "2147 Maple Dr",
+    "city": "San Marcos",
+    "state": "TX",
+    "zip_code": "78666",
+    "price": 463900.0,
+    "bedrooms": 3,
+    "bathrooms": 2.0,
+    "square_feet": 2026,
+    "property_type": "single_family",
+    "description": "Modern retreat in the heart of San Marcos, TX. Offers 2,026 square feet with 3 bedrooms, 2.0 bathrooms, updated flooring, and high-end fixtures.",
+    "features": {
+      "yearBuilt": 1998,
+      "hasPool": false,
+      "garageSpaces": 2,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 0
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3",
+      "https://images.unsplash.com/photo-1567496898669-ee935f5f647a",
+      "https://images.unsplash.com/photo-1572120360610-d971b9d7767c"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "4084 Washington Blvd",
+    "city": "Leander",
+    "state": "TX",
+    "zip_code": "78641",
+    "price": 574999.0,
+    "bedrooms": 4,
+    "bathrooms": 4.0,
+    "square_feet": 2249,
+    "property_type": "townhouse",
+    "description": "Charming townhouse offering 4 beds and 4.0 baths in desirable Leander, TX. High ceilings, energy-efficient appliances, attached garage, and convenient access to local dining and parks.",
+    "features": {
+      "yearBuilt": 2024,
+      "hasPool": false,
+      "garageSpaces": 2,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 250
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b",
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9",
+      "https://images.unsplash.com/photo-1572120360610-d971b9d7767c"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "1139 Elm St",
+    "city": "Cedar Park",
+    "state": "TX",
+    "zip_code": "78613",
+    "price": 450000.0,
+    "bedrooms": 3,
+    "bathrooms": 3.0,
+    "square_feet": 1538,
+    "property_type": "townhouse",
+    "description": "Exceptional value in Cedar Park, TX! This beautiful 1,538 sq. ft. home boasts 3 spacious bedrooms, 3.0 baths, open-concept living area, and private outdoor space.",
+    "features": {
+      "yearBuilt": 2007,
+      "hasPool": false,
+      "garageSpaces": 3,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 380
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c",
+      "https://images.unsplash.com/photo-1513694203232-719a280e022f",
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "466 Pine Rd",
+    "city": "Austin",
+    "state": "TX",
+    "zip_code": "78703",
+    "price": 999900.0,
+    "bedrooms": 3,
+    "bathrooms": 3.0,
+    "square_feet": 1624,
+    "property_type": "townhouse",
+    "description": "Exceptional value in Austin, TX! This beautiful 1,624 sq. ft. home boasts 3 spacious bedrooms, 3.0 baths, open-concept living area, and private outdoor space.",
+    "features": {
+      "yearBuilt": 2020,
+      "hasPool": false,
+      "garageSpaces": 3,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 380
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1513694203232-719a280e022f",
+      "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b",
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "2867 Cedar St",
+    "city": "Austin",
+    "state": "TX",
+    "zip_code": "78748",
+    "price": 425000.0,
+    "bedrooms": 4,
+    "bathrooms": 3.0,
+    "square_feet": 1430,
+    "property_type": "single_family",
+    "description": "Modern retreat in the heart of Austin, TX. Offers 1,430 square feet with 4 bedrooms, 3.0 bathrooms, updated flooring, and high-end fixtures.",
+    "features": {
+      "yearBuilt": 2014,
+      "hasPool": true,
+      "garageSpaces": 3,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 0
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c",
+      "https://images.unsplash.com/photo-1570129477492-45c003edd2be",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "3490 Elm St",
+    "city": "Austin",
+    "state": "TX",
+    "zip_code": "78704",
+    "price": 429000.0,
+    "bedrooms": 2,
+    "bathrooms": 2.0,
+    "square_feet": 989,
+    "property_type": "townhouse",
+    "description": "Modern retreat in the heart of Austin, TX. Offers 989 square feet with 2 bedrooms, 2.0 bathrooms, updated flooring, and high-end fixtures.",
+    "features": {
+      "yearBuilt": 2000,
+      "hasPool": true,
+      "garageSpaces": 2,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 250
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9",
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "3970 Main St",
+    "city": "Austin",
+    "state": "TX",
+    "zip_code": "78730",
+    "price": 1150000.0,
+    "bedrooms": 3,
+    "bathrooms": 3.0,
+    "square_feet": 3396,
+    "property_type": "single_family",
+    "description": "Exceptional value in Austin, TX! This beautiful 3,396 sq. ft. home boasts 3 spacious bedrooms, 3.0 baths, open-concept living area, and private outdoor space.",
+    "features": {
+      "yearBuilt": 1992,
+      "hasPool": true,
+      "garageSpaces": 1,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 250
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1580587771525-78b9dba3b914",
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750",
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "3116 Park Ave",
+    "city": "San Marcos",
+    "state": "TX",
+    "zip_code": "78666",
+    "price": 509000.0,
+    "bedrooms": 2,
+    "bathrooms": 2.0,
+    "square_feet": 1513,
+    "property_type": "townhouse",
+    "description": "Modern retreat in the heart of San Marcos, TX. Offers 1,513 square feet with 2 bedrooms, 2.0 bathrooms, updated flooring, and high-end fixtures.",
+    "features": {
+      "yearBuilt": 2011,
+      "hasPool": false,
+      "garageSpaces": 1,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 380
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1567496898669-ee935f5f647a",
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3",
+      "https://images.unsplash.com/photo-1600585152220-90363fe7e115"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "1409 Cedar St",
+    "city": "Round Rock",
+    "state": "TX",
+    "zip_code": "78665",
+    "price": 899999.0,
+    "bedrooms": 5,
+    "bathrooms": 5.0,
+    "square_feet": 4453,
+    "property_type": "single_family",
+    "description": "Modern retreat in the heart of Round Rock, TX. Offers 4,453 square feet with 5 bedrooms, 5.0 bathrooms, updated flooring, and high-end fixtures.",
+    "features": {
+      "yearBuilt": 2015,
+      "hasPool": false,
+      "garageSpaces": 2,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 150
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1567496898669-ee935f5f647a",
+      "https://images.unsplash.com/photo-1600585152220-90363fe7e115",
+      "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "3478 Main St",
+    "city": "Austin",
+    "state": "TX",
+    "zip_code": "78704",
+    "price": 299000.0,
+    "bedrooms": 1,
+    "bathrooms": 1.0,
+    "square_feet": 675,
+    "property_type": "condo",
+    "description": "Stunning 1-bedroom, 1.0-bathroom condo located in prime Austin, TX. Featuring 675 sq. ft. of living space, natural sunlight, upgraded kitchen amenities, and modern finishes throughout.",
+    "features": {
+      "yearBuilt": 1996,
+      "hasPool": false,
+      "garageSpaces": 3,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 250
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1572120360610-d971b9d7767c",
+      "https://images.unsplash.com/photo-1567496898669-ee935f5f647a",
+      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "7517 Pine Rd",
+    "city": "Austin",
+    "state": "TX",
+    "zip_code": "78747",
+    "price": 499000.0,
+    "bedrooms": 3,
+    "bathrooms": 3.0,
+    "square_feet": 1698,
+    "property_type": "townhouse",
+    "description": "Exceptional value in Austin, TX! This beautiful 1,698 sq. ft. home boasts 3 spacious bedrooms, 3.0 baths, open-concept living area, and private outdoor space.",
+    "features": {
+      "yearBuilt": 2022,
+      "hasPool": true,
+      "garageSpaces": 3,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 150
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "7172 Washington Blvd",
+    "city": "Austin",
+    "state": "TX",
+    "zip_code": "78751",
+    "price": 1195000.0,
+    "bedrooms": 6,
+    "bathrooms": 4.0,
+    "square_feet": 2496,
+    "property_type": "single_family",
+    "description": "Modern retreat in the heart of Austin, TX. Offers 2,496 square feet with 6 bedrooms, 4.0 bathrooms, updated flooring, and high-end fixtures.",
+    "features": {
+      "yearBuilt": 2012,
+      "hasPool": false,
+      "garageSpaces": 3,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 380
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6",
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3",
+      "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "1762 Pine Rd",
+    "city": "Georgetown",
+    "state": "TX",
+    "zip_code": "78633",
+    "price": 597279.0,
+    "bedrooms": 2,
+    "bathrooms": 3.0,
+    "square_feet": 2043,
+    "property_type": "townhouse",
+    "description": "Modern retreat in the heart of Georgetown, TX. Offers 2,043 square feet with 2 bedrooms, 3.0 bathrooms, updated flooring, and high-end fixtures.",
+    "features": {
+      "yearBuilt": 2003,
+      "hasPool": false,
+      "garageSpaces": 2,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 250
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1580587771525-78b9dba3b914",
+      "https://images.unsplash.com/photo-1572120360610-d971b9d7767c",
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "7775 Washington Blvd",
+    "city": "Austin",
+    "state": "TX",
+    "zip_code": "78727",
+    "price": 525000.0,
+    "bedrooms": 3,
+    "bathrooms": 2.0,
+    "square_feet": 1180,
+    "property_type": "townhouse",
+    "description": "Stunning 3-bedroom, 2.0-bathroom townhouse located in prime Austin, TX. Featuring 1,180 sq. ft. of living space, natural sunlight, upgraded kitchen amenities, and modern finishes throughout.",
+    "features": {
+      "yearBuilt": 2000,
+      "hasPool": false,
+      "garageSpaces": 1,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 250
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "8592 Highland Rd",
+    "city": "Kyle",
+    "state": "TX",
+    "zip_code": "78640",
+    "price": 249000.0,
+    "bedrooms": 4,
+    "bathrooms": 2.0,
+    "square_feet": 2016,
+    "property_type": "single_family",
+    "description": "Modern retreat in the heart of Kyle, TX. Offers 2,016 square feet with 4 bedrooms, 2.0 bathrooms, updated flooring, and high-end fixtures.",
+    "features": {
+      "yearBuilt": 2002,
+      "hasPool": true,
+      "garageSpaces": 3,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 0
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1600573472592-401b489a3cdc",
+      "https://images.unsplash.com/photo-1580587771525-78b9dba3b914",
+      "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "2040 Oak Ave",
+    "city": "San Marcos",
+    "state": "TX",
+    "zip_code": "78656",
+    "price": 339590.0,
+    "bedrooms": 4,
+    "bathrooms": 3.0,
+    "square_feet": 1685,
+    "property_type": "townhouse",
+    "description": "Modern retreat in the heart of San Marcos, TX. Offers 1,685 square feet with 4 bedrooms, 3.0 bathrooms, updated flooring, and high-end fixtures.",
+    "features": {
+      "yearBuilt": 2008,
+      "hasPool": false,
+      "garageSpaces": 3,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 250
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c",
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9",
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "7232 Park Ave",
+    "city": "Austin",
+    "state": "TX",
+    "zip_code": "78749",
+    "price": 575000.0,
+    "bedrooms": 3,
+    "bathrooms": 2.0,
+    "square_feet": 1469,
+    "property_type": "townhouse",
+    "description": "Charming townhouse offering 3 beds and 2.0 baths in desirable Austin, TX. High ceilings, energy-efficient appliances, attached garage, and convenient access to local dining and parks.",
+    "features": {
+      "yearBuilt": 1995,
+      "hasPool": false,
+      "garageSpaces": 3,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 0
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "2305 Park Ave",
+    "city": "Pflugerville",
+    "state": "TX",
+    "zip_code": "78660",
+    "price": 525000.0,
+    "bedrooms": 3,
+    "bathrooms": 2.0,
+    "square_feet": 1618,
+    "property_type": "townhouse",
+    "description": "Exceptional value in Pflugerville, TX! This beautiful 1,618 sq. ft. home boasts 3 spacious bedrooms, 2.0 baths, open-concept living area, and private outdoor space.",
+    "features": {
+      "yearBuilt": 2003,
+      "hasPool": false,
+      "garageSpaces": 3,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 380
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+      "https://images.unsplash.com/photo-1572120360610-d971b9d7767c",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "5342 Highland Rd",
+    "city": "Austin",
+    "state": "TX",
+    "zip_code": "78745",
+    "price": 450000.0,
+    "bedrooms": 3,
+    "bathrooms": 3.0,
+    "square_feet": 1565,
+    "property_type": "townhouse",
+    "description": "Charming townhouse offering 3 beds and 3.0 baths in desirable Austin, TX. High ceilings, energy-efficient appliances, attached garage, and convenient access to local dining and parks.",
+    "features": {
+      "yearBuilt": 1990,
+      "hasPool": true,
+      "garageSpaces": 1,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 380
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9",
+      "https://images.unsplash.com/photo-1570129477492-45c003edd2be",
+      "https://images.unsplash.com/photo-1572120360610-d971b9d7767c"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "6623 Main St",
+    "city": "Georgetown",
+    "state": "TX",
+    "zip_code": "78633",
+    "price": 1144900.0,
+    "bedrooms": 4,
+    "bathrooms": 4.0,
+    "square_feet": 3757,
+    "property_type": "single_family",
+    "description": "Modern retreat in the heart of Georgetown, TX. Offers 3,757 square feet with 4 bedrooms, 4.0 bathrooms, updated flooring, and high-end fixtures.",
+    "features": {
+      "yearBuilt": 2006,
+      "hasPool": false,
+      "garageSpaces": 1,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 380
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9",
+      "https://images.unsplash.com/photo-1567496898669-ee935f5f647a",
+      "https://images.unsplash.com/photo-1572120360610-d971b9d7767c"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "2227 Elm St",
+    "city": "Kyle",
+    "state": "TX",
+    "zip_code": "78640",
+    "price": 149900.0,
+    "bedrooms": 3,
+    "bathrooms": 2.0,
+    "square_feet": 1120,
+    "property_type": "townhouse",
+    "description": "Modern retreat in the heart of Kyle, TX. Offers 1,120 square feet with 3 bedrooms, 2.0 bathrooms, updated flooring, and high-end fixtures.",
+    "features": {
+      "yearBuilt": 2021,
+      "hasPool": false,
+      "garageSpaces": 1,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 380
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1567496898669-ee935f5f647a",
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3",
+      "https://images.unsplash.com/photo-1513694203232-719a280e022f"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "6291 Highland Rd",
+    "city": "San Marcos",
+    "state": "TX",
+    "zip_code": "78666",
+    "price": 326990.0,
+    "bedrooms": 4,
+    "bathrooms": 3.0,
+    "square_feet": 2161,
+    "property_type": "townhouse",
+    "description": "Exceptional value in San Marcos, TX! This beautiful 2,161 sq. ft. home boasts 4 spacious bedrooms, 3.0 baths, open-concept living area, and private outdoor space.",
+    "features": {
+      "yearBuilt": 2013,
+      "hasPool": false,
+      "garageSpaces": 3,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 380
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750",
+      "https://images.unsplash.com/photo-1600573472592-401b489a3cdc",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "7588 Washington Blvd",
+    "city": "Austin",
+    "state": "TX",
+    "zip_code": "78749",
+    "price": 699000.0,
+    "bedrooms": 3,
+    "bathrooms": 2.0,
+    "square_feet": 2076,
+    "property_type": "single_family",
+    "description": "Exceptional value in Austin, TX! This beautiful 2,076 sq. ft. home boasts 3 spacious bedrooms, 2.0 baths, open-concept living area, and private outdoor space.",
+    "features": {
+      "yearBuilt": 2012,
+      "hasPool": true,
+      "garageSpaces": 3,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 150
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1570129477492-45c003edd2be",
+      "https://images.unsplash.com/photo-1567496898669-ee935f5f647a",
+      "https://images.unsplash.com/photo-1580587771525-78b9dba3b914"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "7841 Elm St",
+    "city": "Austin",
+    "state": "TX",
+    "zip_code": "78753",
+    "price": 411900.0,
+    "bedrooms": 3,
+    "bathrooms": 2.0,
+    "square_feet": 1321,
+    "property_type": "townhouse",
+    "description": "Exceptional value in Austin, TX! This beautiful 1,321 sq. ft. home boasts 3 spacious bedrooms, 2.0 baths, open-concept living area, and private outdoor space.",
+    "features": {
+      "yearBuilt": 1991,
+      "hasPool": false,
+      "garageSpaces": 1,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 0
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+      "https://images.unsplash.com/photo-1600585152220-90363fe7e115",
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "7346 Elm St",
+    "city": "Austin",
+    "state": "TX",
+    "zip_code": "78748",
+    "price": 499000.0,
+    "bedrooms": 3,
+    "bathrooms": 3.0,
+    "square_feet": 1792,
+    "property_type": "townhouse",
+    "description": "Stunning 3-bedroom, 3.0-bathroom townhouse located in prime Austin, TX. Featuring 1,792 sq. ft. of living space, natural sunlight, upgraded kitchen amenities, and modern finishes throughout.",
+    "features": {
+      "yearBuilt": 2021,
+      "hasPool": false,
+      "garageSpaces": 1,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 250
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+      "https://images.unsplash.com/photo-1513694203232-719a280e022f",
+      "https://images.unsplash.com/photo-1600573472592-401b489a3cdc"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "1652 Park Ave",
+    "city": "Pflugerville",
+    "state": "TX",
+    "zip_code": "78660",
+    "price": 599999.0,
+    "bedrooms": 4,
+    "bathrooms": 4.0,
+    "square_feet": 2830,
+    "property_type": "single_family",
+    "description": "Exceptional value in Pflugerville, TX! This beautiful 2,830 sq. ft. home boasts 4 spacious bedrooms, 4.0 baths, open-concept living area, and private outdoor space.",
+    "features": {
+      "yearBuilt": 2004,
+      "hasPool": true,
+      "garageSpaces": 3,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 380
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3",
+      "https://images.unsplash.com/photo-1580587771525-78b9dba3b914",
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "8324 Park Ave",
+    "city": "Cedar Park",
+    "state": "TX",
+    "zip_code": "78613",
+    "price": 875000.0,
+    "bedrooms": 4,
+    "bathrooms": 3.0,
+    "square_feet": 3653,
+    "property_type": "single_family",
+    "description": "Stunning 4-bedroom, 3.0-bathroom single family located in prime Cedar Park, TX. Featuring 3,653 sq. ft. of living space, natural sunlight, upgraded kitchen amenities, and modern finishes throughout.",
+    "features": {
+      "yearBuilt": 2020,
+      "hasPool": false,
+      "garageSpaces": 3,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 380
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b",
+      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6",
+      "https://images.unsplash.com/photo-1567496898669-ee935f5f647a"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "2602 Oak Ave",
+    "city": "San Marcos",
+    "state": "TX",
+    "zip_code": "78666",
+    "price": 400000.0,
+    "bedrooms": 4,
+    "bathrooms": 3.0,
+    "square_feet": 2118,
+    "property_type": "townhouse",
+    "description": "Modern retreat in the heart of San Marcos, TX. Offers 2,118 square feet with 4 bedrooms, 3.0 bathrooms, updated flooring, and high-end fixtures.",
+    "features": {
+      "yearBuilt": 1991,
+      "hasPool": false,
+      "garageSpaces": 2,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 0
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1580587771525-78b9dba3b914",
+      "https://images.unsplash.com/photo-1600573472592-401b489a3cdc",
+      "https://images.unsplash.com/photo-1572120360610-d971b9d7767c"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "2639 Highland Rd",
+    "city": "Leander",
+    "state": "TX",
+    "zip_code": "78641",
+    "price": 770000.0,
+    "bedrooms": 5,
+    "bathrooms": 4.0,
+    "square_feet": 3198,
+    "property_type": "townhouse",
+    "description": "Modern retreat in the heart of Leander, TX. Offers 3,198 square feet with 5 bedrooms, 4.0 bathrooms, updated flooring, and high-end fixtures.",
+    "features": {
+      "yearBuilt": 2016,
+      "hasPool": false,
+      "garageSpaces": 3,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 0
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1600573472592-401b489a3cdc",
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "4217 Maple Dr",
+    "city": "Austin",
+    "state": "TX",
+    "zip_code": "78726",
+    "price": 898800.0,
+    "bedrooms": 5,
+    "bathrooms": 3.0,
+    "square_feet": 2927,
+    "property_type": "townhouse",
+    "description": "Exceptional value in Austin, TX! This beautiful 2,927 sq. ft. home boasts 5 spacious bedrooms, 3.0 baths, open-concept living area, and private outdoor space.",
+    "features": {
+      "yearBuilt": 1990,
+      "hasPool": false,
+      "garageSpaces": 1,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 380
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1513694203232-719a280e022f",
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750",
+      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "280 Highland Rd",
+    "city": "Manor",
+    "state": "TX",
+    "zip_code": "78653",
+    "price": 350000.0,
+    "bedrooms": 4,
+    "bathrooms": 2.0,
+    "square_feet": 2029,
+    "property_type": "townhouse",
+    "description": "Stunning 4-bedroom, 2.0-bathroom townhouse located in prime Manor, TX. Featuring 2,029 sq. ft. of living space, natural sunlight, upgraded kitchen amenities, and modern finishes throughout.",
+    "features": {
+      "yearBuilt": 2023,
+      "hasPool": false,
+      "garageSpaces": 3,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 0
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b",
+      "https://images.unsplash.com/photo-1567496898669-ee935f5f647a",
+      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "8687 Elm St",
+    "city": "Cedar Park",
+    "state": "TX",
+    "zip_code": "78613",
+    "price": 375000.0,
+    "bedrooms": 3,
+    "bathrooms": 2.0,
+    "square_feet": 1179,
+    "property_type": "townhouse",
+    "description": "Modern retreat in the heart of Cedar Park, TX. Offers 1,179 square feet with 3 bedrooms, 2.0 bathrooms, updated flooring, and high-end fixtures.",
+    "features": {
+      "yearBuilt": 2005,
+      "hasPool": false,
+      "garageSpaces": 3,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 250
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1600585152220-90363fe7e115",
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750",
+      "https://images.unsplash.com/photo-1572120360610-d971b9d7767c"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "7027 Elm St",
+    "city": "Austin",
+    "state": "TX",
+    "zip_code": "78702",
+    "price": 899500.0,
+    "bedrooms": 2,
+    "bathrooms": 1.0,
+    "square_feet": 884,
+    "property_type": "condo",
+    "description": "Stunning 2-bedroom, 1.0-bathroom condo located in prime Austin, TX. Featuring 884 sq. ft. of living space, natural sunlight, upgraded kitchen amenities, and modern finishes throughout.",
+    "features": {
+      "yearBuilt": 2008,
+      "hasPool": true,
+      "garageSpaces": 1,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 0
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6",
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3",
+      "https://images.unsplash.com/photo-1567496898669-ee935f5f647a"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "5017 Elm St",
+    "city": "Bee Cave",
+    "state": "TX",
+    "zip_code": "78738",
+    "price": 799000.0,
+    "bedrooms": 3,
+    "bathrooms": 3.0,
+    "square_feet": 2300,
+    "property_type": "single_family",
+    "description": "Charming single family offering 3 beds and 3.0 baths in desirable Bee Cave, TX. High ceilings, energy-efficient appliances, attached garage, and convenient access to local dining and parks.",
+    "features": {
+      "yearBuilt": 2001,
+      "hasPool": true,
+      "garageSpaces": 1,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 0
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1567496898669-ee935f5f647a",
+      "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b",
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "7871 Maple Dr",
+    "city": "Leander",
+    "state": "TX",
+    "zip_code": "78641",
+    "price": 1500000.0,
+    "bedrooms": 4,
+    "bathrooms": 4.0,
+    "square_feet": 3685,
+    "property_type": "single_family",
+    "description": "Exceptional value in Leander, TX! This beautiful 3,685 sq. ft. home boasts 4 spacious bedrooms, 4.0 baths, open-concept living area, and private outdoor space.",
+    "features": {
+      "yearBuilt": 1991,
+      "hasPool": true,
+      "garageSpaces": 2,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 0
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c",
+      "https://images.unsplash.com/photo-1600585152220-90363fe7e115"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "317 Elm St",
+    "city": "Leander",
+    "state": "TX",
+    "zip_code": "78641",
+    "price": 399500.0,
+    "bedrooms": 3,
+    "bathrooms": 3.0,
+    "square_feet": 1813,
+    "property_type": "single_family",
+    "description": "Stunning 3-bedroom, 3.0-bathroom single family located in prime Leander, TX. Featuring 1,813 sq. ft. of living space, natural sunlight, upgraded kitchen amenities, and modern finishes throughout.",
+    "features": {
+      "yearBuilt": 2019,
+      "hasPool": false,
+      "garageSpaces": 3,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 380
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3",
+      "https://images.unsplash.com/photo-1572120360610-d971b9d7767c",
+      "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "3446 Cedar St",
+    "city": "Cedar Park",
+    "state": "TX",
+    "zip_code": "78613",
+    "price": 783000.0,
+    "bedrooms": 4,
+    "bathrooms": 2.0,
+    "square_feet": 2987,
+    "property_type": "townhouse",
+    "description": "Exceptional value in Cedar Park, TX! This beautiful 2,987 sq. ft. home boasts 4 spacious bedrooms, 2.0 baths, open-concept living area, and private outdoor space.",
+    "features": {
+      "yearBuilt": 2023,
+      "hasPool": false,
+      "garageSpaces": 3,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 150
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6",
+      "https://images.unsplash.com/photo-1600585152220-90363fe7e115",
+      "https://images.unsplash.com/photo-1572120360610-d971b9d7767c"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "3259 Main St",
+    "city": "Austin",
+    "state": "TX",
+    "zip_code": "78704",
+    "price": 2100000.0,
+    "bedrooms": 8,
+    "bathrooms": 8.0,
+    "square_feet": 4082,
+    "property_type": "single_family",
+    "description": "Exceptional value in Austin, TX! This beautiful 4,082 sq. ft. home boasts 8 spacious bedrooms, 8.0 baths, open-concept living area, and private outdoor space.",
+    "features": {
+      "yearBuilt": 2019,
+      "hasPool": true,
+      "garageSpaces": 1,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 0
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+      "https://images.unsplash.com/photo-1513694203232-719a280e022f",
+      "https://images.unsplash.com/photo-1600585152220-90363fe7e115"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "1824 Washington Blvd",
+    "city": "Georgetown",
+    "state": "TX",
+    "zip_code": "78633",
+    "price": 775000.0,
+    "bedrooms": 4,
+    "bathrooms": 2.0,
+    "square_feet": 2205,
+    "property_type": "single_family",
+    "description": "Exceptional value in Georgetown, TX! This beautiful 2,205 sq. ft. home boasts 4 spacious bedrooms, 2.0 baths, open-concept living area, and private outdoor space.",
+    "features": {
+      "yearBuilt": 2020,
+      "hasPool": true,
+      "garageSpaces": 2,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 380
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1600573472592-401b489a3cdc",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "7947 Highland Rd",
+    "city": "Leander",
+    "state": "TX",
+    "zip_code": "78641",
+    "price": 1200000.0,
+    "bedrooms": 4,
+    "bathrooms": 4.0,
+    "square_feet": 4064,
+    "property_type": "single_family",
+    "description": "Exceptional value in Leander, TX! This beautiful 4,064 sq. ft. home boasts 4 spacious bedrooms, 4.0 baths, open-concept living area, and private outdoor space.",
+    "features": {
+      "yearBuilt": 1993,
+      "hasPool": false,
+      "garageSpaces": 2,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 250
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750",
+      "https://images.unsplash.com/photo-1600573472592-401b489a3cdc",
+      "https://images.unsplash.com/photo-1580587771525-78b9dba3b914"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "4064 Highland Rd",
+    "city": "Austin",
+    "state": "TX",
+    "zip_code": "78746",
+    "price": 4500000.0,
+    "bedrooms": 5,
+    "bathrooms": 6.0,
+    "square_feet": 5580,
+    "property_type": "single_family",
+    "description": "Stunning 5-bedroom, 6.0-bathroom single family located in prime Austin, TX. Featuring 5,580 sq. ft. of living space, natural sunlight, upgraded kitchen amenities, and modern finishes throughout.",
+    "features": {
+      "yearBuilt": 2007,
+      "hasPool": false,
+      "garageSpaces": 1,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 0
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750",
+      "https://images.unsplash.com/photo-1580587771525-78b9dba3b914",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "8847 Sunset Blvd",
+    "city": "Austin",
+    "state": "TX",
+    "zip_code": "78744",
+    "price": 550000.0,
+    "bedrooms": 4,
+    "bathrooms": 2.0,
+    "square_feet": 1711,
+    "property_type": "townhouse",
+    "description": "Exceptional value in Austin, TX! This beautiful 1,711 sq. ft. home boasts 4 spacious bedrooms, 2.0 baths, open-concept living area, and private outdoor space.",
+    "features": {
+      "yearBuilt": 2018,
+      "hasPool": false,
+      "garageSpaces": 1,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 250
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c",
+      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6",
+      "https://images.unsplash.com/photo-1513694203232-719a280e022f"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "959 Park Ave",
+    "city": "Austin",
+    "state": "TX",
+    "zip_code": "78745",
+    "price": 525000.0,
+    "bedrooms": 3,
+    "bathrooms": 2.0,
+    "square_feet": 1172,
+    "property_type": "townhouse",
+    "description": "Charming townhouse offering 3 beds and 2.0 baths in desirable Austin, TX. High ceilings, energy-efficient appliances, attached garage, and convenient access to local dining and parks.",
+    "features": {
+      "yearBuilt": 2012,
+      "hasPool": false,
+      "garageSpaces": 2,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 250
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1567496898669-ee935f5f647a",
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3",
+      "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "4564 Main St",
+    "city": "Austin",
+    "state": "TX",
+    "zip_code": "78704",
+    "price": 3650000.0,
+    "bedrooms": 3,
+    "bathrooms": 4.0,
+    "square_feet": 2721,
+    "property_type": "townhouse",
+    "description": "Stunning 3-bedroom, 4.0-bathroom townhouse located in prime Austin, TX. Featuring 2,721 sq. ft. of living space, natural sunlight, upgraded kitchen amenities, and modern finishes throughout.",
+    "features": {
+      "yearBuilt": 2019,
+      "hasPool": false,
+      "garageSpaces": 1,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 250
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1567496898669-ee935f5f647a",
+      "https://images.unsplash.com/photo-1570129477492-45c003edd2be",
+      "https://images.unsplash.com/photo-1572120360610-d971b9d7767c"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "8888 Elm St",
+    "city": "Pflugerville",
+    "state": "TX",
+    "zip_code": "78660",
+    "price": 495000.0,
+    "bedrooms": 3,
+    "bathrooms": 2.0,
+    "square_feet": 1909,
+    "property_type": "single_family",
+    "description": "Charming single family offering 3 beds and 2.0 baths in desirable Pflugerville, TX. High ceilings, energy-efficient appliances, attached garage, and convenient access to local dining and parks.",
+    "features": {
+      "yearBuilt": 1998,
+      "hasPool": true,
+      "garageSpaces": 3,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 0
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1580587771525-78b9dba3b914",
+      "https://images.unsplash.com/photo-1572120360610-d971b9d7767c",
+      "https://images.unsplash.com/photo-1600573472592-401b489a3cdc"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "5062 Park Ave",
+    "city": "San Marcos",
+    "state": "TX",
+    "zip_code": "78666",
+    "price": 399000.0,
+    "bedrooms": 3,
+    "bathrooms": 2.0,
+    "square_feet": 1662,
+    "property_type": "townhouse",
+    "description": "Modern retreat in the heart of San Marcos, TX. Offers 1,662 square feet with 3 bedrooms, 2.0 bathrooms, updated flooring, and high-end fixtures.",
+    "features": {
+      "yearBuilt": 1994,
+      "hasPool": false,
+      "garageSpaces": 3,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 150
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b",
+      "https://images.unsplash.com/photo-1600585152220-90363fe7e115",
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "6175 Maple Dr",
+    "city": "Round Rock",
+    "state": "TX",
+    "zip_code": "78665",
+    "price": 750000.0,
+    "bedrooms": 5,
+    "bathrooms": 4.0,
+    "square_feet": 3543,
+    "property_type": "single_family",
+    "description": "Stunning 5-bedroom, 4.0-bathroom single family located in prime Round Rock, TX. Featuring 3,543 sq. ft. of living space, natural sunlight, upgraded kitchen amenities, and modern finishes throughout.",
+    "features": {
+      "yearBuilt": 1990,
+      "hasPool": true,
+      "garageSpaces": 1,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 0
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c",
+      "https://images.unsplash.com/photo-1600573472592-401b489a3cdc",
+      "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "1592 Sunset Blvd",
+    "city": "Austin",
+    "state": "TX",
+    "zip_code": "78717",
+    "price": 375000.0,
+    "bedrooms": 2,
+    "bathrooms": 2.0,
+    "square_feet": 1090,
+    "property_type": "townhouse",
+    "description": "Modern retreat in the heart of Austin, TX. Offers 1,090 square feet with 2 bedrooms, 2.0 bathrooms, updated flooring, and high-end fixtures.",
+    "features": {
+      "yearBuilt": 2018,
+      "hasPool": false,
+      "garageSpaces": 1,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 150
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1570129477492-45c003edd2be",
+      "https://images.unsplash.com/photo-1580587771525-78b9dba3b914",
+      "https://images.unsplash.com/photo-1600585152220-90363fe7e115"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "1098 Cedar St",
+    "city": "San Marcos",
+    "state": "TX",
+    "zip_code": "78666",
+    "price": 347990.0,
+    "bedrooms": 3,
+    "bathrooms": 2.0,
+    "square_feet": 1297,
+    "property_type": "townhouse",
+    "description": "Exceptional value in San Marcos, TX! This beautiful 1,297 sq. ft. home boasts 3 spacious bedrooms, 2.0 baths, open-concept living area, and private outdoor space.",
+    "features": {
+      "yearBuilt": 2014,
+      "hasPool": true,
+      "garageSpaces": 1,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 150
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1567496898669-ee935f5f647a",
+      "https://images.unsplash.com/photo-1580587771525-78b9dba3b914",
+      "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "7912 Oak Ave",
+    "city": "San Marcos",
+    "state": "TX",
+    "zip_code": "78666",
+    "price": 326990.0,
+    "bedrooms": 3,
+    "bathrooms": 2.0,
+    "square_feet": 1409,
+    "property_type": "townhouse",
+    "description": "Modern retreat in the heart of San Marcos, TX. Offers 1,409 square feet with 3 bedrooms, 2.0 bathrooms, updated flooring, and high-end fixtures.",
+    "features": {
+      "yearBuilt": 1992,
+      "hasPool": true,
+      "garageSpaces": 1,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 0
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750",
+      "https://images.unsplash.com/photo-1600573472592-401b489a3cdc",
+      "https://images.unsplash.com/photo-1567496898669-ee935f5f647a"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "982 Washington Blvd",
+    "city": "Leander",
+    "state": "TX",
+    "zip_code": "78641",
+    "price": 550000.0,
+    "bedrooms": 4,
+    "bathrooms": 4.0,
+    "square_feet": 2496,
+    "property_type": "townhouse",
+    "description": "Stunning 4-bedroom, 4.0-bathroom townhouse located in prime Leander, TX. Featuring 2,496 sq. ft. of living space, natural sunlight, upgraded kitchen amenities, and modern finishes throughout.",
+    "features": {
+      "yearBuilt": 2015,
+      "hasPool": false,
+      "garageSpaces": 2,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 0
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c",
+      "https://images.unsplash.com/photo-1567496898669-ee935f5f647a",
+      "https://images.unsplash.com/photo-1570129477492-45c003edd2be"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "7587 Park Ave",
+    "city": "Pflugerville",
+    "state": "TX",
+    "zip_code": "78660",
+    "price": 769990.0,
+    "bedrooms": 4,
+    "bathrooms": 3.0,
+    "square_feet": 2731,
+    "property_type": "townhouse",
+    "description": "Charming townhouse offering 4 beds and 3.0 baths in desirable Pflugerville, TX. High ceilings, energy-efficient appliances, attached garage, and convenient access to local dining and parks.",
+    "features": {
+      "yearBuilt": 1990,
+      "hasPool": false,
+      "garageSpaces": 3,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 150
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b",
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750",
+      "https://images.unsplash.com/photo-1580587771525-78b9dba3b914"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "5040 Pine Rd",
+    "city": "San Marcos",
+    "state": "TX",
+    "zip_code": "78666",
+    "price": 257530.0,
+    "bedrooms": 2,
+    "bathrooms": 2.0,
+    "square_feet": 1016,
+    "property_type": "townhouse",
+    "description": "Stunning 2-bedroom, 2.0-bathroom townhouse located in prime San Marcos, TX. Featuring 1,016 sq. ft. of living space, natural sunlight, upgraded kitchen amenities, and modern finishes throughout.",
+    "features": {
+      "yearBuilt": 2005,
+      "hasPool": false,
+      "garageSpaces": 1,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 150
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c",
+      "https://images.unsplash.com/photo-1570129477492-45c003edd2be"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "1074 Oak Ave",
+    "city": "Leander",
+    "state": "TX",
+    "zip_code": "78641",
+    "price": 525000.0,
+    "bedrooms": 4,
+    "bathrooms": 3.0,
+    "square_feet": 2157,
+    "property_type": "single_family",
+    "description": "Stunning 4-bedroom, 3.0-bathroom single family located in prime Leander, TX. Featuring 2,157 sq. ft. of living space, natural sunlight, upgraded kitchen amenities, and modern finishes throughout.",
+    "features": {
+      "yearBuilt": 2005,
+      "hasPool": false,
+      "garageSpaces": 3,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 150
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1513694203232-719a280e022f",
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750",
+      "https://images.unsplash.com/photo-1567496898669-ee935f5f647a"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "2260 Park Ave",
+    "city": "Dripping Springs",
+    "state": "TX",
+    "zip_code": "78620",
+    "price": 1290000.0,
+    "bedrooms": 6,
+    "bathrooms": 5.0,
+    "square_feet": 4450,
+    "property_type": "single_family",
+    "description": "Charming single family offering 6 beds and 5.0 baths in desirable Dripping Springs, TX. High ceilings, energy-efficient appliances, attached garage, and convenient access to local dining and parks.",
+    "features": {
+      "yearBuilt": 2011,
+      "hasPool": false,
+      "garageSpaces": 1,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 0
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3",
+      "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b",
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "5903 Oak Ave",
+    "city": "Austin",
+    "state": "TX",
+    "zip_code": "78721",
+    "price": 375000.0,
+    "bedrooms": 2,
+    "bathrooms": 3.0,
+    "square_feet": 982,
+    "property_type": "townhouse",
+    "description": "Modern retreat in the heart of Austin, TX. Offers 982 square feet with 2 bedrooms, 3.0 bathrooms, updated flooring, and high-end fixtures.",
+    "features": {
+      "yearBuilt": 2010,
+      "hasPool": false,
+      "garageSpaces": 1,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 150
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1580587771525-78b9dba3b914",
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9",
+      "https://images.unsplash.com/photo-1570129477492-45c003edd2be"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "3317 Washington Blvd",
+    "city": "Cedar Park",
+    "state": "TX",
+    "zip_code": "78613",
+    "price": 997000.0,
+    "bedrooms": 5,
+    "bathrooms": 5.0,
+    "square_feet": 3854,
+    "property_type": "single_family",
+    "description": "Modern retreat in the heart of Cedar Park, TX. Offers 3,854 square feet with 5 bedrooms, 5.0 bathrooms, updated flooring, and high-end fixtures.",
+    "features": {
+      "yearBuilt": 2020,
+      "hasPool": true,
+      "garageSpaces": 2,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 0
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b",
+      "https://images.unsplash.com/photo-1600585152220-90363fe7e115",
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "5182 Park Ave",
+    "city": "Round Rock",
+    "state": "TX",
+    "zip_code": "78665",
+    "price": 525000.0,
+    "bedrooms": 5,
+    "bathrooms": 3.0,
+    "square_feet": 3312,
+    "property_type": "single_family",
+    "description": "Modern retreat in the heart of Round Rock, TX. Offers 3,312 square feet with 5 bedrooms, 3.0 bathrooms, updated flooring, and high-end fixtures.",
+    "features": {
+      "yearBuilt": 1998,
+      "hasPool": true,
+      "garageSpaces": 3,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 0
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1570129477492-45c003edd2be",
+      "https://images.unsplash.com/photo-1600585152220-90363fe7e115",
+      "https://images.unsplash.com/photo-1580587771525-78b9dba3b914"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "3385 Elm St",
+    "city": "San Marcos",
+    "state": "TX",
+    "zip_code": "78666",
+    "price": 999900.0,
+    "bedrooms": 3,
+    "bathrooms": 2.0,
+    "square_feet": 2032,
+    "property_type": "townhouse",
+    "description": "Modern retreat in the heart of San Marcos, TX. Offers 2,032 square feet with 3 bedrooms, 2.0 bathrooms, updated flooring, and high-end fixtures.",
+    "features": {
+      "yearBuilt": 2024,
+      "hasPool": true,
+      "garageSpaces": 3,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 150
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1600585152220-90363fe7e115",
+      "https://images.unsplash.com/photo-1580587771525-78b9dba3b914",
+      "https://images.unsplash.com/photo-1572120360610-d971b9d7767c"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "1113 Elm St",
+    "city": "Austin",
+    "state": "TX",
+    "zip_code": "78704",
+    "price": 1100000.0,
+    "bedrooms": 3,
+    "bathrooms": 2.0,
+    "square_feet": 1184,
+    "property_type": "townhouse",
+    "description": "Stunning 3-bedroom, 2.0-bathroom townhouse located in prime Austin, TX. Featuring 1,184 sq. ft. of living space, natural sunlight, upgraded kitchen amenities, and modern finishes throughout.",
+    "features": {
+      "yearBuilt": 1997,
+      "hasPool": false,
+      "garageSpaces": 1,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 0
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c",
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "8113 Pine Rd",
+    "city": "Austin",
+    "state": "TX",
+    "zip_code": "78739",
+    "price": 1150000.0,
+    "bedrooms": 4,
+    "bathrooms": 4.0,
+    "square_feet": 3142,
+    "property_type": "single_family",
+    "description": "Charming single family offering 4 beds and 4.0 baths in desirable Austin, TX. High ceilings, energy-efficient appliances, attached garage, and convenient access to local dining and parks.",
+    "features": {
+      "yearBuilt": 1996,
+      "hasPool": false,
+      "garageSpaces": 2,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 0
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1600585152220-90363fe7e115",
+      "https://images.unsplash.com/photo-1567496898669-ee935f5f647a",
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "3176 Cedar St",
+    "city": "Austin",
+    "state": "TX",
+    "zip_code": "78739",
+    "price": 1230000.0,
+    "bedrooms": 5,
+    "bathrooms": 4.0,
+    "square_feet": 3484,
+    "property_type": "single_family",
+    "description": "Charming single family offering 5 beds and 4.0 baths in desirable Austin, TX. High ceilings, energy-efficient appliances, attached garage, and convenient access to local dining and parks.",
+    "features": {
+      "yearBuilt": 2000,
+      "hasPool": false,
+      "garageSpaces": 2,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 0
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1572120360610-d971b9d7767c",
+      "https://images.unsplash.com/photo-1567496898669-ee935f5f647a",
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "446 Elm St",
+    "city": "Georgetown",
+    "state": "TX",
+    "zip_code": "78633",
+    "price": 475000.0,
+    "bedrooms": 2,
+    "bathrooms": 2.0,
+    "square_feet": 1712,
+    "property_type": "townhouse",
+    "description": "Modern retreat in the heart of Georgetown, TX. Offers 1,712 square feet with 2 bedrooms, 2.0 bathrooms, updated flooring, and high-end fixtures.",
+    "features": {
+      "yearBuilt": 2011,
+      "hasPool": false,
+      "garageSpaces": 3,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 380
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1513694203232-719a280e022f",
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "1696 Maple Dr",
+    "city": "Austin",
+    "state": "TX",
+    "zip_code": "78745",
+    "price": 538000.0,
+    "bedrooms": 3,
+    "bathrooms": 2.0,
+    "square_feet": 1172,
+    "property_type": "townhouse",
+    "description": "Exceptional value in Austin, TX! This beautiful 1,172 sq. ft. home boasts 3 spacious bedrooms, 2.0 baths, open-concept living area, and private outdoor space.",
+    "features": {
+      "yearBuilt": 2017,
+      "hasPool": true,
+      "garageSpaces": 2,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 380
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1513694203232-719a280e022f",
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9",
+      "https://images.unsplash.com/photo-1600573472592-401b489a3cdc"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "4293 Main St",
+    "city": "Austin",
+    "state": "TX",
+    "zip_code": "78723",
+    "price": 1350000.0,
+    "bedrooms": 3,
+    "bathrooms": 3.0,
+    "square_feet": 2210,
+    "property_type": "townhouse",
+    "description": "Exceptional value in Austin, TX! This beautiful 2,210 sq. ft. home boasts 3 spacious bedrooms, 3.0 baths, open-concept living area, and private outdoor space.",
+    "features": {
+      "yearBuilt": 1990,
+      "hasPool": true,
+      "garageSpaces": 1,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 250
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1567496898669-ee935f5f647a",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+      "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "1326 Oak Ave",
+    "city": "Austin",
+    "state": "TX",
+    "zip_code": "78701",
+    "price": 1775000.0,
+    "bedrooms": 2,
+    "bathrooms": 2.0,
+    "square_feet": 1609,
+    "property_type": "townhouse",
+    "description": "Exceptional value in Austin, TX! This beautiful 1,609 sq. ft. home boasts 2 spacious bedrooms, 2.0 baths, open-concept living area, and private outdoor space.",
+    "features": {
+      "yearBuilt": 1990,
+      "hasPool": false,
+      "garageSpaces": 1,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 0
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1600573472592-401b489a3cdc",
+      "https://images.unsplash.com/photo-1570129477492-45c003edd2be",
+      "https://images.unsplash.com/photo-1572120360610-d971b9d7767c"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "8029 Cedar St",
+    "city": "San Marcos",
+    "state": "TX",
+    "zip_code": "78666",
+    "price": 414900.0,
+    "bedrooms": 3,
+    "bathrooms": 3.0,
+    "square_feet": 1931,
+    "property_type": "single_family",
+    "description": "Charming single family offering 3 beds and 3.0 baths in desirable San Marcos, TX. High ceilings, energy-efficient appliances, attached garage, and convenient access to local dining and parks.",
+    "features": {
+      "yearBuilt": 1994,
+      "hasPool": true,
+      "garageSpaces": 3,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 380
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c",
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9",
+      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "8588 Highland Rd",
+    "city": "Round Rock",
+    "state": "TX",
+    "zip_code": "78664",
+    "price": 435000.0,
+    "bedrooms": 3,
+    "bathrooms": 3.0,
+    "square_feet": 1599,
+    "property_type": "townhouse",
+    "description": "Exceptional value in Round Rock, TX! This beautiful 1,599 sq. ft. home boasts 3 spacious bedrooms, 3.0 baths, open-concept living area, and private outdoor space.",
+    "features": {
+      "yearBuilt": 2023,
+      "hasPool": false,
+      "garageSpaces": 3,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 380
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1513694203232-719a280e022f",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c",
+      "https://images.unsplash.com/photo-1600585152220-90363fe7e115"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "1100 Oak Ave",
+    "city": "Cedar Park",
+    "state": "TX",
+    "zip_code": "78613",
+    "price": 740000.0,
+    "bedrooms": 4,
+    "bathrooms": 4.0,
+    "square_feet": 3557,
+    "property_type": "single_family",
+    "description": "Modern retreat in the heart of Cedar Park, TX. Offers 3,557 square feet with 4 bedrooms, 4.0 bathrooms, updated flooring, and high-end fixtures.",
+    "features": {
+      "yearBuilt": 1996,
+      "hasPool": false,
+      "garageSpaces": 3,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 0
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750",
+      "https://images.unsplash.com/photo-1570129477492-45c003edd2be",
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9"
+    ],
+    "status": "active"
+  },
+  {
+    "address": "3204 Pine Rd",
+    "city": "Georgetown",
+    "state": "TX",
+    "zip_code": "78628",
+    "price": 715000.0,
+    "bedrooms": 4,
+    "bathrooms": 4.0,
+    "square_feet": 3570,
+    "property_type": "single_family",
+    "description": "Exceptional value in Georgetown, TX! This beautiful 3,570 sq. ft. home boasts 4 spacious bedrooms, 4.0 baths, open-concept living area, and private outdoor space.",
+    "features": {
+      "yearBuilt": 2021,
+      "hasPool": false,
+      "garageSpaces": 1,
+      "centralHeating": true,
+      "centralAir": true,
+      "hoaFeeMonthly": 0
+    },
+    "photos": [
+      "https://images.unsplash.com/photo-1567496898669-ee935f5f647a",
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750",
+      "https://images.unsplash.com/photo-1570129477492-45c003edd2be"
+    ],
+    "status": "active"
+  }
+]

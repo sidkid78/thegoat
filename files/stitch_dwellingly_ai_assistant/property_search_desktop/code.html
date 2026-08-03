@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Property Search | Dwellingly</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .acrylic-surface {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .mica-bg {
+            background-color: rgba(248, 249, 251, 0.8);
+            backdrop-filter: saturate(180%) blur(20px);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cac4d3;
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #797583;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#27ffcc",
+                        "surface-container": "#eceef0",
+                        "secondary-fixed-dim": "#00e0b2",
+                        "on-tertiary-fixed": "#002111",
+                        "surface": "#f8f9fb",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-tertiary-fixed-variant": "#005232",
+                        "surface-tint": "#654eaf",
+                        "on-primary-container": "#967fe4",
+                        "primary-fixed-dim": "#cdbdff",
+                        "on-secondary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "intelligent-teal": "#07FFCB",
+                        "error": "#D13438",
+                        "outline": "#797583",
+                        "primary-fixed": "#e7deff",
+                        "on-primary-fixed": "#20005f",
+                        "on-primary": "#ffffff",
+                        "on-background": "#191c1e",
+                        "on-secondary-fixed": "#002118",
+                        "surface-bright": "#f8f9fb",
+                        "inverse-primary": "#cdbdff",
+                        "on-tertiary": "#ffffff",
+                        "on-surface": "#191c1e",
+                        "spring-green": "#2FFBA5",
+                        "tertiary-fixed-dim": "#00e292",
+                        "on-primary-fixed-variant": "#4c3496",
+                        "deep-navy": "#2C0A75",
+                        "surface-dim": "#d8dadc",
+                        "inverse-on-surface": "#eff1f3",
+                        "secondary-container": "#00fdc9",
+                        "error-container": "#ffdad6",
+                        "surface-container-high": "#e6e8ea",
+                        "on-surface-variant": "#484551",
+                        "tertiary-container": "#002e1a",
+                        "secondary": "#006b54",
+                        "surface-mica": "#F8F9FA",
+                        "background": "#f8f9fb",
+                        "primary-container": "#2c0a75",
+                        "surface-variant": "#e0e3e5",
+                        "outline-variant": "#cac4d3",
+                        "tertiary-fixed": "#51ffad",
+                        "success": "#107C10",
+                        "on-secondary-container": "#007058",
+                        "tertiary": "#00170a",
+                        "inverse-surface": "#2d3133",
+                        "on-tertiary-container": "#00a367",
+                        "primary": "#160047",
+                        "on-secondary-fixed-variant": "#00513f",
+                        "surface-container-low": "#f2f4f6",
+                        "surface-acrylic": "rgba(255, 255, 255, 0.7)",
+                        "surface-container-lowest": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-mobile": "1rem",
+                        "unit": "4px",
+                        "margin-desktop": "2.5rem",
+                        "gutter": "1.5rem",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "label-md": ["Inter"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "body-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-xl": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-hidden">
+<!-- Top Navigation Bar -->
+<header class="bg-surface-acrylic backdrop-blur-md border-b border-outline-variant shadow-sm z-50 fixed top-0 w-full">
+<nav class="flex justify-between items-center w-full px-margin-desktop py-4 max-w-container-max mx-auto h-20">
+<div class="flex items-center gap-12">
+<a class="font-headline-md text-headline-md font-bold text-primary" href="#">Dwellingly</a>
+<div class="hidden md:flex gap-8 items-center h-full">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="#">Dashboard</a>
+<a class="text-primary border-b-2 border-primary font-bold pb-1 font-body-md" href="#">Search</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="#">Deals</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="#">Portfolio</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="pl-10 pr-4 py-2 rounded-xl bg-surface-container border-none focus:ring-2 focus:ring-primary w-64 text-body-sm" placeholder="Quick search..." type="text"/>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container-low p-2 rounded-lg transition-all">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container-low p-2 rounded-lg transition-all">account_circle</button>
+</div>
+</nav>
+</header>
+<main class="flex h-screen pt-20">
+<!-- Filter Sidebar -->
+<aside class="w-80 border-r border-outline-variant bg-surface-container-lowest flex flex-col z-40 overflow-y-auto custom-scrollbar">
+<div class="p-6 border-b border-outline-variant flex justify-between items-center">
+<h2 class="font-headline-md text-headline-md text-primary">Filters</h2>
+<button class="text-primary font-label-md hover:underline">Reset</button>
+</div>
+<div class="p-6 space-y-8">
+<!-- Location Section -->
+<div class="space-y-3">
+<label class="font-label-md text-on-surface-variant">LOCATION</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">location_on</span>
+<input class="w-full pl-10 pr-4 py-3 rounded-xl bg-surface-mica border border-outline-variant focus:border-deep-navy text-body-md transition-all" type="text" value="San Francisco, CA"/>
+</div>
+</div>
+<!-- Price Range Section -->
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<label class="font-label-md text-on-surface-variant">PRICE RANGE</label>
+<span class="text-body-sm text-primary font-bold">$1.2M - $4.5M</span>
+</div>
+<div class="relative h-2 bg-surface-container-highest rounded-full">
+<div class="absolute h-full bg-intelligent-teal rounded-full" style="left: 20%; right: 30%"></div>
+<div class="absolute w-5 h-5 bg-white border-2 border-intelligent-teal rounded-full top-1/2 -translate-y-1/2 cursor-pointer shadow-sm" style="left: 20%"></div>
+<div class="absolute w-5 h-5 bg-white border-2 border-intelligent-teal rounded-full top-1/2 -translate-y-1/2 cursor-pointer shadow-sm" style="right: 30%"></div>
+</div>
+</div>
+<!-- Property Type -->
+<div class="space-y-3">
+<label class="font-label-md text-on-surface-variant">PROPERTY TYPE</label>
+<div class="grid grid-cols-2 gap-3">
+<button class="py-2 px-3 border border-deep-navy bg-primary-container text-white rounded-xl text-body-sm font-semibold">House</button>
+<button class="py-2 px-3 border border-outline-variant bg-white text-on-surface hover:bg-surface-mica rounded-xl text-body-sm transition-all">Condo</button>
+<button class="py-2 px-3 border border-outline-variant bg-white text-on-surface hover:bg-surface-mica rounded-xl text-body-sm transition-all">Townhome</button>
+<button class="py-2 px-3 border border-outline-variant bg-white text-on-surface hover:bg-surface-mica rounded-xl text-body-sm transition-all">Lot/Land</button>
+</div>
+</div>
+<!-- Beds / Baths -->
+<div class="space-y-3">
+<label class="font-label-md text-on-surface-variant">BEDROOMS</label>
+<div class="flex gap-2">
+<button class="w-10 h-10 border border-outline-variant rounded-lg text-body-sm hover:border-deep-navy transition-all">1+</button>
+<button class="w-10 h-10 border border-outline-variant rounded-lg text-body-sm hover:border-deep-navy transition-all">2+</button>
+<button class="w-10 h-10 border border-deep-navy bg-primary-container text-white rounded-lg text-body-sm font-semibold">3+</button>
+<button class="w-10 h-10 border border-outline-variant rounded-lg text-body-sm hover:border-deep-navy transition-all">4+</button>
+<button class="w-10 h-10 border border-outline-variant rounded-lg text-body-sm hover:border-deep-navy transition-all">5+</button>
+</div>
+</div>
+<!-- AI Preferences -->
+<div class="space-y-3 p-4 bg-primary/5 rounded-xl border border-primary/10">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary text-xl">auto_awesome</span>
+<label class="font-label-md text-primary">AI PREFERENCES</label>
+</div>
+<div class="space-y-2">
+<div class="flex items-center justify-between">
+<span class="text-body-sm">High Appreciation</span>
+<input checked="" class="rounded text-primary focus:ring-primary h-4 w-4" type="checkbox"/>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-body-sm">Cash Flow Focus</span>
+<input class="rounded text-primary focus:ring-primary h-4 w-4" type="checkbox"/>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-body-sm">Renovation Potential</span>
+<input checked="" class="rounded text-primary focus:ring-primary h-4 w-4" type="checkbox"/>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-auto p-6 bg-surface-container-low border-t border-outline-variant">
+<button class="w-full py-4 bg-deep-navy text-white rounded-xl font-headline-md text-body-md hover:opacity-90 transition-all shadow-md">Apply 124 Filters</button>
+</div>
+</aside>
+<!-- Results Area -->
+<section class="flex-1 flex flex-col h-full bg-surface overflow-hidden relative">
+<!-- Toolbar -->
+<div class="p-6 bg-surface-acrylic backdrop-blur-md flex justify-between items-center border-b border-outline-variant gap-4">
+<div class="flex-1 max-w-2xl relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full pl-12 pr-4 py-4 rounded-full bg-white border border-outline-variant focus:ring-2 focus:ring-intelligent-teal focus:border-intelligent-teal text-body-md shadow-sm" placeholder="Search by address, ZIP, neighborhood..." type="text"/>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex bg-surface-container p-1 rounded-xl">
+<button class="px-4 py-2 bg-white shadow-sm rounded-lg flex items-center gap-2 text-body-sm font-semibold">
+<span class="material-symbols-outlined text-sm">list</span> List
+                        </button>
+<button class="px-4 py-2 hover:bg-surface-variant/20 rounded-lg flex items-center gap-2 text-body-sm">
+<span class="material-symbols-outlined text-sm">map</span> Map
+                        </button>
+</div>
+<select class="py-2 pl-4 pr-10 border border-outline-variant rounded-xl bg-white text-body-sm focus:ring-primary">
+<option>Sort: Most Relevant</option>
+<option>Price: Low to High</option>
+<option>Price: High to Low</option>
+<option>Newest Listings</option>
+</select>
+</div>
+</div>
+<!-- Scrollable Content -->
+<div class="flex-1 overflow-y-auto custom-scrollbar p-6 space-y-8 pb-20">
+<!-- AI Recommendations Banner -->
+<div class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-deep-navy to-primary p-8 text-white group shadow-xl">
+<div class="absolute -right-16 -top-16 opacity-20 group-hover:rotate-12 transition-transform duration-700">
+
+</div>
+<div class="relative z-10 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="space-y-2">
+<div class="flex items-center gap-3">
+<span class="bg-intelligent-teal text-deep-navy text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-widest">Powered by Dwellingly AI</span>
+<h3 class="font-headline-md text-headline-md">Top Matches for Your Portfolio</h3>
+</div>
+<p class="text-body-md opacity-80 max-w-xl">We've analyzed 2,400+ listings in San Francisco to find properties with the highest projected ROI and 10-year appreciation potential based on your profile.</p>
+</div>
+<button class="bg-intelligent-teal text-deep-navy px-8 py-4 rounded-xl font-bold hover:scale-105 transition-all flex items-center gap-3 shadow-lg">
+                            Analyze All Results <span class="material-symbols-outlined">trending_up</span>
+</button>
+</div>
+</div>
+<!-- Section Header -->
+<div class="flex items-center justify-between">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">32 Results in San Francisco</h2>
+<p class="text-body-sm text-on-surface-variant">Showing 1-12 of 32 results</p>
+</div>
+<!-- Property Bento Grid -->
+<div class="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-gutter">
+<!-- Property Card 1 -->
+<div class="group bg-white rounded-xl border border-outline-variant overflow-hidden hover:shadow-xl transition-all duration-300">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A luxury modern residential house in San Francisco with floor-to-ceiling glass windows and sleek white architecture. The scene is captured at dusk with warm interior lighting glowing against a deep navy blue sky. Professional architectural photography style with sharp clean lines and lush minimalist landscaping. Minimalist UI context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2expR7-SxHZy0DYdP3eCETxXRg0VzfMZ0gKVhW35m-7o7s5xic3Xwc-sg_pusE0l_nWzTAVHa76vld8h4L39zgUJDntbo2--QzguqJMBPbHc5oi2_1slgv85OM4mkH4geQTy1rJ5uQHO8O74fojhyHy9M_lVO1aHIzkLttJJ8_k7Vtel0E8wmjH0mVLxQsBMp3sweSEfSHgsVk-WxUSpDJe_h8B2aPyOPv2poZqNmbGLPpb3re64"/>
+<div class="absolute top-4 left-4 flex gap-2">
+<span class="bg-white/90 backdrop-blur-md px-3 py-1 rounded-lg text-deep-navy font-bold text-body-sm shadow-sm">FOR SALE</span>
+<span class="bg-deep-navy text-white px-3 py-1 rounded-lg text-body-sm font-semibold shadow-sm">NEW</span>
+</div>
+<button class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center text-primary hover:text-error transition-colors shadow-sm">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+<div class="absolute bottom-4 right-4 bg-intelligent-teal text-deep-navy px-4 py-2 rounded-full font-bold shadow-lg flex items-center gap-2 animate-pulse">
+<span class="material-symbols-outlined text-sm">auto_awesome</span> 98% Match
+                            </div>
+</div>
+<div class="p-6 space-y-4">
+<div class="space-y-1">
+<h3 class="text-2xl font-bold text-deep-navy">$3,450,000</h3>
+<p class="text-on-surface-variant font-body-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">location_on</span> 2248 Pacific Ave, San Francisco, CA 94115
+                                </p>
+</div>
+<div class="flex justify-between items-center py-4 border-y border-outline-variant">
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-on-surface-variant">bed</span>
+<span class="text-body-sm font-semibold">4 Beds</span>
+</div>
+<div class="flex flex-col items-center gap-1 border-x border-outline-variant flex-1">
+<span class="material-symbols-outlined text-on-surface-variant">bathtub</span>
+<span class="text-body-sm font-semibold">3.5 Baths</span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-on-surface-variant">square_foot</span>
+<span class="text-body-sm font-semibold">3,240 SqFt</span>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="flex-1 py-3 bg-primary text-white rounded-xl font-semibold hover:bg-deep-navy transition-all">View Details</button>
+<button class="px-4 py-3 border border-outline-variant rounded-xl hover:bg-surface-mica transition-all">
+<span class="material-symbols-outlined">share</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Property Card 2 -->
+<div class="group bg-white rounded-xl border border-outline-variant overflow-hidden hover:shadow-xl transition-all duration-300">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A historic Victorian mansion in San Francisco's Nob Hill district. The building features ornate white trim and a classic pastel blue facade. Bright morning sunlight casts soft shadows across the cobblestone street in front. High-end real estate photography with a warm, welcoming vibe. Modern corporate UI aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcnWM7JfMczYOxq9qOFeDWNd_x4a5AvP0rHoz0mKxD-vyPTDgM8MiqhkbOTwbP43wAzEi-OldeYDLHuYBLvZV7fJOKR_kvy-n6nuXjWq3b2RTRCqxdlfQhiZBiKfErQKviSoLIcB71XIXK1fmGBhdnPv-5LqVRyAe9XQVEgNRWvLyCdu9bFmaHDv48AqFlGPPbz1anpqpu13nmgCtg3r2nQ_iawbHCgZP7XWfy3gYsqM-3tPlv5yc"/>
+<div class="absolute top-4 left-4 flex gap-2">
+<span class="bg-white/90 backdrop-blur-md px-3 py-1 rounded-lg text-deep-navy font-bold text-body-sm shadow-sm">FOR SALE</span>
+</div>
+<button class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center text-primary hover:text-error transition-colors shadow-sm">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+<div class="absolute bottom-4 right-4 bg-intelligent-teal text-deep-navy px-4 py-2 rounded-full font-bold shadow-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">auto_awesome</span> 89% Match
+                            </div>
+</div>
+<div class="p-6 space-y-4">
+<div class="space-y-1">
+<h3 class="text-2xl font-bold text-deep-navy">$2,895,000</h3>
+<p class="text-on-surface-variant font-body-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">location_on</span> 1500 Taylor St, San Francisco, CA 94109
+                                </p>
+</div>
+<div class="flex justify-between items-center py-4 border-y border-outline-variant">
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-on-surface-variant">bed</span>
+<span class="text-body-sm font-semibold">5 Beds</span>
+</div>
+<div class="flex flex-col items-center gap-1 border-x border-outline-variant flex-1">
+<span class="material-symbols-outlined text-on-surface-variant">bathtub</span>
+<span class="text-body-sm font-semibold">4 Baths</span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-on-surface-variant">square_foot</span>
+<span class="text-body-sm font-semibold">4,100 SqFt</span>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="flex-1 py-3 bg-primary text-white rounded-xl font-semibold hover:bg-deep-navy transition-all">View Details</button>
+<button class="px-4 py-3 border border-outline-variant rounded-xl hover:bg-surface-mica transition-all">
+<span class="material-symbols-outlined">share</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Property Card 3 -->
+<div class="group bg-white rounded-xl border border-outline-variant overflow-hidden hover:shadow-xl transition-all duration-300">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A sleek penthouse apartment with an industrial loft design in San Francisco's Mission District. High ceilings, exposed brick walls, and massive windows overlooking the city skyline. Bright midday light creates a vibrant, energized atmosphere. Professional lifestyle photography style, very high detail and clarity. Minimalist design system integration." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5fZfhkCLWNTgUL4cgRS87TyoZszg8QZ7gBtpjaEOA3lMPIOTi4cub_VW-8Ja4JEOlyHTQXXaewFU14FFQ4TLfkaiObmW70YJMUQCSLnNtLVdt66SOzba8bX_T7Sv2DWlxjU1SpXSUlAZ-N6RCwUXHuBOIi3Pq6KG53PwGO478AU_Qb9EjtY_BM0fM6W6HtsTWlgafSXm0lsyEsl_UfAD7K7gqqMbxz1RseHVvFx5v7LhQUaqOkn8"/>
+<div class="absolute top-4 left-4 flex gap-2">
+<span class="bg-white/90 backdrop-blur-md px-3 py-1 rounded-lg text-deep-navy font-bold text-body-sm shadow-sm">FOR SALE</span>
+<span class="bg-intelligent-teal text-deep-navy px-3 py-1 rounded-lg text-body-sm font-bold shadow-sm">HOT DEAL</span>
+</div>
+<button class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center text-primary hover:text-error transition-colors shadow-sm">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+<div class="absolute bottom-4 right-4 bg-intelligent-teal text-deep-navy px-4 py-2 rounded-full font-bold shadow-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">auto_awesome</span> 92% Match
+                            </div>
+</div>
+<div class="p-6 space-y-4">
+<div class="space-y-1">
+<h3 class="text-2xl font-bold text-deep-navy">$1,750,000</h3>
+<p class="text-on-surface-variant font-body-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">location_on</span> 788 Harrison St, San Francisco, CA 94107
+                                </p>
+</div>
+<div class="flex justify-between items-center py-4 border-y border-outline-variant">
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-on-surface-variant">bed</span>
+<span class="text-body-sm font-semibold">2 Beds</span>
+</div>
+<div class="flex flex-col items-center gap-1 border-x border-outline-variant flex-1">
+<span class="material-symbols-outlined text-on-surface-variant">bathtub</span>
+<span class="text-body-sm font-semibold">2 Baths</span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-on-surface-variant">square_foot</span>
+<span class="text-body-sm font-semibold">1,850 SqFt</span>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="flex-1 py-3 bg-primary text-white rounded-xl font-semibold hover:bg-deep-navy transition-all">View Details</button>
+<button class="px-4 py-3 border border-outline-variant rounded-xl hover:bg-surface-mica transition-all">
+<span class="material-symbols-outlined">share</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Property Card 4 -->
+<div class="group bg-white rounded-xl border border-outline-variant overflow-hidden hover:shadow-xl transition-all duration-300">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A modern hillside villa in San Francisco with stunning views of the Bay Bridge. Clean white concrete walls contrast with natural wood accents and large glass panes. The lighting is golden hour, casting long warm shadows across the deck. Ultra-modern luxury aesthetic with a high-key light mode feel. Perfect for a premium real estate interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDP6x9f0FQCBLKnyBZ4cu8VTvoocQ3EJ9AYpKgnXcfGxeWQ-mHdsPwJyZShEChxaKi3X76kJqbanQ3u06lM5JAUP0m607QofkGxpkHr547kC-VMgOLswSPIXiKkLIo_uMRnRaeDnLmNttrk6jyMktkpitNqgW1mRdJLuCRmmulSOnl0YU8xQ6CRm6qCZhSXK7_dpmfDOANu2KPPw7O7IaVUe324qudGIa8A6D6jJnXm5IsLrTG_yL4"/>
+<div class="absolute bottom-4 right-4 bg-intelligent-teal text-deep-navy px-4 py-2 rounded-full font-bold shadow-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">auto_awesome</span> 85% Match
+                            </div>
+</div>
+<div class="p-6 space-y-4">
+<div class="space-y-1">
+<h3 class="text-2xl font-bold text-deep-navy">$4,200,000</h3>
+<p class="text-on-surface-variant font-body-sm">450 Clipper St, San Francisco, CA 94114</p>
+</div>
+<div class="flex justify-between items-center py-4 border-y border-outline-variant text-on-surface-variant">
+<span class="text-body-sm">4 Beds</span> • <span class="text-body-sm">4 Baths</span> • <span class="text-body-sm">3,800 SqFt</span>
+</div>
+<button class="w-full py-3 bg-primary text-white rounded-xl font-semibold">View Details</button>
+</div>
+</div>
+<!-- Property Card 5 -->
+<div class="group bg-white rounded-xl border border-outline-variant overflow-hidden hover:shadow-xl transition-all duration-300">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A contemporary urban townhouse in the Dogpatch neighborhood, San Francisco. Features a mix of dark metal cladding and light brick with large industrial-style windows. Afternoon daylight with a clear blue sky. Professional real estate imagery, crisp details, architectural focus. Clean modern aesthetic for a professional app." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEsijPFGiQNN_qFMPWZ9HWyOemqank5r8M9Lqpo1-NJYlq58XZj_VGCycNrGz1he-pyNCI8lW9CDmGBWe7iyyT_2D-iMcib4UpvjkwB9NL-EentQCObFuAyjQFpVsrM3SR2HBh_UfWMxbeX5dHlhRhR0t5N4B8lXBdUu_e3ozBwL8YkEoDbvTmNhzrU20gyUBAJU-yHDghHt0240oMQ7a-9MFCjxbYlVbF6K03JgpqbCsAW1M6Le8"/>
+<div class="absolute bottom-4 right-4 bg-intelligent-teal text-deep-navy px-4 py-2 rounded-full font-bold shadow-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">auto_awesome</span> 76% Match
+                            </div>
+</div>
+<div class="p-6 space-y-4">
+<div class="space-y-1">
+<h3 class="text-2xl font-bold text-deep-navy">$1,425,000</h3>
+<p class="text-on-surface-variant font-body-sm">1201 Tennessee St, San Francisco, CA 94107</p>
+</div>
+<div class="flex justify-between items-center py-4 border-y border-outline-variant text-on-surface-variant">
+<span class="text-body-sm">3 Beds</span> • <span class="text-body-sm">2.5 Baths</span> • <span class="text-body-sm">1,550 SqFt</span>
+</div>
+<button class="w-full py-3 bg-primary text-white rounded-xl font-semibold">View Details</button>
+</div>
+</div>
+<!-- Property Card 6 -->
+<div class="group bg-white rounded-xl border border-outline-variant overflow-hidden hover:shadow-xl transition-all duration-300">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A renovated mid-century modern home in Twin Peaks, San Francisco. Open floor plan, warm hardwood floors visible through large windows, and a beautifully landscaped garden. Soft, diffused daylight on a slightly foggy San Francisco morning. High-end architectural photography, emphasizing light and space. Modern corporate style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCMvJWqGiYZKyDNBbtf2QbX3mJp0u7TYeOkndMQchk8L4JSYYKElCS2kwucukM-FiRFyVClyeLyxiojJ3fjxZ2ROEkjf7973phoQX0AFAmL8MzZu3la20pWmzHZMuf7nWHoiBOuayMpAPnDCGeO39PjYGr4QeT1HHuX-Eysukn9vXRjee5wo2EjjXKAETzdvmakjUcHp7lPdkmArIzj89n7myb_rLTsH3UrGmvDyNaqR9n9uOg_Qw"/>
+<div class="absolute bottom-4 right-4 bg-intelligent-teal text-deep-navy px-4 py-2 rounded-full font-bold shadow-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">auto_awesome</span> 81% Match
+                            </div>
+</div>
+<div class="p-6 space-y-4">
+<div class="space-y-1">
+<h3 class="text-2xl font-bold text-deep-navy">$2,150,000</h3>
+<p class="text-on-surface-variant font-body-sm">101 Portola Dr, San Francisco, CA 94131</p>
+</div>
+<div class="flex justify-between items-center py-4 border-y border-outline-variant text-on-surface-variant">
+<span class="text-body-sm">3 Beds</span> • <span class="text-body-sm">3 Baths</span> • <span class="text-body-sm">2,200 SqFt</span>
+</div>
+<button class="w-full py-3 bg-primary text-white rounded-xl font-semibold">View Details</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- AI Assistant FAB -->
+<div class="fixed bottom-8 right-8 z-[100] flex flex-col items-end gap-4">
+<div class="hidden w-80 bg-white rounded-2xl shadow-2xl border border-outline-variant overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-300" id="ai-chat-bubble">
+<div class="bg-deep-navy p-4 text-white flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-intelligent-teal">smart_toy</span>
+<span class="font-bold">Dwellingly AI Assistant</span>
+</div>
+<button class="material-symbols-outlined text-sm" onclick="toggleAIChat()">close</button>
+</div>
+<div class="p-4 h-64 overflow-y-auto bg-surface-mica flex flex-col gap-3 custom-scrollbar" id="chat-messages">
+<div class="bg-surface-container rounded-xl p-3 text-body-sm self-start max-w-[80%]">
+                    Hello! I've analyzed the current market in San Francisco. Are you looking for high cash flow or maximum appreciation?
+                </div>
+</div>
+<div class="p-3 border-t border-outline-variant bg-white flex gap-2">
+<input class="flex-1 border-none focus:ring-0 text-body-sm" placeholder="Ask AI anything..." type="text"/>
+<button class="bg-intelligent-teal text-deep-navy p-2 rounded-lg material-symbols-outlined">send</button>
+</div>
+</div>
+<button class="w-16 h-16 rounded-full bg-gradient-to-tr from-deep-navy to-intelligent-teal text-white shadow-2xl flex items-center justify-center hover:scale-110 transition-transform active:scale-95 group" onclick="toggleAIChat()">
+<span class="material-symbols-outlined text-3xl group-hover:rotate-12 transition-transform">auto_awesome</span>
+</button>
+</div>
+<!-- Footer -->
+<footer class="bg-surface-container-highest border-t border-outline-variant relative z-50">
+<div class="w-full px-margin-desktop py-12 grid grid-cols-1 md:grid-cols-4 gap-gutter max-w-container-max mx-auto">
+<div class="space-y-4">
+<span class="font-headline-sm text-headline-sm font-black text-primary">Dwellingly</span>
+<p class="text-body-sm text-on-surface-variant">© 2024 Dwellingly AI. Empowering Real Estate Professionals.</p>
+</div>
+<div class="flex flex-col gap-2">
+<span class="font-label-md text-on-surface-variant uppercase mb-2">Company</span>
+<a class="text-on-surface-variant hover:text-primary underline transition-all text-body-sm" href="#">About Us</a>
+<a class="text-on-surface-variant hover:text-primary underline transition-all text-body-sm" href="#">Contact Support</a>
+</div>
+<div class="flex flex-col gap-2">
+<span class="font-label-md text-on-surface-variant uppercase mb-2">Legal</span>
+<a class="text-on-surface-variant hover:text-primary underline transition-all text-body-sm" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-primary underline transition-all text-body-sm" href="#">Terms of Service</a>
+</div>
+<div class="flex flex-col gap-2">
+<span class="font-label-md text-on-surface-variant uppercase mb-2">Portals</span>
+<a class="text-primary font-bold text-body-sm" href="#">Agent Portal</a>
+</div>
+</div>
+</footer>
+<script>
+        function toggleAIChat() {
+            const chat = document.getElementById('ai-chat-bubble');
+            chat.classList.toggle('hidden');
+        }
+
+        // Simple interactive micro-interaction for cards
+        document.querySelectorAll('.group').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                // Subtle lift handled by Tailwind classes, could add JS logic here
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>1234 Sapphire Lane | Dwellingly AI</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed": "#27ffcc",
+                    "surface-container": "#eceef0",
+                    "secondary-fixed-dim": "#00e0b2",
+                    "on-tertiary-fixed": "#002111",
+                    "surface": "#f8f9fb",
+                    "on-error-container": "#93000a",
+                    "surface-container-highest": "#e0e3e5",
+                    "on-tertiary-fixed-variant": "#005232",
+                    "surface-tint": "#654eaf",
+                    "on-primary-container": "#967fe4",
+                    "primary-fixed-dim": "#cdbdff",
+                    "on-secondary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "intelligent-teal": "#07FFCB",
+                    "error": "#D13438",
+                    "outline": "#797583",
+                    "primary-fixed": "#e7deff",
+                    "on-primary-fixed": "#20005f",
+                    "on-primary": "#ffffff",
+                    "on-background": "#191c1e",
+                    "on-secondary-fixed": "#002118",
+                    "surface-bright": "#f8f9fb",
+                    "inverse-primary": "#cdbdff",
+                    "on-tertiary": "#ffffff",
+                    "on-surface": "#191c1e",
+                    "spring-green": "#2FFBA5",
+                    "tertiary-fixed-dim": "#00e292",
+                    "on-primary-fixed-variant": "#4c3496",
+                    "deep-navy": "#2C0A75",
+                    "surface-dim": "#d8dadc",
+                    "inverse-on-surface": "#eff1f3",
+                    "secondary-container": "#00fdc9",
+                    "error-container": "#ffdad6",
+                    "surface-container-high": "#e6e8ea",
+                    "on-surface-variant": "#484551",
+                    "tertiary-container": "#002e1a",
+                    "secondary": "#006b54",
+                    "surface-mica": "#F8F9FA",
+                    "background": "#f8f9fb",
+                    "primary-container": "#2c0a75",
+                    "surface-variant": "#e0e3e5",
+                    "outline-variant": "#cac4d3",
+                    "tertiary-fixed": "#51ffad",
+                    "success": "#107C10",
+                    "on-secondary-container": "#007058",
+                    "tertiary": "#00170a",
+                    "inverse-surface": "#2d3133",
+                    "on-tertiary-container": "#00a367",
+                    "primary": "#160047",
+                    "on-secondary-fixed-variant": "#00513f",
+                    "surface-container-low": "#f2f4f6",
+                    "surface-acrylic": "rgba(255, 255, 255, 0.7)",
+                    "surface-container-lowest": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin-mobile": "1rem",
+                    "unit": "4px",
+                    "margin-desktop": "2.5rem",
+                    "gutter": "1.5rem",
+                    "container-max": "1280px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "label-md": ["Inter"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "body-lg": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-xl": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .acrylic-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(229, 229, 229, 0.5);
+        }
+        .shadow-soft {
+            box-shadow: 0px 2px 4px rgba(0,0,0,0.04);
+        }
+        .ai-gradient {
+            background: linear-gradient(135deg, #2C0A75 0%, #07FFCB 100%);
+        }
+        .chart-bar {
+            transition: height 1s ease-out;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface">
+<!-- Top Navigation Bar -->
+<header class="bg-surface-acrylic dark:bg-inverse-surface/90 backdrop-blur-md border-b border-outline-variant dark:border-outline shadow-sm docked full-width top-0 sticky z-50">
+<nav class="flex justify-between items-center w-full px-margin-desktop py-4 max-w-container-max mx-auto">
+<div class="flex items-center gap-8">
+<a class="font-headline-md text-headline-md font-bold text-primary dark:text-inverse-primary" href="#">Dwellingly</a>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-secondary-fixed transition-colors font-body-md text-body-md" href="#">Dashboard</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-secondary-fixed transition-colors font-body-md text-body-md" href="#">Search</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-secondary-fixed transition-colors font-body-md text-body-md" href="#">Deals</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-secondary-fixed transition-colors font-body-md text-body-md" href="#">Portfolio</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden lg:flex items-center bg-surface-container rounded-full px-4 py-2 border border-outline-variant">
+<span class="material-symbols-outlined text-on-surface-variant mr-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-sm w-48" placeholder="Search markets..." type="text"/>
+</div>
+<button class="p-2 hover:bg-surface-container-low rounded-lg transition-all">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 hover:bg-surface-container-low rounded-lg transition-all">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</nav>
+</header>
+<main class="max-w-container-max mx-auto px-margin-desktop py-gutter">
+<!-- Hero Gallery Section -->
+<section class="grid grid-cols-12 gap-2 mb-8 rounded-xl overflow-hidden relative">
+<div class="col-span-8 h-[500px]">
+<div class="w-full h-full bg-surface-container-highest relative group cursor-pointer" data-alt="A wide-angle professional architectural photograph of a modern luxury estate at sunset. The house features floor-to-ceiling glass walls, a sleek white exterior, and a perfectly manicured lawn. Warm interior lighting glows from within against a purple and orange sky. The atmosphere is upscale and serene, reflecting high-end real estate branding." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC7-9qVeYQQ_A3Etqh0NCbohqOweJPB07x5j9Z3fOUrR0w4o5MAk5C6sjhl8God4sNkRYN4ZGLTr20iF4aNxAEz5TG9KmxzhndnnklolXrJ1Bm2x43M1_XrlNXfSvn5Vx_moOxOJt-iimdLG-VujJnt5q2elOfBtmiEfQq1lQofmRZZV2UEiX9PG2q3I9l_fWfI3_zcKgv7CtyB3_oAwNx6PG3ZozzAlrxi0GTYTT9CvByJpnTcBsQ')">
+<div class="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-all"></div>
+</div>
+</div>
+<div class="col-span-4 flex flex-col gap-2">
+<div class="h-1/2 bg-surface-container-highest relative" data-alt="An interior shot of a minimalist modern living room with soaring ceilings and premium hardwood floors. Large windows allow natural daylight to flood the space, highlighting designer furniture in neutral tones. A contemporary fireplace serves as a focal point. The lighting is soft and airy, emphasizing the spaciousness of the property." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA_jJBlFpQHEBsewtLzvzznhxk7TBYPs7moXxFpFfDHYwNn7oZE01Szuj0EnuQYQPmUyc8PPnIu5bYlQiggeVaNt82fSRXRSna4t-Ceyd_fO0y3hOkQEd33gDzBxHCawhV7V2qjBaezfoDAhQYHTV5lpyuienOSeX-WKnoZ-DpwWfKZtlspL_eq4rqRgi3lToOeyR-4Kscrcd7MKFJ9Fvb1xwE_d8myvd07XQ-GZqiLkTlVu0WN4Xg')"></div>
+<div class="h-1/2 bg-surface-container-highest relative" data-alt="A high-end designer kitchen featuring a large waterfall marble island and professional-grade stainless steel appliances. Modern pendant lights hang from the ceiling, and bespoke cabinetry lines the walls. The scene is immaculate and brightly lit, showcasing luxury finishes and clean lines consistent with a premium Dwellingly listing." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDZ0GUPapc4u35F9ZuFgp8Xtqk15o60kAmGQZioFFtoBMN59RGur5NSaCQ88PR-aD-SqJe0zsWJFVLUwnxJC_cxX1fNi-0oSs973G2ebapFq3Q-4ZM25GuyESkTlBh4gyOuuJ83BUX3iUZ7jvsVeokNv2xYVDpb1HX-tFnjaYLOSTxYI9xU3z0aeMxTXiTZY4z5QNDx18SMkCuIGOcDu7SkrXq6sVoIyAXAULc-xNW8NI7uwhNPWxE')"></div>
+</div>
+<!-- 3D Tour Overlay -->
+<button class="absolute bottom-6 left-6 ai-gradient text-white px-6 py-3 rounded-full flex items-center gap-2 font-bold shadow-lg hover:scale-105 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">view_in_ar</span>
+                3D Virtual Tour
+            </button>
+<button class="absolute bottom-6 right-6 bg-white/90 backdrop-blur shadow-md px-4 py-2 rounded-lg flex items-center gap-2 text-primary font-bold hover:bg-white transition-all">
+<span class="material-symbols-outlined">grid_view</span>
+                View all 42 photos
+            </button>
+</section>
+<!-- Main Content Layout -->
+<div class="grid grid-cols-12 gap-gutter relative">
+<!-- Left Column -->
+<div class="col-span-12 lg:col-span-8 space-y-8">
+<!-- Header & Key Details -->
+<div class="flex justify-between items-start">
+<div>
+<h1 class="font-headline-xl text-headline-xl mb-2 text-primary">1234 Sapphire Lane</h1>
+<p class="text-on-surface-variant text-body-lg mb-4">Beverly Hills, CA 90210</p>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">bed</span>
+<span class="font-bold">5</span> <span class="text-on-surface-variant">Beds</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">bathtub</span>
+<span class="font-bold">4.5</span> <span class="text-on-surface-variant">Baths</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">square_foot</span>
+<span class="font-bold">4,250</span> <span class="text-on-surface-variant">Sq Ft</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">event</span>
+<span class="font-bold">2021</span> <span class="text-on-surface-variant">Built</span>
+</div>
+</div>
+</div>
+<div class="text-right">
+<p class="font-headline-lg text-headline-lg text-primary">$4,850,000</p>
+<p class="text-success font-bold flex items-center justify-end gap-1">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+                            Market Value Up 4.2%
+                        </p>
+</div>
+</div>
+<!-- Dwellingly AI Chat Widget -->
+<div class="bg-surface-container-low rounded-xl border border-primary-fixed-dim/30 overflow-hidden shadow-soft">
+<div class="ai-gradient px-6 py-3 flex justify-between items-center">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-sm" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<span class="text-white font-bold font-headline-md text-body-md">Dwellingly AI Neighborhood Expert</span>
+</div>
+<span class="text-white/80 text-body-sm">Online</span>
+</div>
+<div class="p-6">
+<div class="space-y-4 mb-6 h-48 overflow-y-auto">
+<div class="flex gap-3">
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center text-white text-xs">AI</div>
+<div class="bg-white p-3 rounded-lg rounded-tl-none shadow-sm max-w-[80%] border border-outline-variant">
+<p class="text-body-sm">Hi! I'm your neighborhood expert. Ask me about local schools, recent comparable sales, or the lifestyle at Sapphire Lane.</p>
+</div>
+</div>
+<div class="flex gap-3 justify-end">
+<div class="bg-primary text-white p-3 rounded-lg rounded-tr-none shadow-sm max-w-[80%]">
+<p class="text-body-sm">What is the school rating for this zone?</p>
+</div>
+</div>
+<div class="flex gap-3">
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center text-white text-xs">AI</div>
+<div class="bg-white p-3 rounded-lg rounded-tl-none shadow-sm max-w-[80%] border border-outline-variant">
+<p class="text-body-sm">This property is zoned for Beverly Hills High (Rated 9/10). The neighborhood has a Walk Score of 88, making it very pedestrian-friendly!</p>
+</div>
+</div>
+</div>
+<div class="flex gap-2">
+<input class="flex-grow rounded-lg border-outline-variant focus:border-primary focus:ring-primary text-body-sm" placeholder="Ask about the neighborhood..." type="text"/>
+<button class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-deep-navy transition-all flex items-center">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+</div>
+<!-- About this home -->
+<div class="space-y-4">
+<h2 class="font-headline-md text-headline-md border-b border-outline-variant pb-2">About this home</h2>
+<p class="text-on-surface-variant leading-relaxed">
+                        Experience unparalleled luxury in this masterfully designed contemporary estate. 1234 Sapphire Lane offers an open-concept floor plan that seamlessly blends indoor and outdoor living. The chef's kitchen features top-of-the-line appliances and custom Italian cabinetry. Upstairs, the master suite serves as a private sanctuary with a spa-like bathroom and a private terrace overlooking the canyon. Smart home integration throughout ensures peak efficiency and security.
+                    </p>
+<div class="grid grid-cols-2 gap-4 pt-4">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<div>
+<p class="font-bold">Smart Home System</p>
+<p class="text-body-sm text-on-surface-variant">Integrated Control4 technology</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<div>
+<p class="font-bold">Chef's Kitchen</p>
+<p class="text-body-sm text-on-surface-variant">Wolf &amp; Sub-Zero appliances</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<div>
+<p class="font-bold">Outdoor Living</p>
+<p class="text-body-sm text-on-surface-variant">Infinity pool and outdoor kitchen</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<div>
+<p class="font-bold">Eco-Friendly</p>
+<p class="text-body-sm text-on-surface-variant">Solar ready with EV charging</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Market Insights Charts -->
+<div class="space-y-4">
+<h2 class="font-headline-md text-headline-md border-b border-outline-variant pb-2">Market Insights</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="acrylic-card p-6 rounded-xl shadow-soft">
+<p class="font-bold mb-4">Price History (Est.)</p>
+<div class="h-40 flex items-end gap-2 px-2">
+<div class="w-full bg-primary-container/20 rounded-t-sm h-[30%] hover:bg-primary/40 transition-all chart-bar"></div>
+<div class="w-full bg-primary-container/20 rounded-t-sm h-[45%] hover:bg-primary/40 transition-all chart-bar"></div>
+<div class="w-full bg-primary-container/20 rounded-t-sm h-[40%] hover:bg-primary/40 transition-all chart-bar"></div>
+<div class="w-full bg-primary-container/20 rounded-t-sm h-[65%] hover:bg-primary/40 transition-all chart-bar"></div>
+<div class="w-full bg-primary-container/20 rounded-t-sm h-[85%] hover:bg-primary/40 transition-all chart-bar"></div>
+<div class="w-full bg-primary rounded-t-sm h-[100%] chart-bar"></div>
+</div>
+<div class="flex justify-between mt-2 text-[10px] text-on-surface-variant uppercase tracking-wider">
+<span>2019</span>
+<span>2020</span>
+<span>2021</span>
+<span>2022</span>
+<span>2023</span>
+<span>2024</span>
+</div>
+</div>
+<div class="acrylic-card p-6 rounded-xl shadow-soft flex flex-col justify-between">
+<div>
+<p class="font-bold mb-1">Local Market Health</p>
+<p class="text-body-sm text-on-surface-variant">Strong Seller's Market</p>
+</div>
+<div class="space-y-3">
+<div>
+<div class="flex justify-between text-body-sm mb-1">
+<span>Median Days on Market</span>
+<span class="font-bold">12 Days</span>
+</div>
+<div class="h-1 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-intelligent-teal w-[15%]"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-body-sm mb-1">
+<span>Sale-to-List Ratio</span>
+<span class="font-bold">103%</span>
+</div>
+<div class="h-1 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-intelligent-teal w-[85%]"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Sticky Right Sidebar -->
+<aside class="col-span-12 lg:col-span-4">
+<div class="sticky top-24 space-y-6">
+<div class="acrylic-card p-8 rounded-xl shadow-lg border-2 border-primary/5">
+<div class="space-y-4">
+<button class="w-full bg-primary text-white font-bold py-4 rounded-lg hover:bg-deep-navy transition-all shadow-md flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">mail</span>
+                                Contact Agent
+                            </button>
+<button class="w-full bg-transparent border-2 border-primary text-primary font-bold py-4 rounded-lg hover:bg-primary hover:text-white transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">payments</span>
+                                Make an Offer
+                            </button>
+<div class="pt-4 border-t border-outline-variant flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest overflow-hidden" data-alt="A professional headshot of a real estate agent with a friendly, confident expression. The agent is dressed in professional business attire, set against a blurred modern office background. The lighting is crisp and flattering, projecting trust and authority in the luxury real estate market." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC10cgicJBD7QV_CnD4IsZmeCHqN1ClQaLdhxCklv-xx0YlNMMGy2a_MahhhtGfdoaMqEuX5cJo0RbJwLyKpTf_Ees7tsbP56lz4wI0kz2knYurCpWu1_FbqSCU-wYN8JYapuUKX0bKAFI_tY9r7cOotBf5yaE8uOAwW8ChSofPpv0tQuqj7x1oihbRl0EVOPW6du_21gxmMLpAt36TIsWGpw7ncmEqdsDnG0He7vurQ79AAY9BBZI')"></div>
+<div>
+<p class="font-bold">Sarah Jenkins</p>
+<p class="text-body-sm text-on-surface-variant">Luxury Estate Specialist</p>
+</div>
+</div>
+</div>
+</div>
+<div class="acrylic-card p-6 rounded-xl shadow-soft">
+<h3 class="font-bold mb-4">Investment Calculator</h3>
+<div class="space-y-4">
+<div>
+<label class="text-label-md uppercase mb-2 block">Down Payment (20%)</label>
+<div class="flex items-center bg-surface-container p-3 rounded-lg">
+<span class="text-on-surface-variant mr-2">$</span>
+<input class="bg-transparent border-none p-0 focus:ring-0 w-full font-bold" type="text" value="970,000"/>
+</div>
+</div>
+<div class="flex justify-between items-center text-body-sm">
+<span>Est. Monthly Payment</span>
+<span class="font-bold text-lg">$28,450</span>
+</div>
+<button class="w-full text-primary underline text-body-sm font-bold text-center">View full breakdown</button>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 bg-primary-container text-white rounded-xl shadow-md">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-intelligent-teal" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span class="font-bold text-body-sm">Dwellingly Priority Access</span>
+</div>
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-highest dark:bg-inverse-surface mt-12 border-t border-outline-variant dark:border-outline full-width">
+<div class="w-full px-margin-desktop py-12 grid grid-cols-1 md:grid-cols-4 gap-gutter max-w-container-max mx-auto">
+<div class="col-span-1 md:col-span-1">
+<p class="font-headline-sm text-headline-sm font-black text-primary dark:text-secondary-fixed mb-4">Dwellingly</p>
+<p class="text-on-surface-variant font-body-sm mb-4">Transforming real estate through intelligent data and AI-driven insights.</p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-on-surface-variant">public</span>
+<span class="material-symbols-outlined text-on-surface-variant">share</span>
+<span class="material-symbols-outlined text-on-surface-variant">rss_feed</span>
+</div>
+</div>
+<div>
+<p class="font-bold text-primary mb-4">Explore</p>
+<ul class="space-y-2">
+<li><a class="text-on-surface-variant hover:text-primary underline transition-all font-body-sm" href="#">Listings</a></li>
+<li><a class="text-on-surface-variant hover:text-primary underline transition-all font-body-sm" href="#">Neighborhoods</a></li>
+<li><a class="text-on-surface-variant hover:text-primary underline transition-all font-body-sm" href="#">Agents</a></li>
+</ul>
+</div>
+<div>
+<p class="font-bold text-primary mb-4">Resources</p>
+<ul class="space-y-2">
+<li><a class="text-on-surface-variant hover:text-primary underline transition-all font-body-sm" href="#">Agent Portal</a></li>
+<li><a class="text-on-surface-variant hover:text-primary underline transition-all font-body-sm" href="#">Contact Support</a></li>
+<li><a class="text-on-surface-variant hover:text-primary underline transition-all font-body-sm" href="#">About Us</a></li>
+</ul>
+</div>
+<div>
+<p class="font-bold text-primary mb-4">Legal</p>
+<ul class="space-y-2">
+<li><a class="text-on-surface-variant hover:text-primary underline transition-all font-body-sm" href="#">Privacy Policy</a></li>
+<li><a class="text-on-surface-variant hover:text-primary underline transition-all font-body-sm" href="#">Terms of Service</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-margin-desktop py-6 border-t border-outline-variant/30 text-center">
+<p class="text-on-surface-variant font-label-md text-label-md">© 2024 Dwellingly AI. Empowering Real Estate Professionals.</p>
+</div>
+</footer>
+<!-- AI Assistant FAB -->
+<div class="fixed bottom-8 right-8 z-[100]">
+<button class="ai-gradient w-16 h-16 rounded-full shadow-2xl flex items-center justify-center text-white hover:scale-110 transition-transform active:scale-95 group relative" id="ai-fab">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="absolute -top-12 right-0 bg-white text-primary text-xs font-bold px-3 py-1 rounded shadow-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap border border-primary/10">Ask Dwellingly AI</span>
+</button>
+</div>
+<script>
+        // Simple animation trigger for chart bars
+        document.addEventListener('DOMContentLoaded', () => {
+            const bars = document.querySelectorAll('.chart-bar');
+            bars.forEach(bar => {
+                const finalHeight = bar.style.height;
+                bar.style.height = '0';
+                setTimeout(() => {
+                    bar.style.height = finalHeight;
+                }, 100);
+            });
+        });
+
+        // FAB Pulse effect
+        const fab = document.getElementById('ai-fab');
+        setInterval(() => {
+            fab.classList.add('ring-4', 'ring-intelligent-teal/30');
+            setTimeout(() => {
+                fab.classList.remove('ring-4', 'ring-intelligent-teal/30');
+            }, 1000);
+        }, 3000);
+    </script>
+</body></html>

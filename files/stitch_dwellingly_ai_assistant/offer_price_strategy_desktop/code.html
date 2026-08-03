@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EstateFlow - Offer: Price &amp; Strategy</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#e7deff",
+                        "on-secondary-container": "#007058",
+                        "surface-container": "#eceef0",
+                        "on-primary-fixed-variant": "#4c3496",
+                        "secondary-fixed": "#27ffcc",
+                        "inverse-primary": "#cdbdff",
+                        "primary-container": "#2c0a75",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed": "#002118",
+                        "surface-variant": "#e0e3e5",
+                        "intelligent-teal": "#07FFCB",
+                        "spring-green": "#2FFBA5",
+                        "surface-bright": "#f8f9fb",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#e6e8ea",
+                        "surface-container-low": "#f2f4f6",
+                        "background": "#f8f9fb",
+                        "on-secondary-fixed-variant": "#00513f",
+                        "secondary-fixed-dim": "#00e0b2",
+                        "primary-fixed-dim": "#cdbdff",
+                        "tertiary-container": "#002e1a",
+                        "inverse-surface": "#2d3133",
+                        "tertiary-fixed-dim": "#00e292",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#484551",
+                        "on-surface": "#191c1e",
+                        "on-primary-container": "#967fe4",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f8f9fb",
+                        "error": "#D13438",
+                        "tertiary-fixed": "#51ffad",
+                        "primary": "#160047",
+                        "on-tertiary-fixed-variant": "#005232",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed": "#20005f",
+                        "tertiary": "#00170a",
+                        "outline": "#797583",
+                        "outline-variant": "#cac4d3",
+                        "on-tertiary-container": "#00a367",
+                        "secondary": "#006b54",
+                        "on-error-container": "#93000a",
+                        "deep-navy": "#2C0A75",
+                        "surface-dim": "#d8dadc",
+                        "surface-tint": "#654eaf",
+                        "on-background": "#191c1e",
+                        "success": "#107C10",
+                        "secondary-container": "#00fdc9",
+                        "surface-container-highest": "#e0e3e5",
+                        "surface-mica": "#F8F9FA",
+                        "inverse-on-surface": "#eff1f3",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#002111",
+                        "surface-acrylic": "rgba(255, 255, 255, 0.7)"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "margin-desktop": "2.5rem",
+                        "gutter": "1.5rem",
+                        "container-max": "1280px",
+                        "margin-mobile": "1rem"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Inter"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Inter"],
+                        "headline-xl": ["Plus Jakarta Sans"],
+                        "body-sm": ["Inter"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: theme('colors.background'); color: theme('colors.on-background'); }
+        .glass-panel { background: theme('colors.surface-acrylic'); backdrop-filter: blur(20px); border: 1px solid theme('colors.outline-variant'); }
+        .ai-shadow { box-shadow: 0px 12px 24px rgba(44, 10, 117, 0.15); }
+    </style>
+</head>
+<body class="font-body-md text-body-md min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="bg-surface-mica dark:bg-inverse-surface border-b border-outline-variant dark:border-outline shadow-sm w-full sticky top-0 z-50">
+<div class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto h-16">
+<div class="flex items-center gap-6">
+<a class="text-headline-md font-headline-md font-bold text-deep-navy dark:text-primary-fixed-dim" href="#">EstateFlow</a>
+<div class="hidden md:flex relative items-center text-on-surface-variant">
+<span class="material-symbols-outlined absolute left-3 text-body-md" data-icon="search">search</span>
+<input class="pl-10 pr-4 py-1.5 rounded-full bg-surface-container-high border-none focus:ring-2 focus:ring-primary text-body-sm w-64" placeholder="Search..." type="text"/>
+</div>
+</div>
+<nav class="hidden md:flex gap-8 h-full items-end">
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-secondary-fixed transition-colors duration-200 ease-in-out pb-5" href="#">Dashboard</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-secondary-fixed transition-colors duration-200 ease-in-out pb-5" href="#">Search</a>
+<!-- Active Navigation: Deals (closest intent to making an offer) -->
+<a class="text-primary dark:text-secondary-fixed border-b-2 border-primary dark:border-secondary-fixed pb-4 font-bold duration-200 ease-in-out" href="#">Deals</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-secondary-fixed transition-colors duration-200 ease-in-out pb-5" href="#">Portfolio</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-container">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-container">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<img alt="User profile photo" class="w-8 h-8 rounded-full object-cover border border-outline-variant cursor-pointer" data-alt="A professional headshot of a young female real estate agent with bright lighting, wearing a navy blazer, smiling confidently against a minimal white background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZcuzrURS9DZaj_SSS0uOOV8OZkSUIS-YaCuL1aW5UpNbNigrN-9eoGrLD2I-DD3D9a4Cxl95ETbyFCsJWXWpba8xdUmfcuziohJNQNN-7JJ2YT8uVDyUlNazYyiIa_3ilXIi0vYix54NRh1cwmQtTZdhJs6eond2MX5pnuTd6XGHDLJWUNvVZIeiFmKdEcivQR-7F7wfmFIn3ORju43wSiTjIbe2mfV8MGQ3tBC1lFUqnThgbMmY"/>
+</div>
+</div>
+</header>
+<main class="flex-grow flex flex-col w-full max-w-container-max mx-auto px-margin-desktop py-8 gap-8">
+<!-- Progress Tracker -->
+<section aria-label="Offer Progress" class="w-full">
+<div class="flex items-center justify-between relative">
+<div class="absolute left-0 top-1/2 -translate-y-1/2 w-full h-1 bg-surface-container-high rounded-full z-0"></div>
+<div class="absolute left-0 top-1/2 -translate-y-1/2 w-1/3 h-1 bg-intelligent-teal rounded-full z-0 transition-all duration-500 ease-out"></div>
+<div class="flex flex-col items-center z-10 gap-2">
+<div class="w-8 h-8 rounded-full bg-deep-navy text-on-primary flex items-center justify-center font-bold text-body-sm shadow-sm">1</div>
+<span class="font-label-md text-label-md text-deep-navy">Price</span>
+</div>
+<div class="flex flex-col items-center z-10 gap-2">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-bold text-body-sm border border-surface-dim">2</div>
+<span class="font-label-md text-label-md text-on-surface-variant">Contingencies</span>
+</div>
+<div class="flex flex-col items-center z-10 gap-2">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-bold text-body-sm border border-surface-dim">3</div>
+<span class="font-label-md text-label-md text-on-surface-variant">Review</span>
+</div>
+</div>
+</section>
+<div class="flex items-center justify-between">
+<h1 class="font-headline-lg text-headline-lg text-deep-navy">Offer Strategy</h1>
+<p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-body-lg" data-icon="location_on">location_on</span>
+                 1234 Sapphire Lane
+             </p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left Side: Determine Offer Price -->
+<div class="lg:col-span-8 flex flex-col gap-6">
+<div class="bg-surface rounded-xl border border-outline-variant shadow-sm p-8 flex flex-col gap-6">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-2">Determine Offer Price</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Review the listing details and input your initial offer amount. Our AI will analyze your entry against current market conditions.</p>
+</div>
+<div class="grid grid-cols-2 gap-4 bg-surface-container-low p-4 rounded-lg border border-surface-dim">
+<div>
+<span class="font-label-md text-label-md text-on-surface-variant block mb-1">List Price</span>
+<span class="font-headline-md text-headline-md text-deep-navy">$2,450,000</span>
+</div>
+<div>
+<span class="font-label-md text-label-md text-on-surface-variant block mb-1">Days on Market</span>
+<span class="font-body-lg text-body-lg text-on-surface">14</span>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-on-surface" for="offer-amount">Your Offer Amount</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 font-headline-md text-headline-md text-on-surface-variant">$</span>
+<input class="w-full pl-10 pr-4 py-4 rounded-lg border-2 border-surface-dim focus:border-deep-navy focus:ring-0 font-headline-md text-headline-md text-deep-navy transition-colors bg-surface" id="offer-amount" placeholder="2,425,000" type="text" value="2,425,000"/>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-body-sm" data-icon="info">info</span>
+                            1.02% below list price
+                        </p>
+</div>
+</div>
+<!-- Market Context -->
+<div class="bg-surface rounded-xl border border-outline-variant shadow-sm p-8">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-body-lg text-body-lg font-bold text-on-surface">Market Context</h3>
+<button class="font-label-md text-label-md text-primary hover:underline flex items-center gap-1">
+                            View Full CMA
+                            <span class="material-symbols-outlined text-[16px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<div class="flex flex-col gap-4">
+<!-- Comparable Sale Item -->
+<div class="flex justify-between items-center p-4 rounded-lg border border-surface-dim bg-surface-container-lowest hover:bg-surface-container-low transition-colors cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-surface-container rounded-lg flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+</div>
+<div>
+<p class="font-body-md text-body-md font-semibold text-on-surface">1200 Ruby Ct</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Sold 2 weeks ago • 0.2 mi away</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-body-md text-body-md font-bold text-deep-navy">$2,410,000</p>
+<span class="inline-block px-2 py-1 bg-surface-container-high rounded text-label-md font-label-md text-on-surface-variant mt-1">Similar Layout</span>
+</div>
+</div>
+<!-- Comparable Sale Item -->
+<div class="flex justify-between items-center p-4 rounded-lg border border-surface-dim bg-surface-container-lowest hover:bg-surface-container-low transition-colors cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-surface-container rounded-lg flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+</div>
+<div>
+<p class="font-body-md text-body-md font-semibold text-on-surface">985 Emerald Blvd</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Sold 1 month ago • 0.5 mi away</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-body-md text-body-md font-bold text-deep-navy">$2,550,000</p>
+<span class="inline-block px-2 py-1 bg-surface-container-high rounded text-label-md font-label-md text-on-surface-variant mt-1">Larger Lot</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Side: AI Strategic Advice -->
+<div class="lg:col-span-4">
+<div class="bg-primary-fixed rounded-xl p-6 shadow-sm border border-primary-fixed-dim sticky top-24">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-10 h-10 rounded-full bg-deep-navy flex items-center justify-center text-intelligent-teal ai-shadow">
+<span class="material-symbols-outlined" data-icon="smart_toy">smart_toy</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-deep-navy">AI Strategy Guide</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-primary-fixed-variant mb-6">
+                        Based on recent sales in the Sapphire Lane micro-market and the current seller's market conditions, entering slightly below asking is viable, but a competitive escalation strategy may be needed.
+                    </p>
+<div class="bg-surface-container-lowest rounded-lg p-5 mb-6 border border-white/50 shadow-sm">
+<span class="font-label-md text-label-md text-on-surface-variant block mb-2 uppercase tracking-wider">Recommended Range</span>
+<p class="font-headline-lg text-headline-lg text-deep-navy font-bold">$2.42M - $2.47M</p>
+<div class="w-full h-1.5 bg-surface-variant rounded-full mt-4 flex overflow-hidden">
+<div class="w-1/4 bg-error opacity-50"></div>
+<div class="w-1/2 bg-intelligent-teal"></div>
+<div class="w-1/4 bg-error opacity-50"></div>
+</div>
+<div class="flex justify-between mt-1 font-label-md text-[10px] text-on-surface-variant">
+<span>Too Low</span>
+<span>Sweet Spot</span>
+<span>Overpaying</span>
+</div>
+</div>
+<ul class="flex flex-col gap-3 mb-8">
+<li class="flex items-start gap-2 font-body-sm text-body-sm text-on-primary-fixed-variant">
+<span class="material-symbols-outlined text-intelligent-teal shrink-0" data-icon="check_circle" data-weight="fill">check_circle</span>
+<span>Property has seen lower foot traffic this week.</span>
+</li>
+<li class="flex items-start gap-2 font-body-sm text-body-sm text-on-primary-fixed-variant">
+<span class="material-symbols-outlined text-intelligent-teal shrink-0" data-icon="check_circle" data-weight="fill">check_circle</span>
+<span>Sellers are motivated (relocating).</span>
+</li>
+</ul>
+<button class="w-full bg-intelligent-teal hover:bg-secondary-container text-deep-navy font-label-md text-label-md py-3 px-4 rounded-lg transition-colors flex justify-center items-center gap-2 shadow-sm">
+<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+                        Apply Recommended Price
+                    </button>
+</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex justify-between items-center mt-4 pt-6 border-t border-outline-variant">
+<button class="px-6 py-3 rounded-lg border border-deep-navy text-deep-navy font-label-md text-label-md hover:bg-surface-container-low transition-colors">
+                Save Draft
+            </button>
+<button class="px-8 py-3 rounded-lg bg-deep-navy text-on-primary font-label-md text-label-md hover:bg-primary transition-colors flex items-center gap-2 shadow-sm">
+                Next: Contingencies
+                <span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-highest border-t border-outline-variant dark:border-outline w-full mt-auto">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter px-margin-desktop py-10 max-w-container-max mx-auto font-body-sm text-body-sm text-on-surface dark:text-inverse-on-surface transition-all duration-200">
+<div class="flex flex-col gap-4">
+<span class="text-headline-sm font-headline-sm font-bold text-deep-navy dark:text-primary-fixed-dim">EstateFlow</span>
+<p class="text-on-surface-variant dark:text-surface-variant">© 2024 EstateFlow AI. All rights reserved. Empowering real estate professionals.</p>
+</div>
+<div class="flex flex-col gap-2">
+<h4 class="font-bold mb-2">Company</h4>
+<a class="text-on-surface-variant dark:text-surface-variant hover:underline hover:text-primary dark:hover:text-secondary-fixed transition-all duration-200" href="#">About Us</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:underline hover:text-primary dark:hover:text-secondary-fixed transition-all duration-200" href="#">Contact</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:underline hover:text-primary dark:hover:text-secondary-fixed transition-all duration-200" href="#">Resources</a>
+</div>
+<div class="flex flex-col gap-2">
+<h4 class="font-bold mb-2">Legal</h4>
+<a class="text-on-surface-variant dark:text-surface-variant hover:underline hover:text-primary dark:hover:text-secondary-fixed transition-all duration-200" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:underline hover:text-primary dark:hover:text-secondary-fixed transition-all duration-200" href="#">Terms of Service</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:underline hover:text-primary dark:hover:text-secondary-fixed transition-all duration-200" href="#">Legal Disclosures</a>
+</div>
+</div>
+</footer>
+<!-- AI Assistant FAB (Contextual for Deal Strategy) -->
+<div class="fixed bottom-6 right-6 z-50">
+<button class="w-14 h-14 rounded-full bg-gradient-to-br from-deep-navy to-intelligent-teal text-white shadow-[0px_12px_24px_rgba(44,10,117,0.15)] flex items-center justify-center hover:scale-105 transition-transform duration-200 group">
+<span class="material-symbols-outlined text-[28px] group-hover:rotate-12 transition-transform duration-300" data-icon="robot_2">robot_2</span>
+</button>
+</div>
+</body></html>

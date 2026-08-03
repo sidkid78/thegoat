@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   Dwellingly design system
+   Tokens ported from files/stitch_dwellingly_ai_assistant/dwellingly/DESIGN.md
+   Aesthetic: Modern Corporate / Microsoft Fluent — Mica surfaces, Acrylic
+   overlays, High-Trust Navy anchored by a sparing Intelligent Teal accent.
+   ========================================================================== */
+
+@theme {
+  /* --- Typography ------------------------------------------------------ */
+  /* Inter for functional UI text, Plus Jakarta Sans for headlines. */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+
+  --text-headline-xl: 2.5rem;
+  --text-headline-xl--line-height: 3rem;
+  --text-headline-xl--font-weight: 700;
+  --text-headline-xl--letter-spacing: -0.02em;
+
+  --text-headline-lg: 2rem;
+  --text-headline-lg--line-height: 2.5rem;
+  --text-headline-lg--font-weight: 600;
+
+  --text-headline-md: 1.5rem;
+  --text-headline-md--line-height: 2rem;
+  --text-headline-md--font-weight: 600;
+
+  --text-label-md: 0.75rem;
+  --text-label-md--line-height: 1rem;
+  --text-label-md--font-weight: 600;
+  --text-label-md--letter-spacing: 0.05em;
+
+  /* --- Brand ----------------------------------------------------------- */
+  --color-navy: #2c0a75;
+  --color-navy-deep: #160047;
+  --color-navy-soft: #4c3496;
+  --color-navy-tint: #e7deff;
+  --color-teal: #07ffcb;
+  --color-teal-dim: #00e0b2;
+  --color-spring: #2ffba5;
+
+  /* --- Surfaces (Mica) -------------------------------------------------- */
+  --color-surface: #f8f9fb;
+  --color-surface-dim: #d8dadc;
+  --color-surface-lowest: #ffffff;
+  --color-surface-low: #f2f4f6;
+  --color-surface-container: #eceef0;
+  --color-surface-high: #e6e8ea;
+  --color-surface-highest: #e0e3e5;
+
+  /* --- Content ---------------------------------------------------------- */
+  --color-ink: #191c1e;
+  --color-ink-muted: #484551;
+  --color-outline: #797583;
+  --color-outline-variant: #cac4d3;
+  --color-hairline: #e5e5e5;
+
+  /* --- Semantic --------------------------------------------------------- */
+  --color-success: #107c10;
+  --color-danger: #d13438;
+  --color-danger-container: #ffdad6;
+
+  /* --- Shape ------------------------------------------------------------ */
+  /* Fluent: soft corners on functional controls, lg on cards, pill on
+     high-velocity AI elements. */
+  --radius-soft: 0.25rem;
+  --radius-card: 0.5rem;
+
+  /* --- Elevation (Z-axis layering) -------------------------------------- */
+  --shadow-card: 0 2px 4px rgba(0, 0, 0, 0.04);
+  --shadow-card-hover: 0 8px 16px rgba(25, 28, 30, 0.08);
+  --shadow-overlay: 0 8px 32px rgba(25, 28, 30, 0.12);
+  --shadow-fab: 0 12px 24px rgba(44, 10, 117, 0.15);
+}
+
+/* The mockups are a light-only design; don't let the OS preference repaint
+   form controls, scrollbars, or the canvas out from under it. */
+:root {
+  color-scheme: light;
+}
+
+body {
+  background-color: var(--color-surface);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer components {
+  /* Layer 2 — modals and flyouts keep context via translucency. */
+  .acrylic {
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  /* Layer 0 — the base app surface: opaque, stable, faintly saturated. */
+  .mica {
+    background-color: rgba(248, 249, 251, 0.85);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+  }
+}
+
+/* Thin, unobtrusive scrollbars for the filter rail and AI panel. */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--color-outline-variant);
+  border-radius: 9999px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--color-outline);
+}

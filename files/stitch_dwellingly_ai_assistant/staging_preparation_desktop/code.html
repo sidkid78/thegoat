@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Staging &amp; Preparation - EstatePulse AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container": "#eceef0",
+                        "tertiary-fixed": "#51ffad",
+                        "primary-fixed-dim": "#cdbdff",
+                        "on-secondary-fixed-variant": "#00513f",
+                        "error": "#D13438",
+                        "primary-fixed": "#e7deff",
+                        "outline": "#797583",
+                        "spring-green": "#2FFBA5",
+                        "on-primary-container": "#967fe4",
+                        "secondary-fixed": "#27ffcc",
+                        "on-tertiary-fixed-variant": "#005232",
+                        "on-tertiary-container": "#00a367",
+                        "surface-bright": "#f8f9fb",
+                        "on-error-container": "#93000a",
+                        "surface-mica": "#F8F9FA",
+                        "on-surface": "#191c1e",
+                        "on-primary-fixed-variant": "#4c3496",
+                        "on-primary-fixed": "#20005f",
+                        "on-tertiary-fixed": "#002111",
+                        "surface-container-high": "#e6e8ea",
+                        "inverse-surface": "#2d3133",
+                        "surface-container-low": "#f2f4f6",
+                        "on-secondary-fixed": "#002118",
+                        "on-background": "#191c1e",
+                        "secondary": "#006b54",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#d8dadc",
+                        "intelligent-teal": "#07FFCB",
+                        "surface-tint": "#654eaf",
+                        "on-secondary-container": "#007058",
+                        "inverse-on-surface": "#eff1f3",
+                        "tertiary-container": "#002e1a",
+                        "primary-container": "#2c0a75",
+                        "primary": "#160047",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-acrylic": "rgba(255, 255, 255, 0.7)",
+                        "inverse-primary": "#cdbdff",
+                        "on-error": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "tertiary": "#00170a",
+                        "surface": "#f8f9fb",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#00e292",
+                        "surface-container-highest": "#e0e3e5",
+                        "secondary-container": "#00fdc9",
+                        "deep-navy": "#2C0A75",
+                        "background": "#f8f9fb",
+                        "success": "#107C10",
+                        "secondary-fixed-dim": "#00e0b2",
+                        "on-primary": "#ffffff",
+                        "surface-variant": "#e0e3e5",
+                        "on-surface-variant": "#484551",
+                        "outline-variant": "#cac4d3"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    spacing: {
+                        "container-max": "1280px",
+                        "unit": "4px",
+                        "gutter": "1.5rem",
+                        "margin-mobile": "1rem",
+                        "margin-desktop": "2.5rem"
+                    },
+                    fontFamily: {
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "body-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-xl": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "body-lg": ["Inter"]
+                    },
+                    fontSize: {
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .acrylic-blur {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .ai-gradient-text {
+            background: linear-gradient(135deg, #2C0A75 0%, #07FFCB 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .ai-border-glow {
+            box-shadow: 0 0 15px rgba(7, 255, 203, 0.3);
+            border: 1px solid rgba(7, 255, 203, 0.5);
+        }
+        /* Custom Scrollbar for a cleaner look */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e0e3e5;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #cac4d3;
+        }
+    </style>
+</head>
+<body class="bg-surface-mica text-on-surface font-body-md min-h-screen flex flex-col antialiased">
+<!-- TopNavBar -->
+<header class="sticky top-0 w-full z-40 bg-surface-acrylic backdrop-blur-xl border-b border-outline-variant shadow-sm px-margin-desktop py-unit-4 flex justify-between items-center max-w-container-max mx-auto">
+<div class="flex items-center gap-6">
+<span class="font-headline-md text-headline-md font-bold text-deep-navy">EstatePulse AI</span>
+<nav class="hidden md:flex gap-4">
+<a class="text-on-surface-variant hover:text-primary transition-colors py-2 px-3 rounded-lg hover:bg-surface-container-low active:scale-95 duration-150" href="#">Dashboard</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors py-2 px-3 rounded-lg hover:bg-surface-container-low active:scale-95 duration-150" href="#">Market Insights</a>
+<a class="text-secondary border-b-2 border-secondary font-semibold pb-1 py-2 px-3" href="#">Properties</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors py-2 px-3 rounded-lg hover:bg-surface-container-low active:scale-95 duration-150" href="#">Integrations</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-surface-container-lowest text-on-surface border border-outline-variant rounded-full p-2 hover:bg-surface-container-low transition-colors active:scale-95 duration-150 hidden md:block">
+<span class="material-symbols-outlined block" data-icon="search">search</span>
+</button>
+<button class="bg-surface-container-lowest text-on-surface border border-outline-variant rounded-full p-2 hover:bg-surface-container-low transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined block" data-icon="notifications">notifications</span>
+</button>
+<button class="bg-surface-container-lowest text-on-surface border border-outline-variant rounded-full p-2 hover:bg-surface-container-low transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined block" data-icon="settings">settings</span>
+</button>
+<button class="hidden lg:flex items-center gap-2 bg-intelligent-teal/20 text-deep-navy px-4 py-2 rounded-full font-label-md text-label-md hover:bg-intelligent-teal/30 transition-colors active:scale-95 duration-150 border border-intelligent-teal/50">
+<span class="material-symbols-outlined text-sm" data-icon="auto_awesome">auto_awesome</span>
+                AI Assistant
+            </button>
+<button class="bg-deep-navy text-white px-4 py-2 rounded-full font-label-md text-label-md hover:bg-primary transition-colors active:scale-95 duration-150">Add Listing</button>
+<img alt="Agent Profile" class="w-10 h-10 rounded-full object-cover border border-outline-variant ml-2" data-alt="A small circular profile avatar showing a professional real estate agent in modern lighting, high quality portrait, neutral background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-cUDaTIvseERmEKh12TBhbC_i7UEP4qjcCZeQXpJvL2QSrl_EPHT4hJklQSztdaQ2UXlQKbQS9goDd8C1V4tCYW7bUR_n5ikaaX7fSdBf6fz-BOk3R5U1iOtfyDDO3CwkKjG73otOhLsW2NKiRwMcQm37xytpRaaTlhos6IgGV3KG50NzFvCyagFSWEuKtBie_y6hl01_wiordFeXgSA_DrHvwkWgM3TGJ8JwMZqykE4p-kd5RIs"/>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow w-full max-w-container-max mx-auto px-margin-desktop py-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Canvas (Left/Main Column) -->
+<div class="lg:col-span-8 flex flex-col gap-8">
+<!-- Page Header & Progress -->
+<section class="bg-surface-container-lowest rounded-xl border border-outline-variant shadow-[0px_2px_4px_rgba(0,0,0,0.04)] p-6 relative overflow-hidden">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6 relative z-10">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full font-label-md text-label-md uppercase tracking-wider text-[10px]">Staging Phase</span>
+<span class="text-on-surface-variant font-label-md text-label-md flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">calendar_today</span> Target Launch: Oct 15</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface">1234 Sapphire Lane</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Command Center: Pre-Market Preparation</p>
+</div>
+<div class="w-full md:w-64 bg-surface-container-low rounded-lg p-4 border border-outline-variant">
+<div class="flex justify-between items-center mb-2">
+<span class="font-label-md text-label-md text-on-surface">Ready to List</span>
+<span class="font-headline-sm text-headline-sm font-bold text-deep-navy">75%</span>
+</div>
+<div class="w-full bg-surface-variant rounded-full h-1 overflow-hidden">
+<div class="bg-intelligent-teal h-1 rounded-full w-[75%] transition-all duration-1000 ease-out"></div>
+</div>
+</div>
+</div>
+<!-- Decorative background blur -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary-container/5 rounded-full blur-3xl -z-0 translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
+</section>
+<!-- Visual Staging AI (Bento Style) -->
+<section class="bg-surface-container-lowest rounded-xl border border-outline-variant shadow-[0px_2px_4px_rgba(0,0,0,0.04)] overflow-hidden">
+<div class="p-4 border-b border-outline-variant bg-surface-bright flex justify-between items-center">
+<h2 class="font-headline-md text-headline-md text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined ai-gradient-text" data-icon="auto_awesome">auto_awesome</span>
+                        Visual Staging AI
+                    </h2>
+<div class="flex gap-2">
+<button class="bg-surface-container-lowest text-on-surface border border-outline-variant rounded-lg px-3 py-1.5 font-label-md text-label-md hover:bg-surface-container-low transition-colors text-sm">Living Room</button>
+<button class="bg-transparent text-on-surface-variant rounded-lg px-3 py-1.5 font-label-md text-label-md hover:bg-surface-container-low transition-colors text-sm">Kitchen</button>
+<button class="bg-transparent text-on-surface-variant rounded-lg px-3 py-1.5 font-label-md text-label-md hover:bg-surface-container-low transition-colors text-sm">Primary Bed</button>
+</div>
+</div>
+<div class="p-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 relative">
+<!-- Before -->
+<div class="relative rounded-lg overflow-hidden border border-outline-variant group">
+<img alt="Before Staging" class="w-full h-64 object-cover" data-alt="A modern living room captured in real life before staging. It is empty, slightly dim lighting, bare white walls, and light oak flooring. The space feels plain but has good potential. Natural light coming from a large window." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6Yup9j4XLmH8lBm_AkgVbjix3MVJIFqdOO1GOmtnTOIu-dXMpMYAmB6xXhDnrUrrmOz9GAjyKqf64v8-abKdN2gk6xfM8jFJMoKHfC9S55pUCBse_XCDaJAqZ1arA-nX3zcTxahkd_44IzRxqgu7rZdjEAkrreJ7KJn8OnTk8As4D3Ig75gQndDiWKQCu3Mnui_C2VRhL4LcU4h0zj_Rcp0WZMJQcTO1jPjx6EjMo0drQr5H0GuM"/>
+<div class="absolute top-3 left-3 bg-surface-acrylic backdrop-blur-md px-3 py-1 rounded-full text-xs font-label-md text-on-surface border border-outline-variant/50 shadow-sm">
+                                Current State
+                            </div>
+</div>
+<!-- AI Augmented -->
+<div class="relative rounded-lg overflow-hidden ai-border-glow">
+<img alt="AI Augmented" class="w-full h-64 object-cover" data-alt="The identical modern living room, now visually staged by AI. It features stylish mid-century modern furniture, a cozy textured rug, warm ambient lighting from sleek floor lamps, and tasteful abstract wall art. The space looks inviting, bright, and highly premium." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFp9m5hW5eUWkWDKjgH5dQ8C-0TptG2Yz_xzc-kM90Vr-ach3Aj4p-DUOzxonLuxn5bU4H1bKU5p7EP0OcQERUZ_iTSaXqQtK1y2EgewUX1MRdqmqlKYvmzsgrmIepZAWrmWS20DcRnEC2z5ZJoRbXP4W9GCQ91oGee0BccIndFoOweBwx1YwgJ1hUqBb8mWoB1ua9ZIbAk8Oc1jWDHHczhnmIwRCSToES_yJikDNI7ZgXQtraAog"/>
+<div class="absolute top-3 left-3 bg-primary-container text-white px-3 py-1 rounded-full text-xs font-label-md border border-primary-fixed/30 shadow-md flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="auto_awesome">auto_awesome</span> AI Augmented
+                            </div>
+<!-- Interactive Hotspots (simulated) -->
+<div class="absolute bottom-1/4 right-1/4 w-4 h-4 bg-intelligent-teal rounded-full animate-pulse shadow-[0_0_10px_#07FFCB] cursor-pointer group">
+<div class="absolute bottom-6 -translate-x-1/2 left-1/2 w-48 bg-surface-acrylic backdrop-blur-xl p-3 rounded-lg border border-outline-variant opacity-0 group-hover:opacity-100 transition-opacity shadow-lg pointer-events-none">
+<p class="font-label-md text-label-md text-on-surface mb-1">Virtual Furniture: Mid-Century Sofa</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-xs">AI Suggestion: Adds perceived value to space.</p>
+</div>
+</div>
+</div>
+<!-- Slider UI Hint -->
+<div class="hidden md:flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-surface-lowest rounded-full p-2 border border-outline-variant shadow-md z-10 cursor-ew-resize">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]" data-icon="compare_arrows">compare_arrows</span>
+</div>
+</div>
+<div class="mt-6 flex justify-between items-center bg-surface-container-low p-4 rounded-lg border border-outline-variant">
+<div>
+<p class="font-label-md text-label-md text-on-surface">AI Staging Complete</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Generated 3 high-fidelity images for listing.</p>
+</div>
+<button class="bg-deep-navy text-white px-4 py-2 rounded-lg font-label-md text-label-md hover:bg-primary transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]" data-icon="download">download</span>
+                            Export Assets
+                        </button>
+</div>
+</div>
+</section>
+<!-- ROI Improvement Roadmap -->
+<section class="bg-surface-container-lowest rounded-xl border border-outline-variant shadow-[0px_2px_4px_rgba(0,0,0,0.04)] overflow-hidden">
+<div class="p-4 border-b border-outline-variant bg-surface-bright flex justify-between items-center">
+<h2 class="font-headline-md text-headline-md text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" data-icon="trending_up">trending_up</span>
+                        ROI Improvement Roadmap
+                    </h2>
+<span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full font-label-md text-label-md text-xs border border-secondary/20 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="insights">insights</span> AI Data Driven
+                    </span>
+</div>
+<div class="p-6">
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-6">AI analysis of current market trends in Sapphire Lane neighborhood suggests these physical improvements to maximize listing price.</p>
+<div class="space-y-4">
+<!-- Item 1 -->
+<div class="flex flex-col md:flex-row items-start md:items-center justify-between p-4 rounded-lg border border-outline-variant bg-surface-container-lowest hover:bg-surface-container-low transition-colors relative overflow-hidden group">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-success"></div>
+<div class="flex items-center gap-4 pl-2 mb-4 md:mb-0">
+<div class="bg-success/10 p-3 rounded-lg text-success">
+<span class="material-symbols-outlined" data-icon="format_paint">format_paint</span>
+</div>
+<div>
+<h3 class="font-label-md text-label-md text-on-surface text-base">Fresh Neutral Paint (Interior)</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-sm">Update living areas to 'Alabaster White' to brighten space.</p>
+</div>
+</div>
+<div class="flex items-center gap-6 w-full md:w-auto pl-2 md:pl-0">
+<div class="text-right flex-1 md:flex-none">
+<p class="font-label-md text-label-md text-on-surface-variant text-xs mb-1">Est. Cost</p>
+<p class="font-body-md text-body-md text-on-surface font-semibold">$2,400</p>
+</div>
+<div class="text-right flex-1 md:flex-none">
+<p class="font-label-md text-label-md text-on-surface-variant text-xs mb-1">Predicted Value Add</p>
+<p class="font-body-md text-body-md text-success font-bold">+$8,500</p>
+</div>
+<button class="bg-surface-container-lowest border border-outline-variant p-2 rounded-lg hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined text-on-surface" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex flex-col md:flex-row items-start md:items-center justify-between p-4 rounded-lg border border-outline-variant bg-surface-container-lowest hover:bg-surface-container-low transition-colors relative overflow-hidden group">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-success"></div>
+<div class="flex items-center gap-4 pl-2 mb-4 md:mb-0">
+<div class="bg-success/10 p-3 rounded-lg text-success">
+<span class="material-symbols-outlined" data-icon="hardware">hardware</span>
+</div>
+<div>
+<h3 class="font-label-md text-label-md text-on-surface text-base">Cabinet Hardware Update</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-sm">Replace dated brass with matte black pulls.</p>
+</div>
+</div>
+<div class="flex items-center gap-6 w-full md:w-auto pl-2 md:pl-0">
+<div class="text-right flex-1 md:flex-none">
+<p class="font-label-md text-label-md text-on-surface-variant text-xs mb-1">Est. Cost</p>
+<p class="font-body-md text-body-md text-on-surface font-semibold">$350</p>
+</div>
+<div class="text-right flex-1 md:flex-none">
+<p class="font-label-md text-label-md text-on-surface-variant text-xs mb-1">Predicted Value Add</p>
+<p class="font-body-md text-body-md text-success font-bold">+$1,200</p>
+</div>
+<button class="bg-surface-container-lowest border border-outline-variant p-2 rounded-lg hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined text-on-surface" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<div class="mt-4 flex justify-end">
+<button class="text-deep-navy font-label-md text-label-md hover:underline flex items-center gap-1">
+                            View All Suggestions (5) <span class="material-symbols-outlined text-[16px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Professional Services Marketplace -->
+<section class="bg-surface-container-lowest rounded-xl border border-outline-variant shadow-[0px_2px_4px_rgba(0,0,0,0.04)] overflow-hidden mb-8">
+<div class="p-4 border-b border-outline-variant bg-surface-bright">
+<h2 class="font-headline-md text-headline-md text-on-surface">Professional Services</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Book vetted professionals to execute your staging plan.</p>
+</div>
+<div class="p-6">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<!-- Service Card 1 -->
+<div class="border border-outline-variant rounded-lg p-4 flex flex-col items-center text-center hover:border-deep-navy hover:shadow-sm transition-all cursor-pointer">
+<div class="w-12 h-12 bg-primary-container/10 rounded-full flex items-center justify-center text-deep-navy mb-3">
+<span class="material-symbols-outlined" data-icon="cleaning_services">cleaning_services</span>
+</div>
+<h3 class="font-label-md text-label-md text-on-surface mb-1">Deep Cleaning</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-xs mb-4">Start fresh before photos.</p>
+<button class="w-full py-2 px-4 rounded border border-deep-navy text-deep-navy font-label-md text-label-md text-xs hover:bg-deep-navy hover:text-white transition-colors mt-auto">Book Now</button>
+</div>
+<!-- Service Card 2 -->
+<div class="border border-outline-variant rounded-lg p-4 flex flex-col items-center text-center hover:border-deep-navy hover:shadow-sm transition-all cursor-pointer relative overflow-hidden">
+<div class="absolute top-0 right-0 bg-intelligent-teal text-deep-navy text-[10px] font-bold px-2 py-1 rounded-bl-lg">POPULAR</div>
+<div class="w-12 h-12 bg-primary-container/10 rounded-full flex items-center justify-center text-deep-navy mb-3">
+<span class="material-symbols-outlined" data-icon="camera_alt">camera_alt</span>
+</div>
+<h3 class="font-label-md text-label-md text-on-surface mb-1">Pro Photography</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-xs mb-4">HDR photos &amp; drone shots.</p>
+<button class="w-full py-2 px-4 rounded border border-deep-navy text-deep-navy font-label-md text-label-md text-xs hover:bg-deep-navy hover:text-white transition-colors mt-auto">Book Now</button>
+</div>
+<!-- Service Card 3 -->
+<div class="border border-outline-variant rounded-lg p-4 flex flex-col items-center text-center hover:border-deep-navy hover:shadow-sm transition-all cursor-pointer">
+<div class="w-12 h-12 bg-primary-container/10 rounded-full flex items-center justify-center text-deep-navy mb-3">
+<span class="material-symbols-outlined" data-icon="chair">chair</span>
+</div>
+<h3 class="font-label-md text-label-md text-on-surface mb-1">Physical Staging</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-xs mb-4">Furniture rental &amp; design.</p>
+<button class="w-full py-2 px-4 rounded border border-deep-navy text-deep-navy font-label-md text-label-md text-xs hover:bg-deep-navy hover:text-white transition-colors mt-auto">Book Now</button>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Sidebar (Right Column) -->
+<aside class="lg:col-span-4 flex flex-col gap-8">
+<!-- Listing Timeline -->
+<section class="bg-surface-container-lowest rounded-xl border border-outline-variant shadow-[0px_2px_4px_rgba(0,0,0,0.04)] sticky top-[100px]">
+<div class="p-4 border-b border-outline-variant bg-surface-bright">
+<h2 class="font-headline-md text-headline-md text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="calendar_month">calendar_month</span>
+                        Listing Timeline
+                    </h2>
+</div>
+<div class="p-6">
+<div class="relative pl-6 border-l-2 border-surface-variant space-y-8">
+<!-- Completed Step -->
+<div class="relative">
+<div class="absolute -left-[35px] top-1 w-4 h-4 bg-success rounded-full border-2 border-surface-container-lowest z-10 flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-[10px]" data-icon="check">check</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface line-through text-on-surface-variant">Listing Agreement Signed</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-xs mt-1">Sep 28 - Completed</p>
+</div>
+</div>
+<!-- Current Step -->
+<div class="relative">
+<div class="absolute -left-[35px] top-1 w-4 h-4 bg-intelligent-teal rounded-full border-2 border-surface-container-lowest z-10 shadow-[0_0_8px_#07FFCB]"></div>
+<div class="absolute -left-[35px] top-1 w-4 h-4 bg-intelligent-teal rounded-full animate-ping opacity-50 z-0"></div>
+<div class="bg-surface-container-low p-3 rounded-lg border border-outline-variant -mt-2">
+<h4 class="font-label-md text-label-md text-deep-navy">Deep Cleaning &amp; Repairs</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-xs mt-1 mb-2">In Progress - Scheduled for completion today.</p>
+<div class="flex items-center gap-2">
+<img alt="Cleaner" class="w-6 h-6 rounded-full object-cover" data-alt="Small circular portrait of a professional cleaning service worker in uniform, smiling, neutral background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYcqvUwg1VnEke4XIay0dz2k2tbrndpVprlZ7rjHF6fdSKVOeM3KjshUBNwu9k3Gy946TdxLNYObmuwXxDCYHGi4ST0p5zQFe9vRYzLR6J5ixqiW7Ce5Zlxle-Vb4BhBr45yNapT3OZ4KGcwGl-Dv3aQ070RqfJE147-ctwVDCzUOVqu1CCiJ0V0lqrwq6mJAgRWZhiy-orZTwt5XiIybQj75uBY58Li8KmKX1Ey4G07h78EGVyKg"/>
+<span class="text-xs font-label-md text-on-surface-variant">Sparkle Clean Co.</span>
+</div>
+</div>
+</div>
+<!-- Future Step -->
+<div class="relative">
+<div class="absolute -left-[35px] top-1 w-4 h-4 bg-surface-variant rounded-full border-2 border-surface-container-lowest z-10"></div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface">Professional Photography</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-xs mt-1">Oct 5, 10:00 AM</p>
+</div>
+</div>
+<!-- Future Step -->
+<div class="relative">
+<div class="absolute -left-[35px] top-1 w-4 h-4 bg-surface-variant rounded-full border-2 border-surface-container-lowest z-10"></div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface">Yard Sign Installation</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-xs mt-1">Oct 7, Morning</p>
+</div>
+</div>
+<!-- Milestone -->
+<div class="relative">
+<div class="absolute -left-[39px] top-0 w-6 h-6 bg-deep-navy rounded-full border-2 border-surface-container-lowest z-10 flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-[12px]" data-icon="rocket_launch">rocket_launch</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-deep-navy font-bold">'Coming Soon' Launch</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-xs mt-1">Target: Oct 10</p>
+</div>
+</div>
+</div>
+<button class="w-full mt-6 py-2 border border-outline-variant rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-low transition-colors">
+                        Adjust Timeline
+                    </button>
+</div>
+</section>
+</aside>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-dim w-full py-gutter mt-auto border-t border-outline-variant dark:border-outline">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter px-margin-desktop max-w-container-max mx-auto">
+<div class="col-span-1 md:col-span-2 lg:col-span-2">
+<span class="font-headline-sm text-headline-sm font-bold text-primary dark:text-primary-fixed">EstatePulse AI</span>
+<p class="font-body-sm text-body-sm text-on-surface dark:text-on-surface-variant mt-2">
+                    © 2024 EstatePulse AI. Empowering Real Estate Professionals with Intelligent Insights.
+                </p>
+</div>
+<div class="col-span-1 lg:col-span-2 flex flex-wrap gap-4 justify-start lg:justify-end items-center font-body-sm text-body-sm">
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors underline-offset-4 hover:underline" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors underline-offset-4 hover:underline" href="#">Terms of Service</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors underline-offset-4 hover:underline" href="#">Help Center</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors underline-offset-4 hover:underline" href="#">API Documentation</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors underline-offset-4 hover:underline" href="#">Contact Support</a>
+</div>
+</div>
+</footer>
+<!-- Floating AI Assistant -->
+<button class="fixed bottom-8 right-8 w-14 h-14 rounded-full bg-gradient-to-br from-primary-container to-intelligent-teal shadow-[0px_12px_24px_rgba(44,10,117,0.15)] flex items-center justify-center text-white hover:scale-105 active:scale-95 transition-transform z-50 group border border-white/20">
+<span class="material-symbols-outlined text-[28px]" data-icon="auto_awesome">auto_awesome</span>
+<!-- Hover Flyout -->
+<div class="absolute bottom-full right-0 mb-4 w-64 bg-surface-acrylic acrylic-blur border border-outline-variant rounded-xl shadow-xl p-4 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none group-hover:pointer-events-auto transform translate-y-2 group-hover:translate-y-0 duration-200">
+<h4 class="font-label-md text-label-md text-deep-navy mb-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="smart_toy">smart_toy</span> Ask EstatePulse AI
+            </h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-xs mb-3">"What other improvements can I make to Sapphire Lane?"</p>
+<div class="w-full bg-surface-container-low rounded p-2 text-xs text-on-surface-variant flex items-center justify-between border border-outline-variant">
+                Type your question...
+                <span class="material-symbols-outlined text-[16px]" data-icon="send">send</span>
+</div>
+</div>
+</button>
+</body></html>
