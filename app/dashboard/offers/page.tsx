@@ -6,6 +6,10 @@ import { SellerOffersInbox } from '@/components/dashboard/SellerOffersInbox';
  * counterpart to the buyer's offer list on /dashboard. RLS already scopes
  * "offers" to buyer-or-owner, but the `!inner` join filter here narrows this
  * page specifically to the owner side.
+ *
+ * Rows are grouped per listing so each one links into the comparison matrix at
+ * /dashboard/offers/[propertyId]; a flat list can't show competing bids against
+ * each other, which is the whole point of the seller view.
  */
 export default async function SellerOffersPage() {
   const supabase = await createClient();
@@ -18,7 +22,7 @@ export default async function SellerOffersPage() {
     const { data } = await supabase
       .from('offers')
       .select(
-        'id, offer_amount, earnest_money, contingencies, proposed_closing_date, status, docusign_envelope_id, created_at, properties!inner (id, address, city, state, owner_id), profiles:buyer_id (full_name, email)'
+        'id, offer_amount, earnest_money, contingencies, proposed_closing_date, financing_type, down_payment, status, docusign_envelope_id, created_at, properties!inner (id, address, city, state, price, owner_id), profiles:buyer_id (full_name, email)'
       )
       .eq('properties.owner_id', user.id)
       .order('created_at', { ascending: false });

@@ -42,6 +42,14 @@ const CONTINGENCIES = [
   },
 ];
 
+const FINANCING_TYPES = [
+  { id: 'conventional', label: 'Conventional' },
+  { id: 'fha', label: 'FHA' },
+  { id: 'va', label: 'VA' },
+  { id: 'cash', label: 'All Cash' },
+  { id: 'other', label: 'Other' },
+] as const;
+
 const JOURNEY = [
   { key: 'submitted', label: 'Offer Submitted' },
   { key: 'review', label: 'Agent Review' },
@@ -68,6 +76,8 @@ export function OfferWizard({
   const [earnestMoney, setEarnestMoney] = useState(String(Math.round(listPrice * 0.03)));
   const [contingencies, setContingencies] = useState<string[]>(['Financing', 'Inspection']);
   const [closingDate, setClosingDate] = useState('');
+  const [financingType, setFinancingType] = useState('conventional');
+  const [downPayment, setDownPayment] = useState(String(Math.round(listPrice * 0.2)));
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -111,6 +121,8 @@ export function OfferWizard({
         earnestMoney: Number(earnestMoney) || 0,
         contingencies,
         proposedClosingDate: closingDate,
+        financingType,
+        downPayment: financingType === 'cash' ? null : Number(downPayment) || 0,
       });
       if (res.success) {
         setSubmitted(res.offer);
@@ -188,6 +200,10 @@ export function OfferWizard({
                 ['Offer price', `$${amount.toLocaleString()}`],
                 ['Earnest money', `$${Number(earnestMoney).toLocaleString()}`],
                 ['Proposed closing', closingDate || 'Not specified'],
+                [
+                  'Financing',
+                  FINANCING_TYPES.find((f) => f.id === financingType)?.label ?? financingType,
+                ],
                 ['Contingencies', contingencies.join(', ') || 'None'],
                 ['Status', submitted.status],
               ].map(([label, value]) => (
@@ -332,6 +348,47 @@ export function OfferWizard({
                 onChange={(e) => setEarnestMoney(e.target.value)}
                 className="mt-2 h-12 w-full rounded-soft border border-outline-variant bg-surface-lowest px-4 text-body-md text-ink outline-none transition focus:border-navy focus:border-b-2"
               />
+
+              {/* Financing terms — the seller's offer comparison weighs these
+                  as heavily as price, so they're collected up front. */}
+              <label htmlFor="financing" className="mt-6 block text-label-md uppercase text-ink-muted">
+                Financing
+              </label>
+              <select
+                id="financing"
+                value={financingType}
+                onChange={(e) => setFinancingType(e.target.value)}
+                className="mt-2 h-12 w-full rounded-soft border border-outline-variant bg-surface-lowest px-4 text-body-md text-ink outline-none transition focus:border-navy focus:border-b-2"
+              >
+                {FINANCING_TYPES.map(({ id, label }) => (
+                  <option key={id} value={id}>
+                    {label}
+                  </option>
+                ))}
+              </select>
+
+              {financingType !== 'cash' && (
+                <>
+                  <label
+                    htmlFor="down-payment"
+                    className="mt-6 block text-label-md uppercase text-ink-muted"
+                  >
+                    Down Payment
+                  </label>
+                  <input
+                    id="down-payment"
+                    type="number"
+                    value={downPayment}
+                    onChange={(e) => setDownPayment(e.target.value)}
+                    className="mt-2 h-12 w-full rounded-soft border border-outline-variant bg-surface-lowest px-4 text-body-md text-ink outline-none transition focus:border-navy focus:border-b-2"
+                  />
+                  {amount > 0 && Number(downPayment) > 0 && (
+                    <p className="mt-2 text-body-sm text-ink-muted">
+                      {((Number(downPayment) / amount) * 100).toFixed(1)}% of the offer price
+                    </p>
+                  )}
+                </>
+              )}
             </section>
 
             {/* Market context — real comparables from the CMA */}
@@ -531,6 +588,18 @@ export function OfferWizard({
                 <dt className="text-label-md uppercase text-ink-muted">vs List Price</dt>
                 <dd className="mt-1.5 text-body-lg font-semibold text-ink">
                   {Math.abs(deltaPct).toFixed(2)}% {deltaPct >= 0 ? 'above' : 'below'}
+                </dd>
+              </div>
+              <div>
+                <dt className="text-label-md uppercase text-ink-muted">Financing</dt>
+                <dd className="mt-1.5 text-body-lg font-semibold text-ink">
+                  {FINANCING_TYPES.find((f) => f.id === financingType)?.label ?? financingType}
+                  {financingType !== 'cash' && Number(downPayment) > 0 && amount > 0 && (
+                    <span className="ml-1 text-body-sm text-ink-muted">
+                      (${Number(downPayment).toLocaleString()} down,{' '}
+                      {((Number(downPayment) / amount) * 100).toFixed(1)}%)
+                    </span>
+                  )}
                 </dd>
               </div>
             </dl>

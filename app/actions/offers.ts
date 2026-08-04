@@ -4,6 +4,7 @@ import { createClient } from '@/lib/supabase/server';
 import { revalidatePath } from 'next/cache';
 import { sendOfferContractForSignature } from '@/lib/integrations/docusign';
 import { createEarnestMoneyCheckoutSession } from '@/lib/integrations/stripe';
+import { analyzeOffers, type OfferAnalysisResult } from '@/lib/ai/offer-analysis';
 
 export async function submitOfferAction(payload: {
   propertyId: number;
@@ -11,6 +12,8 @@ export async function submitOfferAction(payload: {
   earnestMoney: number;
   contingencies: string[];
   proposedClosingDate: string;
+  financingType: string;
+  downPayment: number | null;
 }) {
   const supabase = await createClient();
   const { data: { user }, error: authError } = await supabase.auth.getUser();
@@ -28,6 +31,9 @@ export async function submitOfferAction(payload: {
       earnest_money: payload.earnestMoney,
       contingencies: payload.contingencies,
       proposed_closing_date: payload.proposedClosingDate,
+      financing_type: payload.financingType,
+      // All-cash offers have no down payment to record.
+      down_payment: payload.financingType === 'cash' ? null : payload.downPayment,
       status: 'submitted',
     })
     .select()
@@ -38,6 +44,7 @@ export async function submitOfferAction(payload: {
   }
 
   revalidatePath('/dashboard/offers');
+  revalidatePath('/dashboard/offers/[propertyId]', 'page');
   return { success: true, offer: data };
 }
 
@@ -103,6 +110,7 @@ export async function acceptOfferAction(offerId: number) {
   }
 
   revalidatePath('/dashboard/offers');
+  revalidatePath('/dashboard/offers/[propertyId]', 'page');
   revalidatePath('/dashboard');
   return { success: true, docusignError };
 }
@@ -123,6 +131,7 @@ export async function rejectOfferAction(offerId: number) {
   }
 
   revalidatePath('/dashboard/offers');
+  revalidatePath('/dashboard/offers/[propertyId]', 'page');
   return { success: true };
 }
 
@@ -169,6 +178,73 @@ export async function createEarnestMoneyCheckoutAction(offerId: number) {
     });
 
     return { success: true, url: session.url };
+  } catch (err: unknown) {
+    return { success: false, error: err instanceof Error ? err.message : String(err) };
+  }
+}
+
+/**
+ * Seller-only. Ranks the live offers on one of the caller's listings with a real
+ * Gemini reasoning call. Triggered by a button rather than on page load -- it's
+ * a paid call and the offer set changes far less often than the page is viewed.
+ */
+export async function analyzeOffersAction(
+  propertyId: number
+): Promise<{ success: true; analysis: OfferAnalysisResult } | { success: false; error: string }> {
+  const supabase = await createClient();
+  const { data: { user }, error: authError } = await supabase.auth.getUser();
+
+  if (authError || !user) {
+    return { success: false, error: 'Authentication required' };
+  }
+
+  const { data: property, error: propError } = await supabase
+    .from('properties')
+    .select('id, address, city, state, price, owner_id')
+    .eq('id', propertyId)
+    .single();
+
+  if (propError || !property) {
+    return { success: false, error: propError?.message || 'Listing not found' };
+  }
+  if (property.owner_id !== user.id) {
+    return { success: false, error: 'Not your listing' };
+  }
+
+  const { data: offers, error: offersError } = await supabase
+    .from('offers')
+    .select(
+      'id, offer_amount, earnest_money, contingencies, proposed_closing_date, financing_type, down_payment, created_at'
+    )
+    .eq('property_id', propertyId)
+    .in('status', ['submitted', 'countered'])
+    .order('created_at', { ascending: true });
+
+  if (offersError) {
+    return { success: false, error: offersError.message };
+  }
+  if (!offers || offers.length < 2) {
+    return { success: false, error: 'Need at least two open offers to compare.' };
+  }
+
+  try {
+    const analysis = await analyzeOffers({
+      listPrice: Number(property.price),
+      propertyAddress: `${property.address}, ${property.city}, ${property.state}`,
+      offers: offers.map((o, i) => ({
+        id: o.id,
+        // Column letters are assigned by submission order, matching the matrix.
+        label: `Offer ${String.fromCharCode(65 + i)}`,
+        offerAmount: Number(o.offer_amount),
+        earnestMoney: o.earnest_money === null ? null : Number(o.earnest_money),
+        financingType: o.financing_type,
+        downPayment: o.down_payment === null ? null : Number(o.down_payment),
+        proposedClosingDate: o.proposed_closing_date,
+        contingencies: Array.isArray(o.contingencies) ? o.contingencies : [],
+      })),
+    });
+
+    return { success: true, analysis };
   } catch (err: unknown) {
     return { success: false, error: err instanceof Error ? err.message : String(err) };
   }

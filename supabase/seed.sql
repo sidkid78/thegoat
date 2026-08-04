@@ -108,3 +108,25 @@ SELECT setval(
   (SELECT COALESCE(MAX(id), 1) FROM public.properties),
   true
 );
+-- ----------------------------------------------------------------------------
+-- 5. COMPETING OFFERS ON LISTING 1 (Offer Comparison Matrix demo fixture)
+-- Three buyers bidding on 704 Barton Springs Rd, deliberately spread across the
+-- axes the matrix compares: over-ask-but-financed vs at-ask cash vs
+-- over-ask-with-every-contingency. Ids are omitted so the offers identity
+-- sequence advances normally and stays usable by the app.
+-- ----------------------------------------------------------------------------
+INSERT INTO auth.users (instance_id, id, aud, role, email, encrypted_password, email_confirmed_at, recovery_sent_at, last_sign_in_at, raw_app_meta_data, raw_user_meta_data, created_at, updated_at, confirmation_token, email_change, email_change_token_new, recovery_token)
+VALUES
+  ('00000000-0000-0000-0000-000000000000', '33333333-3333-3333-3333-333333333333', 'authenticated', 'authenticated', 'buyer.morgan@dwellingly.ai', crypt('password123', gen_salt('bf')), NOW(), NOW(), NOW(), '{"provider":"email","providers":["email"]}', '{"full_name": "Morgan Davis", "role": "buyer"}', NOW(), NOW(), '', '', '', ''),
+  ('00000000-0000-0000-0000-000000000000', '44444444-4444-4444-4444-444444444444', 'authenticated', 'authenticated', 'buyer.chen@dwellingly.ai', crypt('password123', gen_salt('bf')), NOW(), NOW(), NOW(), '{"provider":"email","providers":["email"]}', '{"full_name": "Priya Chen", "role": "buyer"}', NOW(), NOW(), '', '', '', '')
+ON CONFLICT (id) DO NOTHING;
+
+INSERT INTO public.offers (property_id, buyer_id, offer_amount, earnest_money, contingencies, proposed_closing_date, financing_type, down_payment, status, created_at)
+VALUES
+  -- Over ask, conventional with 20% down, waives inspection.
+  (1, '22222222-2222-2222-2222-222222222222', 905000.00, 20000.00, '["Financing", "Appraisal"]'::jsonb, CURRENT_DATE + 21, 'conventional', 181000.00, 'submitted', NOW() - INTERVAL '3 days'),
+  -- At ask, all cash, waives everything -- fastest, most certain close.
+  (1, '33333333-3333-3333-3333-333333333333', 875000.00, 50000.00, '[]'::jsonb, CURRENT_DATE + 11, 'cash', NULL, 'submitted', NOW() - INTERVAL '2 days'),
+  -- Highest price but FHA with 3.5% down and every contingency intact.
+  (1, '44444444-4444-4444-4444-444444444444', 915000.00, 10000.00, '["Inspection", "Financing", "Appraisal"]'::jsonb, CURRENT_DATE + 52, 'fha', 32025.00, 'submitted', NOW() - INTERVAL '1 day')
+ON CONFLICT DO NOTHING;

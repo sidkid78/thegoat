@@ -1,170 +1,117 @@
 'use client';
 
-import React, { useState, useTransition } from 'react';
+import React, { useMemo } from 'react';
 import Link from 'next/link';
-import { CheckCircle2, XCircle, FileSignature, Loader2, Inbox } from 'lucide-react';
-import { acceptOfferAction, rejectOfferAction } from '@/app/actions/offers';
+import { ArrowRight, Inbox } from 'lucide-react';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type OfferRow = any;
 
-const STATUS_STYLES: Record<string, string> = {
-  submitted: 'bg-surface-container text-ink-muted',
-  countered: 'bg-surface-container text-ink-muted',
-  accepted: 'bg-success/15 text-success',
-  rejected: 'bg-danger-container text-danger',
-  withdrawn: 'bg-surface-container text-ink-muted',
-};
+const usd = (n: number) => `$${Math.round(n).toLocaleString()}`;
 
-function OfferCard({ offer }: { offer: OfferRow }) {
-  const [isPending, startTransition] = useTransition();
-  const [error, setError] = useState<string | null>(null);
-  const [docusignNote, setDocusignNote] = useState<string | null>(null);
+interface ListingGroup {
+  property: OfferRow;
+  offers: OfferRow[];
+}
 
-  const property = offer.properties;
-  const buyer = offer.profiles;
+/** Groups offers by the listing they were made on, newest listing activity first. */
+function groupByProperty(offers: OfferRow[]): ListingGroup[] {
+  const groups = new Map<number, ListingGroup>();
+  for (const offer of offers) {
+    const property = offer.properties;
+    if (!property) continue;
+    const existing = groups.get(property.id);
+    if (existing) {
+      existing.offers.push(offer);
+    } else {
+      groups.set(property.id, { property, offers: [offer] });
+    }
+  }
+  return [...groups.values()];
+}
 
-  const handleAccept = () => {
-    setError(null);
-    startTransition(async () => {
-      const res = await acceptOfferAction(offer.id);
-      if (!res.success) {
-        setError(res.error || 'Failed to accept offer.');
-        return;
-      }
-      if (res.docusignError) {
-        setDocusignNote(`Offer accepted, but sending the contract for signature failed: ${res.docusignError}`);
-      } else {
-        setDocusignNote('Offer accepted — the purchase agreement has been sent to the buyer for signature.');
-      }
-    });
-  };
+function ListingCard({ group }: { group: ListingGroup }) {
+  const { property, offers } = group;
 
-  const handleReject = () => {
-    setError(null);
-    startTransition(async () => {
-      const res = await rejectOfferAction(offer.id);
-      if (!res.success) setError(res.error || 'Failed to reject offer.');
-    });
-  };
+  // Withdrawn offers are retired rather than deleted, so they shouldn't count
+  // toward what the seller sees as live activity.
+  const live = offers.filter((o) => o.status !== 'withdrawn');
+  const open = live.filter((o) => o.status === 'submitted' || o.status === 'countered');
+  const accepted = live.find((o) => o.status === 'accepted');
+  const best = live.reduce<number>((max, o) => Math.max(max, Number(o.offer_amount)), 0);
+  const listPrice = Number(property.price) || 0;
+  const bestDelta = listPrice ? ((best - listPrice) / listPrice) * 100 : 0;
 
   return (
-    <div className="rounded-card border border-hairline bg-surface-lowest p-6 shadow-card">
-      <div className="flex flex-wrap items-start justify-between gap-3">
+    <Link
+      href={`/dashboard/offers/${property.id}`}
+      className="block rounded-card border border-hairline bg-surface-lowest p-6 shadow-card transition hover:shadow-card-hover"
+    >
+      <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
-          <Link
-            href={`/properties/${property?.id}`}
-            className="font-display text-lg font-semibold text-navy-deep hover:underline"
-          >
-            {property?.address}
-          </Link>
+          <h2 className="font-display text-lg font-semibold text-navy-deep">{property.address}</h2>
           <p className="mt-0.5 text-body-sm text-ink-muted">
-            {property?.city}, {property?.state}
-          </p>
-          <p className="mt-1 text-body-sm text-ink-muted">
-            From {buyer?.full_name || 'a buyer'} ({buyer?.email})
+            {property.city}, {property.state} • Listed at {usd(listPrice)}
           </p>
         </div>
-        <span
-          className={`rounded-full px-3 py-1.5 text-label-md uppercase ${STATUS_STYLES[offer.status] ?? 'bg-surface-container text-ink-muted'}`}
-        >
-          {offer.status}
+        <span className="flex items-center gap-1.5 text-label-md uppercase text-navy">
+          Compare {live.length} offer{live.length === 1 ? '' : 's'}
+          <ArrowRight className="h-4 w-4" />
         </span>
       </div>
 
-      <div className="mt-4 grid grid-cols-2 gap-4 border-t border-hairline pt-4 sm:grid-cols-4">
+      <dl className="mt-4 grid grid-cols-2 gap-4 border-t border-hairline pt-4 sm:grid-cols-3">
         <div>
-          <p className="text-label-md uppercase text-ink-muted">Offer</p>
-          <p className="mt-1 text-body-md font-semibold text-ink">
-            ${Number(offer.offer_amount).toLocaleString()}
-          </p>
-        </div>
-        <div>
-          <p className="text-label-md uppercase text-ink-muted">Earnest Money</p>
-          <p className="mt-1 text-body-md font-semibold text-ink">
-            {offer.earnest_money ? `$${Number(offer.earnest_money).toLocaleString()}` : '—'}
-          </p>
-        </div>
-        <div>
-          <p className="text-label-md uppercase text-ink-muted">Closing Date</p>
-          <p className="mt-1 text-body-md font-semibold text-ink">
-            {offer.proposed_closing_date
-              ? new Date(offer.proposed_closing_date).toLocaleDateString()
-              : '—'}
-          </p>
+          <dt className="text-label-md uppercase text-ink-muted">Highest Offer</dt>
+          <dd className="mt-1 text-body-md font-semibold text-ink">
+            {best ? usd(best) : '—'}
+            {best > 0 && listPrice > 0 && (
+              <span className={`ml-1.5 text-body-sm ${bestDelta >= 0 ? 'text-success' : 'text-ink-muted'}`}>
+                {bestDelta >= 0 ? '+' : ''}
+                {bestDelta.toFixed(1)}%
+              </span>
+            )}
+          </dd>
         </div>
         <div>
-          <p className="text-label-md uppercase text-ink-muted">Contingencies</p>
-          <p className="mt-1 text-body-sm text-ink">
-            {Array.isArray(offer.contingencies) && offer.contingencies.length > 0
-              ? offer.contingencies.join(', ')
-              : 'None'}
-          </p>
+          <dt className="text-label-md uppercase text-ink-muted">Awaiting Response</dt>
+          <dd className="mt-1 text-body-md font-semibold text-ink">{open.length}</dd>
         </div>
-      </div>
-
-      {offer.docusign_envelope_id && (
-        <p className="mt-4 flex items-center gap-2 rounded-soft bg-surface-low px-3 py-2 text-body-sm text-ink-muted">
-          <FileSignature className="h-4 w-4 text-navy" />
-          Purchase agreement sent for signature (envelope {offer.docusign_envelope_id.slice(0, 8)}…)
-        </p>
-      )}
-
-      {docusignNote && (
-        <p className="mt-4 rounded-soft bg-surface-low px-3 py-2 text-body-sm text-ink-muted">{docusignNote}</p>
-      )}
-      {error && (
-        <p className="mt-4 rounded-soft bg-danger-container px-3 py-2 text-body-sm text-danger">{error}</p>
-      )}
-
-      {offer.status === 'submitted' && (
-        <div className="mt-5 flex gap-3 border-t border-hairline pt-5">
-          <button
-            type="button"
-            onClick={handleAccept}
-            disabled={isPending}
-            className="flex flex-1 items-center justify-center gap-2 rounded-soft bg-navy py-3 text-sm font-semibold text-white transition hover:bg-navy-deep disabled:opacity-60"
-          >
-            {isPending ? <Loader2 className="h-4 w-4 animate-spin" /> : <CheckCircle2 className="h-4 w-4" />}
-            Accept Offer
-          </button>
-          <button
-            type="button"
-            onClick={handleReject}
-            disabled={isPending}
-            className="flex flex-1 items-center justify-center gap-2 rounded-soft border border-outline-variant py-3 text-sm font-semibold text-ink transition hover:border-danger hover:text-danger disabled:opacity-60"
-          >
-            <XCircle className="h-4 w-4" />
-            Reject
-          </button>
+        <div>
+          <dt className="text-label-md uppercase text-ink-muted">Status</dt>
+          <dd className="mt-1 text-body-md font-semibold text-ink">
+            {accepted ? 'Offer accepted' : open.length > 0 ? 'Open for review' : 'No open offers'}
+          </dd>
         </div>
-      )}
-    </div>
+      </dl>
+    </Link>
   );
 }
 
 export function SellerOffersInbox({ offers, isSignedIn }: { offers: OfferRow[]; isSignedIn: boolean }) {
+  const groups = useMemo(() => groupByProperty(offers), [offers]);
+
   return (
     <div className="mx-auto max-w-4xl px-6 py-10 lg:px-10">
       <h1 className="font-display text-headline-xl text-navy-deep">Offers Received</h1>
       <p className="mt-2 text-body-md text-ink-muted">
-        Offers submitted on properties you own. Accepting an offer sends the purchase agreement to the
-        buyer for e-signature via DocuSign.
+        Offers submitted on properties you own. Open a listing to compare its offers side-by-side;
+        accepting one sends the purchase agreement to that buyer for e-signature via DocuSign.
       </p>
 
       {!isSignedIn ? (
         <p className="mt-8 rounded-card border border-dashed border-outline-variant bg-surface-lowest p-10 text-center text-body-md text-ink-muted">
           Sign in to view offers on your listings.
         </p>
-      ) : offers.length === 0 ? (
+      ) : groups.length === 0 ? (
         <div className="mt-8 rounded-card border border-dashed border-outline-variant bg-surface-lowest p-10 text-center">
           <Inbox className="mx-auto h-8 w-8 text-outline" />
           <p className="mt-3 text-body-md text-ink-muted">No offers yet on your listings.</p>
         </div>
       ) : (
         <div className="mt-8 space-y-6">
-          {offers.map((offer) => (
-            <OfferCard key={offer.id} offer={offer} />
+          {groups.map((group) => (
+            <ListingCard key={group.property.id} group={group} />
           ))}
         </div>
       )}
