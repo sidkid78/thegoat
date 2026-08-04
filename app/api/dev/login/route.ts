@@ -7,10 +7,13 @@ export async function GET(req: Request) {
   }
 
   const supabase = await createClient();
-  
-  // Login as the seed user
+
+  const url = new URL(req.url);
+  const asBuyer = url.searchParams.get('as') === 'buyer';
+
+  // Login as one of the two seed users.
   const { error } = await supabase.auth.signInWithPassword({
-    email: 'seller.sarah@dwellingly.ai',
+    email: asBuyer ? 'buyer.alex@dwellingly.ai' : 'seller.sarah@dwellingly.ai',
     password: 'password123',
   });
 
@@ -19,6 +22,5 @@ export async function GET(req: Request) {
   }
 
   // Redirect to the home page or search page
-  const url = new URL(req.url);
   return NextResponse.redirect(new URL('/search', url.origin));
 }

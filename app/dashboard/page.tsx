@@ -31,7 +31,9 @@ export default async function DashboardPage() {
           .order('created_at', { ascending: false }),
         supabase
           .from('offers')
-          .select('id, offer_amount, status, created_at, proposed_closing_date, properties (address, city, state)')
+          .select(
+            'id, offer_amount, earnest_money, status, created_at, proposed_closing_date, stripe_checkout_session_id, earnest_money_paid_at, docusign_envelope_id, properties (id, address, city, state)'
+          )
           .order('created_at', { ascending: false }),
         supabase
           .from('viewings')

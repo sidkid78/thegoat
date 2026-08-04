@@ -3,6 +3,7 @@
 import React, { useMemo } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { MyOffersSection } from '@/components/dashboard/MyOffersSection';
 import {
   Bookmark,
   CalendarDays,
@@ -243,6 +244,8 @@ export function DashboardView({
             ))}
           </dl>
 
+          <MyOffersSection offers={offers} />
+
           {/* Toolkit */}
           <h2 className="mt-12 font-display text-headline-md text-navy-deep">
             Your Real Estate Toolkit
@@ -318,6 +321,14 @@ export function DashboardView({
           >
             <span className="text-body-md font-semibold text-navy-deep">Find more listings</span>
             <TrendingUp className="h-4 w-4 text-navy" />
+          </Link>
+
+          <Link
+            href="/dashboard/offers"
+            className="mt-4 flex items-center justify-between rounded-card border border-hairline bg-surface-lowest px-6 py-4 shadow-card transition hover:border-navy"
+          >
+            <span className="text-body-md font-semibold text-navy-deep">Offers received on your listings</span>
+            <FileText className="h-4 w-4 text-navy" />
           </Link>
         </aside>
       </div>
