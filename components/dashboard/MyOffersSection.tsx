@@ -2,7 +2,7 @@
 
 import React, { useState, useTransition } from 'react';
 import Link from 'next/link';
-import { CreditCard, CheckCircle2, FileSignature, Loader2 } from 'lucide-react';
+import { CreditCard, CheckCircle2, FileSignature, Loader2, MessagesSquare } from 'lucide-react';
 import { createEarnestMoneyCheckoutAction } from '@/app/actions/offers';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -56,6 +56,13 @@ function OfferRowItem({ offer }: { offer: OfferRow }) {
         >
           {offer.status}
         </span>
+
+        <Link
+          href={`/deals/${offer.id}`}
+          className="flex items-center gap-1.5 text-body-sm font-semibold text-navy transition hover:underline"
+        >
+          <MessagesSquare className="h-4 w-4" /> Negotiate
+        </Link>
 
         {isPaid ? (
           <span className="flex items-center gap-1.5 text-body-sm font-semibold text-success">

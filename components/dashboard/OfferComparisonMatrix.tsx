@@ -9,6 +9,7 @@ import {
   Inbox,
   Loader2,
   MapPin,
+  MessagesSquare,
   Sparkles,
   XCircle,
 } from 'lucide-react';
@@ -436,6 +437,13 @@ function OfferColumn({
       <div className="mt-auto border-t border-hairline bg-surface-low p-4">
         {notice && <p className="mb-3 text-body-sm text-ink-muted">{notice}</p>}
         {error && <p className="mb-3 text-body-sm text-danger">{error}</p>}
+
+        <Link
+          href={`/deals/${offer.id}`}
+          className="mb-2 flex items-center justify-center gap-1.5 rounded-soft py-2 text-label-md uppercase text-navy transition hover:underline print:hidden"
+        >
+          <MessagesSquare className="h-4 w-4" /> Negotiate
+        </Link>
 
         {isOpen && !anotherOfferAccepted ? (
           <div className="space-y-2 print:hidden">
