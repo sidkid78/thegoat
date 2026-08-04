@@ -105,7 +105,6 @@ def process_csv():
                 prop_type = determine_property_type(sqft, bed, bath)
                 desc = generate_description(city, state, int(bed), bath, sqft, prop_type, price)
                 
-                photo_sample = random.sample(REAL_ESTATE_PHOTOS, min(3, len(REAL_ESTATE_PHOTOS)))
                 features = {
                     "yearBuilt": random.randint(1990, 2024),
                     "hasPool": random.choice([True, False, False]),
@@ -127,7 +126,7 @@ def process_csv():
                     "property_type": prop_type,
                     "description": desc,
                     "features": features,
-                    "photos": photo_sample,
+                    "photos": [],
                     "status": "active"
                 })
             except (ValueError, TypeError):
@@ -147,6 +146,15 @@ def process_csv():
 
     print(f"Selected {len(valid_rows)} listings "
           f"({sum(1 for r in valid_rows if r['city'].lower() in AUSTIN_METRO_CITIES)} Austin metro).")
+
+    # There are only 14 stock photos to go around, and PropertyCard only ever
+    # renders photos[0] on the search grid. Independent random.sample() per
+    # row let one image cluster onto up to a third of all cards by chance —
+    # assign the cover photo round-robin instead so the pool spreads evenly.
+    for i, row in enumerate(valid_rows):
+        cover = REAL_ESTATE_PHOTOS[i % len(REAL_ESTATE_PHOTOS)]
+        rest = [p for p in REAL_ESTATE_PHOTOS if p != cover]
+        row['photos'] = [cover] + random.sample(rest, min(2, len(rest)))
 
     # Save JSON data for seed.ts script
     with open(TS_OUTPUT_PATH, 'w', encoding='utf-8') as f:

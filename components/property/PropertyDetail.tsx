@@ -220,7 +220,20 @@ export function PropertyDetail({
               </p>
               <button
                 type="button"
-                onClick={() => window.dispatchEvent(new CustomEvent('dwellingly:open-ai'))}
+                onClick={() =>
+                  window.dispatchEvent(
+                    new CustomEvent('dwellingly:open-ai', {
+                      detail: {
+                        address: property.address,
+                        city: property.city,
+                        state: property.state,
+                        zipCode: property.zip_code,
+                        latitude: property.latitude,
+                        longitude: property.longitude,
+                      },
+                    })
+                  )
+                }
                 className="flex items-center gap-2 rounded-soft bg-navy px-5 py-3 text-sm font-semibold text-white transition hover:bg-navy-deep"
               >
                 Ask about this neighborhood

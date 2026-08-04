@@ -53,26 +53,6 @@ export const searchPropertiesToolDeclaration = {
   },
 };
 
-export const getNeighborhoodStatsToolDeclaration = {
-  type: 'function',
-  name: 'getNeighborhoodStats',
-  description: 'Retrieve hyper-local neighborhood stats including crime index, walk score, school ratings, and local market velocity.',
-  parameters: {
-    type: 'object',
-    properties: {
-      zipCode: {
-        type: 'string',
-        description: '5-digit US Postal ZIP Code.',
-      },
-      cityName: {
-        type: 'string',
-        description: 'City name.',
-      },
-    },
-    required: ['zipCode'],
-  },
-};
-
 export const schedulePropertyViewingToolDeclaration = {
   type: 'function',
   name: 'schedulePropertyViewing',
@@ -99,7 +79,6 @@ export const schedulePropertyViewingToolDeclaration = {
 
 export const ALL_AGENT_TOOLS = [
   searchPropertiesToolDeclaration,
-  getNeighborhoodStatsToolDeclaration,
   schedulePropertyViewingToolDeclaration,
 ];
 
@@ -146,22 +125,6 @@ export async function executeSearchProperties(args: {
     success: true,
     resultCount: listings.length,
     listings,
-  };
-}
-
-export async function executeGetNeighborhoodStats(args: { zipCode: string; cityName?: string }) {
-  // Simulated hyper-local neighborhood API grounding call
-  return {
-    success: true,
-    zipCode: args.zipCode,
-    neighborhood: args.cityName ? `${args.cityName} Central` : 'Metro Region',
-    walkScore: 88,
-    transitScore: 72,
-    schoolRatingAverage: 8.5,
-    crimeIndex: 'Low (18% below national average)',
-    medianHomePrice: 685000,
-    pricePerSqFtTrend: '+4.2% YoY',
-    avgDaysOnMarket: 22,
   };
 }
 

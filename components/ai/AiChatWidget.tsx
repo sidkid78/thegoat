@@ -3,21 +3,23 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { 
-  X, 
-  Send, 
-  Sparkles, 
-  Bot, 
-  User, 
-  Loader2, 
-  Mic, 
-  MicOff, 
-  Home, 
+import {
+  X,
+  Send,
+  Sparkles,
+  Bot,
+  User,
+  Loader2,
+  Mic,
+  MicOff,
+  Home,
   ExternalLink,
   ChevronRight,
   TrendingUp,
-  RefreshCw
+  RefreshCw,
+  MapPin,
 } from 'lucide-react';
+import type { PropertyLocationContext } from '@/lib/ai/chat';
 
 interface ChatMessage {
   id: string;
@@ -29,11 +31,13 @@ interface ChatMessage {
     args: any;
     result?: any;
   };
+  citations?: { name: string; url: string }[];
 }
 
 interface AiChatWidgetProps {
   isOpen: boolean;
   onClose: () => void;
+  propertyContext?: PropertyLocationContext;
 }
 
 /**
@@ -101,7 +105,7 @@ function MessageBody({ content, isUser }: { content: string; isUser: boolean }) 
   );
 }
 
-export function AiChatWidget({ isOpen, onClose }: AiChatWidgetProps) {
+export function AiChatWidget({ isOpen, onClose, propertyContext }: AiChatWidgetProps) {
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
       id: 'welcome-1',
@@ -162,6 +166,7 @@ export function AiChatWidget({ isOpen, onClose }: AiChatWidgetProps) {
         body: JSON.stringify({
           interactionId: interactionId,
           newMessage: query,
+          propertyContext,
         }),
       });
 
@@ -215,6 +220,12 @@ export function AiChatWidget({ isOpen, onClose }: AiChatWidgetProps) {
                           },
                         }
                       : msg
+                  )
+                );
+              } else if (parsed.type === 'citations' && parsed.content?.length) {
+                setMessages((prev) =>
+                  prev.map((msg) =>
+                    msg.id === assistantMsgId ? { ...msg, citations: parsed.content } : msg
                   )
                 );
               }
@@ -373,6 +384,28 @@ export function AiChatWidget({ isOpen, onClose }: AiChatWidgetProps) {
                         </Link>
                       );
                     })}
+                    </div>
+                  </div>
+                )}
+
+                {/* Maps-grounded citations */}
+                {msg.citations && msg.citations.length > 0 && (
+                  <div className="mt-3 space-y-1.5 border-t border-hairline pt-2">
+                    <p className="flex items-center gap-1 text-label-md uppercase text-navy">
+                      <MapPin className="h-3.5 w-3.5" /> Sources
+                    </p>
+                    <div className="flex flex-wrap gap-1.5">
+                      {msg.citations.map((c) => (
+                        <a
+                          key={c.url}
+                          href={c.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="rounded-full border border-outline-variant bg-surface-lowest px-2.5 py-1 text-[11px] font-medium text-ink-muted transition hover:border-navy hover:text-navy"
+                        >
+                          {c.name}
+                        </a>
+                      ))}
                     </div>
                   </div>
                 )}

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
-import { streamAgentChat } from '@/lib/ai/chat';
+import { streamAgentChat, PropertyLocationContext } from '@/lib/ai/chat';
 
 export const runtime = 'nodejs';
 
@@ -12,9 +12,10 @@ export async function POST(req: NextRequest) {
     const userId = user?.id || 'guest';
 
     const body = await req.json();
-    const { interactionId, newMessage } = body as {
+    const { interactionId, newMessage, propertyContext } = body as {
       interactionId?: string;
       newMessage: string;
+      propertyContext?: PropertyLocationContext;
     };
 
     if (!newMessage || typeof newMessage !== 'string') {
@@ -31,6 +32,7 @@ export async function POST(req: NextRequest) {
             userId: userId,
             interactionId,
             newMessage,
+            propertyContext,
           });
 
           for await (const chunk of chatGenerator) {

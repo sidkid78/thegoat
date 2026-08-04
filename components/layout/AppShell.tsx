@@ -5,14 +5,22 @@ import { Sparkles, X } from 'lucide-react';
 import { Navbar } from '@/components/layout/Navbar';
 import { AiChatWidget } from '@/components/ai/AiChatWidget';
 import { SiteFooter } from '@/components/layout/SiteFooter';
+import type { PropertyLocationContext } from '@/lib/ai/chat';
 
 export function AppShell({ children }: { children: React.ReactNode }) {
   const [isAiChatOpen, setIsAiChatOpen] = useState(false);
+  const [aiPropertyContext, setAiPropertyContext] = useState<PropertyLocationContext | undefined>(undefined);
 
-  // Lets deep content (e.g. the search AI banner) raise the assistant without
-  // threading state down through every page.
+  // Lets deep content (e.g. the search AI banner, or a property page's
+  // "Ask about this neighborhood" button) raise the assistant without
+  // threading state down through every page. An optional `detail` payload
+  // carries the property location so Maps grounding can bias to it.
   useEffect(() => {
-    const open = () => setIsAiChatOpen(true);
+    const open = (e: Event) => {
+      const detail = (e as CustomEvent<PropertyLocationContext>).detail;
+      setAiPropertyContext(detail);
+      setIsAiChatOpen(true);
+    };
     window.addEventListener('dwellingly:open-ai', open);
     return () => window.removeEventListener('dwellingly:open-ai', open);
   }, []);
@@ -47,6 +55,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       <AiChatWidget
         isOpen={isAiChatOpen}
         onClose={() => setIsAiChatOpen(false)}
+        propertyContext={aiPropertyContext}
       />
     </div>
   );
