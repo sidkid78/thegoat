@@ -14,7 +14,9 @@ const navLinks = [
   { href: '/dashboard', label: 'Dashboard' },
   { href: '/search', label: 'Search' },
   { href: '/staging', label: 'Deals' },
-  { href: '/dashboard', label: 'Portfolio' },
+  // Portfolio pointed at /dashboard, duplicating the first link and leaving two
+  // nav items permanently active together.
+  { href: '/evaluate', label: 'Portfolio' },
 ];
 
 export function Navbar({}: NavbarProps) {

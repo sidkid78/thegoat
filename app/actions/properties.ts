@@ -14,18 +14,25 @@ export async function toggleFavoriteAction(propertyId: number) {
     throw new Error('Authentication required');
   }
 
-  // Check if existing favorite exists
+  // `favorites` is keyed on the composite (user_id, property_id) and has no
+  // `id` column -- selecting or deleting by one silently never matches, which
+  // left un-favoriting broken and a re-favorite colliding on the primary key.
   const { data: existing } = await supabase
     .from('favorites')
-    .select('id')
+    .select('property_id')
     .eq('user_id', user.id)
     .eq('property_id', propertyId)
-    .single();
+    .maybeSingle();
 
   if (existing) {
     // Remove favorite
-    await supabase.from('favorites').delete().eq('id', existing.id);
+    await supabase
+      .from('favorites')
+      .delete()
+      .eq('user_id', user.id)
+      .eq('property_id', propertyId);
     revalidatePath(`/properties/${propertyId}`);
+    revalidatePath('/evaluate');
     return { isFavorite: false };
   } else {
     // Add favorite
@@ -34,6 +41,7 @@ export async function toggleFavoriteAction(propertyId: number) {
       property_id: propertyId,
     });
     revalidatePath(`/properties/${propertyId}`);
+    revalidatePath('/evaluate');
     return { isFavorite: true };
   }
 }
