@@ -6,8 +6,15 @@ import { Navbar } from '@/components/layout/Navbar';
 import { AiChatWidget } from '@/components/ai/AiChatWidget';
 import { SiteFooter } from '@/components/layout/SiteFooter';
 import type { PropertyLocationContext } from '@/lib/ai/chat';
+import type { Account } from '@/components/layout/Navbar';
 
-export function AppShell({ children }: { children: React.ReactNode }) {
+export function AppShell({
+  children,
+  account,
+}: {
+  children: React.ReactNode;
+  account: Account | null;
+}) {
   const [isAiChatOpen, setIsAiChatOpen] = useState(false);
   const [aiPropertyContext, setAiPropertyContext] = useState<PropertyLocationContext | undefined>(undefined);
 
@@ -28,6 +35,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex min-h-screen flex-col bg-surface">
       <Navbar
+        account={account}
         isAiChatOpen={isAiChatOpen}
         onToggleAiChat={() => setIsAiChatOpen(!isAiChatOpen)}
       />

@@ -130,3 +130,21 @@ VALUES
   -- Highest price but FHA with 3.5% down and every contingency intact.
   (1, '44444444-4444-4444-4444-444444444444', 915000.00, 10000.00, '["Inspection", "Financing", "Appraisal"]'::jsonb, CURRENT_DATE + 52, 'fha', 32025.00, 'submitted', NOW() - INTERVAL '1 day')
 ON CONFLICT DO NOTHING;
+
+-- ----------------------------------------------------------------------------
+-- 6. BUYER SHORTLIST (Property Evaluation Hub demo fixture)
+-- The hub compares saved properties, so it needs a shortlist to compare.
+--
+-- These reference ids 1-3 specifically: this file runs BEFORE seed_realtor.sql
+-- in `sql_paths`, so favoriting a realtor listing (ids 4-103) here would fail
+-- the foreign key. Ids 1-3 also carry real embeddings from seed_vectors.sql, so
+-- match % scores against them are meaningful rather than uniform -- and they're
+-- deliberately distinct (pool house / downtown condo / townhouse) so different
+-- stated priorities visibly reorder them.
+-- ----------------------------------------------------------------------------
+INSERT INTO public.favorites (user_id, property_id)
+VALUES
+  ('22222222-2222-2222-2222-222222222222', 1),
+  ('22222222-2222-2222-2222-222222222222', 2),
+  ('22222222-2222-2222-2222-222222222222', 3)
+ON CONFLICT DO NOTHING;

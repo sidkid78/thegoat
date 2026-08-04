@@ -3,11 +3,15 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Search, Bell, UserCircle2, Menu, X } from 'lucide-react';
+import { Search, Bell, Menu, X } from 'lucide-react';
+import { AccountMenu, type Account } from '@/components/layout/AccountMenu';
+
+export type { Account };
 
 interface NavbarProps {
   onToggleAiChat: () => void;
   isAiChatOpen: boolean;
+  account: Account | null;
 }
 
 const navLinks = [
@@ -19,7 +23,7 @@ const navLinks = [
   { href: '/evaluate', label: 'Portfolio' },
 ];
 
-export function Navbar({}: NavbarProps) {
+export function Navbar({ account }: NavbarProps) {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -76,13 +80,7 @@ export function Navbar({}: NavbarProps) {
             <Bell className="h-5 w-5" />
           </button>
 
-          <button
-            type="button"
-            aria-label="Account"
-            className="flex h-9 w-9 items-center justify-center rounded-soft text-ink-muted transition hover:bg-surface-container hover:text-navy"
-          >
-            <UserCircle2 className="h-6 w-6" />
-          </button>
+          <AccountMenu account={account} />
 
           <button
             type="button"

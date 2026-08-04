@@ -41,7 +41,11 @@ There are only 14 stock photo URLs in `REAL_ESTATE_PHOTOS`, and `PropertyCard` o
 
 There is no test framework. `scripts/test_ai_tool_search.ts` and `scripts/test_full_ai_chat.ts` are manual end-to-end probes against a live DB + Gemini key — run individually with `npx tsx scripts/test_full_ai_chat.ts`.
 
-Dev auth shortcut: `GET /api/dev/login` signs in as the seeded seller (`seller.sarah@dwellingly.ai` / `password123`) and redirects to `/search`; `?as=buyer` signs in as `buyer.alex@dwellingly.ai` instead — needed for testing the offer flow, since accept/reject is seller-only and paying earnest money is buyer-only. It 403s outside `NODE_ENV=development`.
+Dev auth shortcut: `GET /api/dev/login` signs in as the seeded seller (`seller.sarah@dwellingly.ai` / `password123`) and redirects to `/search`; `?as=buyer` signs in as `buyer.alex@dwellingly.ai` instead — needed for testing the offer flow, since accept/reject is seller-only and paying earnest money is buyer-only. `?next=/some/path` returns you there instead of `/search` (relative paths only — an absolute URL would make this an open redirect). It 403s outside `NODE_ENV=development`.
+
+The route calls `signOut()` before signing in. `npx supabase db reset` wipes `auth.users` while the browser keeps its cookies, leaving a refresh token that no longer resolves; every later request then fails with `Invalid Refresh Token` and a fresh sign-in never takes hold until the stale cookie is cleared. This is the usual explanation for "I hit /api/dev/login but the app still says signed out" after a reset.
+
+The navbar's profile icon is an account menu (`components/layout/AccountMenu.tsx`) showing the signed-in identity, role, a dev-only buyer/seller switcher, and sign out. The identity is resolved **once per request in `app/layout.tsx`** (a server component) and threaded down as `account` through `AppShell` → `Navbar` → `AccountMenu` — those three are all client components with no way to reach Supabase themselves. There is no `/login` route and no sign-in UI anywhere in the app, so the menu shows no "Sign in" link when signed out; in development the switcher is the way in.
 
 Scripts parse `.env.local` by hand (no dotenv) — they read `NEXT_PUBLIC_SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, `GEMINI_API_KEY`.
 
