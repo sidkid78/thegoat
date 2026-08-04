@@ -59,7 +59,7 @@ async function testToolSearch() {
     console.error('RPC Search Error:', error);
   } else {
     console.log(`\n✅ RPC Search returned ${data?.length || 0} listings:`);
-    data?.forEach((item: any, idx: number) => {
+    data?.forEach((item: { similarity: number, address: string, city: string, state: string, price: number | string, bedrooms: number, bathrooms: number }, idx: number) => {
       console.log(`  ${idx + 1}. [${item.similarity.toFixed(4)}] ${item.address}, ${item.city}, ${item.state} - $${Number(item.price).toLocaleString()} (${item.bedrooms} bed, ${item.bathrooms} bath)`);
     });
   }
