@@ -134,7 +134,9 @@ Content deep in the tree can raise the AI assistant by dispatching `window.dispa
 
 Two things that will make texts silently not arrive even with credentials set: **a Twilio trial account can only message numbers verified in the Twilio console**, and the seeded `512-555-xxxx` numbers are not real. Set a real verified number via the account menu to see anything.
 
-**`POST /api/offers` is a second, parallel offer-submission path** that inserts directly instead of going through `submitOfferAction` — so it does *not* send the new-offer text (or hit any of the Server Action logic). Nothing in the UI calls it; `OfferWizard` uses the Server Action. Treat the route as legacy and prefer the action.
+`/api/offers` used to be a second, parallel offer-submission path that inserted directly instead of going through `submitOfferAction`. **It was deleted** — nothing called it, it skipped the notification and the financing columns, and it was the last caller of the deprecated `ai.models.generateContent` API. Offers go through `submitOfferAction` only.
+
+That route was also the only writer of `offers.ai_risk_assessment` (added by `20260730000000`), and nothing ever read it — the column is now permanently unwritten. It's left in place rather than dropped; if you want offer risk scoring back, rebuild it on the Interactions API inside `submitOfferAction` where it can actually be surfaced.
 
 `stripe.ts` and `docusign.ts` have real, verified implementations when credentials are present, and both are wired into the offer lifecycle now:
 
