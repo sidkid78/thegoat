@@ -5,6 +5,7 @@ import { revalidatePath } from 'next/cache';
 import { sendOfferContractForSignature } from '@/lib/integrations/docusign';
 import { createEarnestMoneyCheckoutSession } from '@/lib/integrations/stripe';
 import { analyzeOffers, type OfferAnalysisResult } from '@/lib/ai/offer-analysis';
+import { sendOfferStatusSMS, sendNewOfferSMS } from '@/lib/integrations/twilio';
 
 export async function submitOfferAction(payload: {
   propertyId: number;
@@ -43,6 +44,20 @@ export async function submitOfferAction(payload: {
     return { success: false, error: error.message };
   }
 
+  // Tell the seller an offer landed. Fire-and-forget: a failed text must never
+  // fail the submission, and the buyer has no stake in whether it sent.
+  const { data: property } = await supabase
+    .from('properties')
+    .select('address, owner_id, profiles:owner_id (phone)')
+    .eq('id', payload.propertyId)
+    .single();
+
+  if (property) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const seller = property.profiles as any;
+    await sendNewOfferSMS(seller?.phone, property.address, payload.offerAmount);
+  }
+
   revalidatePath('/dashboard/offers');
   revalidatePath('/dashboard/offers/[propertyId]', 'page');
   return { success: true, offer: data };
@@ -65,7 +80,7 @@ export async function acceptOfferAction(offerId: number) {
   const { data: offer, error: fetchError } = await supabase
     .from('offers')
     .select(
-      'id, offer_amount, contingencies, proposed_closing_date, properties (address), profiles:buyer_id (full_name, email)'
+      'id, offer_amount, contingencies, proposed_closing_date, properties (address), profiles:buyer_id (full_name, email, phone)'
     )
     .eq('id', offerId)
     .single();
@@ -109,6 +124,17 @@ export async function acceptOfferAction(offerId: number) {
     docusignError = err instanceof Error ? err.message : String(err);
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const buyerProfile = offer.profiles as any;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const acceptedProperty = offer.properties as any;
+  await sendOfferStatusSMS(
+    buyerProfile?.phone,
+    acceptedProperty?.address ?? '',
+    'accepted',
+    Number(offer.offer_amount)
+  );
+
   revalidatePath('/dashboard/offers');
   revalidatePath('/dashboard/offers/[propertyId]', 'page');
   revalidatePath('/dashboard');
@@ -124,10 +150,29 @@ export async function rejectOfferAction(offerId: number) {
     return { success: false, error: 'Authentication required' };
   }
 
+  const { data: offer } = await supabase
+    .from('offers')
+    .select('offer_amount, properties (address), profiles:buyer_id (phone)')
+    .eq('id', offerId)
+    .single();
+
   const { error } = await supabase.from('offers').update({ status: 'rejected' }).eq('id', offerId);
 
   if (error) {
     return { success: false, error: error.message };
+  }
+
+  if (offer) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const rejectedProperty = offer.properties as any;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const rejectedBuyer = offer.profiles as any;
+    await sendOfferStatusSMS(
+      rejectedBuyer?.phone,
+      rejectedProperty?.address ?? '',
+      'rejected',
+      Number(offer.offer_amount)
+    );
   }
 
   revalidatePath('/dashboard/offers');

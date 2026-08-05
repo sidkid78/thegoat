@@ -2,13 +2,15 @@
 
 import React, { useEffect, useRef, useState, useTransition } from 'react';
 import { usePathname } from 'next/navigation';
-import { ArrowLeftRight, LogOut, UserCircle2 } from 'lucide-react';
-import { signOutAction } from '@/app/actions/auth';
+import { ArrowLeftRight, Check, LogOut, MessageSquare, UserCircle2 } from 'lucide-react';
+import { signOutAction, updateNotificationPhoneAction } from '@/app/actions/auth';
 
 export interface Account {
   fullName: string;
   email: string;
   role: string;
+  /** E.164 number SMS alerts go to, or null when notifications are off. */
+  phone: string | null;
 }
 
 const ROLE_LABELS: Record<string, string> = {
@@ -116,6 +118,8 @@ export function AccountMenu({ account }: { account: Account | null }) {
             </div>
           )}
 
+          {account && <NotificationPhoneField initialPhone={account.phone} />}
+
           {/* There is no sign-in route in this app yet -- the dev switcher above
               is the only way in -- so signed-out users get no dead "Sign in"
               link here. */}
@@ -136,6 +140,79 @@ export function AccountMenu({ account }: { account: Account | null }) {
             </button>
           )}
         </div>
+      )}
+    </div>
+  );
+}
+
+/**
+ * Where SMS alerts go. Lives in the account menu because it's a single field
+ * tied to identity and the app has no settings page.
+ *
+ * On a Twilio trial account only numbers verified in the Twilio console can
+ * receive messages, so setting a real number here is the difference between
+ * the notification path working and silently no-op'ing.
+ */
+function NotificationPhoneField({ initialPhone }: { initialPhone: string | null }) {
+  const [phone, setPhone] = useState(initialPhone ?? '');
+  const [saved, setSaved] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [isSaving, startSaving] = useTransition();
+
+  const handleSave = () => {
+    setError(null);
+    setSaved(false);
+    startSaving(async () => {
+      const res = await updateNotificationPhoneAction(phone);
+      if (!res.success) {
+        setError(res.error);
+        return;
+      }
+      // Echo back the normalised E.164 value so it's clear what was stored.
+      setPhone(res.phone ?? '');
+      setSaved(true);
+    });
+  };
+
+  return (
+    <div className="border-b border-hairline px-4 py-3">
+      <label
+        htmlFor="notify-phone"
+        className="flex items-center gap-1.5 text-label-md uppercase text-ink-muted"
+      >
+        <MessageSquare className="h-3.5 w-3.5" /> SMS alerts
+      </label>
+      <div className="mt-2 flex items-center gap-2">
+        <input
+          id="notify-phone"
+          type="tel"
+          value={phone}
+          onChange={(e) => {
+            setPhone(e.target.value);
+            setSaved(false);
+          }}
+          placeholder="(512) 555-0192"
+          className="h-9 min-w-0 flex-1 rounded-soft border border-outline-variant bg-surface-lowest px-2.5 text-body-sm text-ink outline-none transition placeholder:text-outline focus:border-navy"
+        />
+        <button
+          type="button"
+          onClick={handleSave}
+          disabled={isSaving}
+          className="shrink-0 rounded-soft bg-navy px-3 py-2 text-label-md uppercase text-white transition hover:bg-navy-deep disabled:opacity-60"
+        >
+          Save
+        </button>
+      </div>
+      {saved && (
+        <p className="mt-1.5 flex items-center gap-1 text-label-md text-success">
+          <Check className="h-3.5 w-3.5" /> Saved
+        </p>
+      )}
+      {error && <p className="mt-1.5 text-label-md text-danger">{error}</p>}
+      {!phone && !error && (
+        <p className="mt-1.5 text-label-md text-ink-muted">
+          Add a number to get offer and tour alerts.
+        </p>
       )}
     </div>
   );

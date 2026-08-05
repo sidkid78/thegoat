@@ -2,6 +2,7 @@
 
 import { createClient } from '@/lib/supabase/server';
 import { revalidatePath } from 'next/cache';
+import { sendViewingConfirmationSMS } from '@/lib/integrations/twilio';
 
 /**
  * Toggles a user's favorite status for a property
@@ -76,6 +77,15 @@ export async function scheduleViewingAction(formData: FormData) {
   if (error) {
     return { success: false, error: error.message };
   }
+
+  // Confirm the tour by text. Looked up after the insert so a missing phone or
+  // a Twilio outage can't stop the viewing being booked.
+  const [{ data: property }, { data: profile }] = await Promise.all([
+    supabase.from('properties').select('address').eq('id', propertyId).single(),
+    supabase.from('profiles').select('phone').eq('id', user.id).single(),
+  ]);
+
+  await sendViewingConfirmationSMS(profile?.phone, property?.address ?? '', scheduledAt);
 
   revalidatePath(`/properties/${propertyId}`);
   return { success: true, viewing: data };

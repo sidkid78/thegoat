@@ -6,6 +6,7 @@ import {
   generateNegotiationStrategy,
   type NegotiationStrategy,
 } from '@/lib/ai/negotiation';
+import { sendOfferStatusSMS } from '@/lib/integrations/twilio';
 
 /**
  * Every participant check funnels through here so the three actions agree.
@@ -131,6 +132,21 @@ export async function counterOfferAction(
     sender_id: ctx.user.id,
     body: `Counter-offer sent: $${terms.counterAmount.toLocaleString()}${concessionNote}.${terms.notes ? ` ${terms.notes}` : ''}`,
   });
+
+  // Notify the buyer their offer was countered. The thread updates over
+  // Realtime, but only for a buyer who happens to have the page open.
+  const { data: buyer } = await ctx.supabase
+    .from('profiles')
+    .select('phone')
+    .eq('id', ctx.offer.buyer_id)
+    .single();
+
+  await sendOfferStatusSMS(
+    buyer?.phone,
+    ctx.property?.address ?? '',
+    'countered',
+    Number(ctx.offer.offer_amount)
+  );
 
   revalidatePath(`/deals/${offerId}`);
   revalidatePath('/dashboard/offers');

@@ -123,6 +123,19 @@ Content deep in the tree can raise the AI assistant by dispatching `window.dispa
 
 `lib/integrations/{stripe,twilio,docusign}.ts` all no-op gracefully when credentials are absent, returning `{ success: true, simulated: true }` or a fake envelope ID. Local development works without any of these keys.
 
+`twilio.ts` is **transactional notifications only** — no marketing, no OTP (auth is Supabase's job), no inbound. Everything funnels through `sendSms()`, which swallows every failure into a returned result: notification delivery must never break the action that triggered it, the same principle as a DocuSign failure not rolling back an acceptance. Wired into five places:
+
+- `submitOfferAction` → texts the **seller** that an offer landed
+- `acceptOfferAction` / `rejectOfferAction` → text the **buyer** the new status
+- `counterOfferAction` (`app/actions/deals.ts`) → texts the **buyer** they were countered
+- `scheduleViewingAction` → texts the **booker** a tour confirmation
+
+`toE164()` normalises before sending — profile phones are stored however the user typed them (the seed rows are `512-555-0192`) and Twilio rejects anything that isn't `+15125550192`. It returns `null` for anything unparseable, which callers treat as "no phone on file" rather than an error. The number is set in the navbar account menu (`NotificationPhoneField`) and stored normalised, so the value in `profiles.phone` is send-ready.
+
+Two things that will make texts silently not arrive even with credentials set: **a Twilio trial account can only message numbers verified in the Twilio console**, and the seeded `512-555-xxxx` numbers are not real. Set a real verified number via the account menu to see anything.
+
+**`POST /api/offers` is a second, parallel offer-submission path** that inserts directly instead of going through `submitOfferAction` — so it does *not* send the new-offer text (or hit any of the Server Action logic). Nothing in the UI calls it; `OfferWizard` uses the Server Action. Treat the route as legacy and prefer the action.
+
 `stripe.ts` and `docusign.ts` have real, verified implementations when credentials are present, and both are wired into the offer lifecycle now:
 
 - `acceptOfferAction`/`rejectOfferAction` (`app/actions/offers.ts`) are seller-only (RLS enforces this on the `offers` UPDATE policy — both buyer and the listing-owning seller can update, the action doesn't add its own role check). Accepting sets `status = 'accepted'` and calls `sendOfferContractForSignature()`, storing the result on `offers.docusign_envelope_id`; a DocuSign failure does **not** roll back the acceptance, it's surfaced back to the seller as `docusignError` instead so an integration hiccup can't block a real acceptance.
