@@ -38,6 +38,8 @@ export async function saveBuyerPreferencesAction(prefs: BuyerPreferences) {
   }
 
   revalidatePath('/evaluate');
+  // Stated priorities are the other signal the dashboard recommendations use.
+  revalidatePath('/dashboard');
   return { success: true as const };
 }
 

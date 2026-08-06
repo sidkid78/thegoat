@@ -4,6 +4,8 @@ import React, { useMemo } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { MyOffersSection } from '@/components/dashboard/MyOffersSection';
+import { RecommendedForYou } from '@/components/dashboard/RecommendedForYou';
+import type { RecommendationResult } from '@/app/actions/recommendations';
 import {
   Bookmark,
   CalendarDays,
@@ -27,6 +29,9 @@ interface DashboardViewProps {
   viewings: any[];
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   cmaReports: any[];
+  /** Ranked by the server component; `basis: 'none'` when there is no real
+   *  signal to rank against. */
+  recommendations: RecommendationResult;
   /** Rendered-at timestamp, supplied by the server component. Passing it in
    *  keeps server and client markup identical (no hydration mismatch) and
    *  keeps the clock out of render. */
@@ -80,6 +85,7 @@ export function DashboardView({
   offers = [],
   viewings = [],
   cmaReports = [],
+  recommendations,
   now,
 }: DashboardViewProps) {
   const displayName =
@@ -245,6 +251,10 @@ export function DashboardView({
           </dl>
 
           <MyOffersSection offers={offers} />
+
+          {/* Signed-out visitors have no taste to rank against, so the section
+              would only ever render its empty state -- omit it entirely. */}
+          {user && <RecommendedForYou recommendations={recommendations} />}
 
           {/* Toolkit */}
           <h2 className="mt-12 font-display text-headline-md text-navy-deep">

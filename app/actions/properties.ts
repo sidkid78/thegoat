@@ -34,6 +34,9 @@ export async function toggleFavoriteAction(propertyId: number) {
       .eq('property_id', propertyId);
     revalidatePath(`/properties/${propertyId}`);
     revalidatePath('/evaluate');
+    // Favorites are one of the two signals recommendations rank against, so
+    // the dashboard shelf is stale the moment this changes.
+    revalidatePath('/dashboard');
     return { isFavorite: false };
   } else {
     // Add favorite
@@ -43,6 +46,9 @@ export async function toggleFavoriteAction(propertyId: number) {
     });
     revalidatePath(`/properties/${propertyId}`);
     revalidatePath('/evaluate');
+    // Favorites are one of the two signals recommendations rank against, so
+    // the dashboard shelf is stale the moment this changes.
+    revalidatePath('/dashboard');
     return { isFavorite: true };
   }
 }

@@ -1,5 +1,6 @@
 import { createClient } from '@/lib/supabase/server';
 import { DashboardView } from '@/components/dashboard/DashboardView';
+import { getRecommendationsAction } from '@/app/actions/recommendations';
 
 /**
  * All queries are scoped by RLS to the signed-in user, so no explicit user
@@ -54,6 +55,11 @@ export default async function DashboardPage() {
     // Fall through with empty collections.
   }
 
+  // Fetched after the block above rather than inside it: a failure here (a
+  // missing Gemini key, an embedding timeout) returns an empty result instead
+  // of throwing, so it can't take the rest of the dashboard down with it.
+  const recommendations = user ? await getRecommendationsAction() : { properties: [], basis: 'none' as const };
+
   // Server Component: rendered once per request, so reading the clock here is
   // deterministic for the response and keeps `Date.now()` out of client render
   // (which would either be impure or cause a hydration mismatch).
@@ -67,6 +73,7 @@ export default async function DashboardPage() {
       offers={offers}
       viewings={viewings}
       cmaReports={cmaReports}
+      recommendations={recommendations}
       now={renderedAt}
     />
   );

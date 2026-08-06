@@ -75,6 +75,14 @@ The one flow worth understanding end to end:
 2. `supabase.rpc('match_properties', ...)` → a `SECURITY DEFINER` plpgsql function over `property_vectors` using an HNSW cosine index, with city/price/bed/bath filters applied inline and `status = 'active'` hardcoded.
 3. Results are normalized with `id: p.id ?? p.property_id` — **the RPC returns `property_id`, not `id`**, so anything consuming raw RPC rows must do this mapping.
 
+There are now **three** functions over the same cosine index, and it's worth knowing which is which:
+
+| Function | Ranks | Against | Used by |
+| --- | --- | --- | --- |
+| `match_properties` | whole catalogue | a typed query | search page, AI agent |
+| `match_favorites` | the user's shortlist | one preference embedding | `/evaluate` |
+| `match_recommendations` | whole catalogue | inferred taste | `/dashboard` |
+
 The 768 dimension is fixed in three places that must stay in sync: the embedding call, `vector(768)` in `20240101000001_enable_pgvector.sql`, and the `match_properties` signature. Two callers exist with different thresholds: `app/actions/search.ts` (0.15 / 12 results) for the search page, and `executeSearchProperties` in `lib/ai/tools.ts` (0.2 / 6) for the AI agent.
 
 ### AI agent loop
@@ -124,6 +132,17 @@ The **Property Evaluation Hub** (`/evaluate`, `components/evaluate/PropertyEvalu
 - `toggleFavoriteAction` was broken until this page needed it — `favorites` is keyed on the composite `(user_id, property_id)` and has **no `id` column**, so its `.select('id')` failed with `42703` every time, `existing` was always null, un-favoriting silently did nothing and re-clicking collided on the primary key. It now selects and deletes on the composite key.
 
 Mockup controls are wired to real behaviour rather than left decorative — search AI-preferences fold into the embedded query, property-type and sort filter client-side, match % is the real cosine similarity, and the detail-page investment calculator is a real amortisation. Where a feature doesn't exist (map view) the control is rendered visibly `disabled` instead of faked.
+
+The **Recommended for You** shelf on `/dashboard` (`components/dashboard/RecommendedForYou.tsx`) is the "AI-driven property recommendations" the MVP requirements list as a Must Have. `match_recommendations` (`20260805000000_match_recommendations.sql`) blends up to two signals the buyer genuinely produced:
+
+- their stated priorities, embedded from `profiles.metadata.buyerPreferences` — the same object `/evaluate` writes;
+- the **centroid of their favorited listings**, computed in Postgres via pgvector's `avg(vector)` so 768-float vectors never cross the wire.
+
+Both are `l2_normalize`d before summing, because `gemini-embedding-001` at `outputDimensionality: 768` does **not** return unit vectors and the longer one would otherwise dominate. The sum is deliberately not halved — cosine distance is scale-invariant, so dividing by two is a no-op.
+
+It is **not** inferred from browsing behaviour. There's no such tracking in this app, and the requirements put behaviour analytics in Could Have, not Must Have. With neither signal present the RPC returns zero rows and the section renders an empty state naming the two ways to fix it — same principle as the hub's missing match badge.
+
+Two exclusions are baked into the SQL: already-favorited listings (finding them again teaches nothing) and the viewer's own listings (`owner_id`), since a seller's own property is never a recommendation for them to buy. Because favorites and preferences are both inputs, `toggleFavoriteAction` and `saveBuyerPreferencesAction` each `revalidatePath('/dashboard')` — without that the shelf silently goes stale. `getRecommendationsAction` swallows embedding failures into an empty result so a missing `GEMINI_API_KEY` can't take the whole dashboard render down. Expect favorites-only scores around 0.8+ (property-to-property similarity) versus the 0.5–0.7 the hub reports for query-to-property; blending a divergent preference in lowers the ceiling, which is correct rather than a regression.
 
 Content deep in the tree can raise the AI assistant by dispatching `window.dispatchEvent(new CustomEvent('dwellingly:open-ai'))`; `AppShell` listens for it. That avoids threading the open/close state through every page.
 
