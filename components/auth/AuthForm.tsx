@@ -3,7 +3,7 @@
 import React, { useState, useTransition } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { Building2, Loader2 } from 'lucide-react';
+import { Building2, Loader2, MailCheck } from 'lucide-react';
 import { signInAction, signUpAction } from '@/app/actions/auth';
 
 type Mode = 'signin' | 'signup';
@@ -35,11 +35,21 @@ const ROLES = [
 const FIELD =
   'h-11 w-full rounded-soft border border-outline-variant bg-surface-lowest px-3 text-body-md text-ink outline-none transition placeholder:text-outline focus:border-navy focus:ring-1 focus:ring-navy';
 
-export function AuthForm({ mode, next }: { mode: Mode; next: string }) {
+export function AuthForm({
+  mode,
+  next,
+  initialError = null,
+}: {
+  mode: Mode;
+  next: string;
+  /** Surfaced from `?error=`, e.g. an expired confirmation link. */
+  initialError?: string | null;
+}) {
   const copy = COPY[mode];
   const router = useRouter();
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(initialError);
   const [role, setRole] = useState<string>('buyer');
+  const [pendingEmail, setPendingEmail] = useState<string | null>(null);
   const [isPending, startTransition] = useTransition();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -51,8 +61,13 @@ export function AuthForm({ mode, next }: { mode: Mode; next: string }) {
       const result =
         mode === 'signin' ? await signInAction(formData) : await signUpAction(formData);
 
-      if (!result.success) {
+      if (result.status === 'error') {
         setError(result.error);
+        return;
+      }
+
+      if (result.status === 'confirm-email') {
+        setPendingEmail(result.email);
         return;
       }
 
@@ -63,6 +78,32 @@ export function AuthForm({ mode, next }: { mode: Mode; next: string }) {
       router.push(next);
     });
   };
+
+  // Terminal state: the account exists but needs the emailed link clicked.
+  // Replaces the form rather than sitting beside it -- there is nothing useful
+  // left to do here, and leaving the fields live invites a confused re-submit.
+  if (pendingEmail) {
+    return (
+      <main className="flex min-h-[calc(100vh-4rem)] items-center justify-center px-4 py-12">
+        <div className="w-full max-w-md text-center">
+          <span className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-card bg-navy-tint text-navy">
+            <MailCheck className="h-6 w-6" />
+          </span>
+          <h1 className="font-display text-headline-lg text-ink">Confirm your email</h1>
+          <p className="mt-2 text-body-md text-ink-muted">
+            We sent a link to <span className="font-semibold text-ink">{pendingEmail}</span>. Click
+            it to finish setting up your account.
+          </p>
+          <p className="mt-6 text-body-sm text-ink-muted">
+            Wrong address?{' '}
+            <Link href="/signup" className="font-semibold text-navy hover:underline">
+              Start over
+            </Link>
+          </p>
+        </div>
+      </main>
+    );
+  }
 
   return (
     <main className="flex min-h-[calc(100vh-4rem)] items-center justify-center px-4 py-12">
@@ -79,6 +120,10 @@ export function AuthForm({ mode, next }: { mode: Mode; next: string }) {
           onSubmit={handleSubmit}
           className="rounded-card border border-hairline bg-surface-lowest p-6 shadow-card"
         >
+          {/* Carried into the action so the confirmation email can send the user
+              back where they started. */}
+          <input type="hidden" name="next" value={next} />
+
           {mode === 'signup' && (
             <>
               <label htmlFor="fullName" className="mb-1.5 block text-label-md uppercase text-ink-muted">

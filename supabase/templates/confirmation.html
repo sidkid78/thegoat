@@ -1,0 +1,24 @@
+<!--
+  Signup confirmation email.
+
+  Deliberately uses {{ .TokenHash }} against our own /auth/confirm route rather
+  than the default {{ .ConfirmationURL }}. The default routes through Supabase's
+  hosted verify endpoint, which returns the session in a URL hash fragment on
+  some flows -- and a fragment is never sent to the server, so an App Router
+  route handler cannot read it. Sending the token hash instead keeps the whole
+  exchange server-side, where the cookie can actually be written.
+
+  {{ .RedirectTo }} carries the `next` destination through, so a user who was
+  sent to sign up from a specific page returns there.
+-->
+<h2>Confirm your email</h2>
+
+<p>Welcome to Dwellingly. Confirm this address to finish setting up your account.</p>
+
+<p>
+  <a href="{{ .SiteURL }}/auth/confirm?token_hash={{ .TokenHash }}&type=signup&next={{ .RedirectTo }}">
+    Confirm my email
+  </a>
+</p>
+
+<p>If you didn't create a Dwellingly account, you can ignore this email.</p>
