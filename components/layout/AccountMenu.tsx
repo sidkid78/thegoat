@@ -27,8 +27,8 @@ const ROLE_LABELS: Record<string, string> = {
  * this check works client-side.
  */
 const DEV_ACCOUNTS = [
-  { as: 'seller', label: 'Seller (Sarah Jenkins)', role: 'seller' },
-  { as: 'buyer', label: 'Buyer (Alex Vance)', role: 'buyer' },
+  { as: 'seller', label: 'Seller (Sarah Jenkins)', email: 'seller.sarah@dwellingly.ai' },
+  { as: 'buyer', label: 'Buyer (Alex Vance)', email: 'buyer.alex@dwellingly.ai' },
 ];
 
 export function AccountMenu({ account }: { account: Account | null }) {
@@ -97,7 +97,10 @@ export function AccountMenu({ account }: { account: Account | null }) {
                 <ArrowLeftRight className="h-3.5 w-3.5" /> Switch account
               </p>
               {DEV_ACCOUNTS.map((option) => {
-                const current = account?.role === option.role;
+                // Matched on email, not role: now that anyone can sign up, a
+                // self-registered seller would otherwise light up the Sarah
+                // Jenkins row as "Current" despite being a different account.
+                const current = account?.email === option.email;
                 return (
                   <a
                     key={option.as}
@@ -120,9 +123,25 @@ export function AccountMenu({ account }: { account: Account | null }) {
 
           {account && <NotificationPhoneField initialPhone={account.phone} />}
 
-          {/* There is no sign-in route in this app yet -- the dev switcher above
-              is the only way in -- so signed-out users get no dead "Sign in"
-              link here. */}
+          {!account && (
+            <div className="p-2">
+              <a
+                href={`/login?next=${returnTo}`}
+                role="menuitem"
+                className="flex h-9 w-full items-center justify-center rounded-soft bg-navy text-body-sm font-semibold text-white transition hover:bg-navy-deep"
+              >
+                Sign in
+              </a>
+              <a
+                href={`/signup?next=${returnTo}`}
+                role="menuitem"
+                className="mt-1.5 flex h-9 w-full items-center justify-center rounded-soft border border-outline-variant text-body-sm font-semibold text-ink transition hover:bg-surface-container"
+              >
+                Create account
+              </a>
+            </div>
+          )}
+
           {account && (
             <button
               type="button"
