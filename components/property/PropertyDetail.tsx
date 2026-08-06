@@ -21,6 +21,7 @@ import {
 import Link from 'next/link';
 import { requestCmaAction } from '@/app/actions/cma';
 import { scheduleViewingAction } from '@/app/actions/properties';
+import { MarketTrends, type MarketTrendPoint } from '@/components/property/MarketTrends';
 
 const FALLBACKS = [
   'https://images.unsplash.com/photo-1600585154340-be6161a56a0c',
@@ -46,11 +47,14 @@ const FEATURE_LABELS: Record<string, string> = {
 export function PropertyDetail({
   property,
   initialCma,
+  marketTrends = [],
 }: {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   property: any;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   initialCma?: any;
+  /** Zip-level Redfin history, oldest first. Empty when the zip has no coverage. */
+  marketTrends?: MarketTrendPoint[];
 }) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [cmaReport, setCmaReport] = useState<any>(initialCma);
@@ -200,6 +204,9 @@ export function PropertyDetail({
         {/* Main column                                                     */}
         {/* -------------------------------------------------------------- */}
         <div className="space-y-8 lg:col-span-2">
+          {/* Renders nothing when the zip has no Redfin coverage. */}
+          <MarketTrends zipCode={property.zip_code} trends={marketTrends} />
+
           {/* Neighborhood expert — routes into the real assistant rather than
               standing up a second, separate chat implementation. */}
           <section className="overflow-hidden rounded-card border border-hairline bg-surface-lowest shadow-card">

@@ -28,5 +28,30 @@ export default async function PropertyDetailPage({
     .order('created_at', { ascending: false })
     .maybeSingle();
 
-  return <PropertyDetail property={property} initialCma={cmaReport?.report_data} />;
+  // Zip-level market history, oldest first so the chart reads left to right.
+  // Keyed on the listing's zip rather than its id -- this is area data, and no
+  // per-property sale history exists for these seeded listings.
+  const { data: trends } = await supabase
+    .from('market_trends')
+    .select('period_begin, median_sale_price, median_ppsf, homes_sold, median_dom, median_sale_price_yoy')
+    .eq('zip_code', property.zip_code)
+    .order('period_begin', { ascending: true });
+
+  const marketTrends = (trends ?? []).map((row) => ({
+    periodBegin: row.period_begin as string,
+    medianSalePrice: row.median_sale_price === null ? null : Number(row.median_sale_price),
+    medianPpsf: row.median_ppsf === null ? null : Number(row.median_ppsf),
+    homesSold: row.homes_sold,
+    medianDom: row.median_dom,
+    medianSalePriceYoy:
+      row.median_sale_price_yoy === null ? null : Number(row.median_sale_price_yoy),
+  }));
+
+  return (
+    <PropertyDetail
+      property={property}
+      initialCma={cmaReport?.report_data}
+      marketTrends={marketTrends}
+    />
+  );
 }

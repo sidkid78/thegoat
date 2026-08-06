@@ -71,7 +71,7 @@ enabled = true
 # Order matters: seed.sql creates the auth users/profiles and takes ids 1-3 (and
 # advances the identity sequence at its end), seed_realtor.sql then lands at ids
 # 4-103, and seed_vectors.sql references those absolute ids.
-sql_paths = ["./seed.sql", "./seed_realtor.sql", "./seed_vectors.sql"]
+sql_paths = ["./seed.sql", "./seed_realtor.sql", "./seed_vectors.sql", "./seed_market_trends.sql"]
 
 [db.network_restrictions]
 # Enable management of network restrictions.
