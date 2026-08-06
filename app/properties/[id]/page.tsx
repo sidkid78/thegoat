@@ -1,6 +1,7 @@
 import { createClient } from '@/lib/supabase/server';
 import { PropertyDetail } from '@/components/property/PropertyDetail';
 import { notFound } from 'next/navigation';
+import { forecastPrices } from '@/lib/market/forecast';
 
 export default async function PropertyDetailPage({
   params,
@@ -47,11 +48,20 @@ export default async function PropertyDetailPage({
       row.median_sale_price_yoy === null ? null : Number(row.median_sale_price_yoy),
   }));
 
+  // Cheap, deterministic and derived from data already fetched, so it runs on
+  // every render rather than sitting behind a button like the AI narrative.
+  const forecast = forecastPrices(
+    marketTrends
+      .filter((t): t is typeof t & { medianSalePrice: number } => t.medianSalePrice !== null)
+      .map((t) => ({ periodBegin: t.periodBegin, medianSalePrice: t.medianSalePrice }))
+  );
+
   return (
     <PropertyDetail
       property={property}
       initialCma={cmaReport?.report_data}
       marketTrends={marketTrends}
+      forecast={forecast}
     />
   );
 }
