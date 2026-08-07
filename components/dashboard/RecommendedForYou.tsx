@@ -18,6 +18,7 @@ const BASIS_COPY: Record<Exclude<RecommendationBasis, 'none'>, string> = {
   both: 'Ranked against your stated priorities and the listings you have saved.',
   preferences: 'Ranked against the buying priorities you set on the Evaluation Hub.',
   favorites: 'Ranked against the listings you have saved. Set your priorities to sharpen this.',
+  views: 'Ranked against the listings you have browsed. Save one or set your priorities to sharpen this.',
 };
 
 export function RecommendedForYou({ recommendations }: { recommendations: RecommendationResult }) {
@@ -37,8 +38,8 @@ export function RecommendedForYou({ recommendations }: { recommendations: Recomm
         <div className="mt-6 rounded-card border border-dashed border-outline-variant bg-surface-low p-8 text-center">
           <p className="text-body-md text-ink">Nothing to base recommendations on yet.</p>
           <p className="mx-auto mt-2 max-w-md text-body-sm text-ink-muted">
-            Save a listing you like, or set your buying priorities, and this fills with matches
-            ranked by semantic similarity.
+            Browse a few listings, save one you like, or set your buying priorities — this fills
+            with matches ranked by semantic similarity.
           </p>
           <div className="mt-5 flex flex-wrap items-center justify-center gap-3">
             <Link

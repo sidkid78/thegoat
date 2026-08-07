@@ -2,6 +2,7 @@ import { createClient } from '@/lib/supabase/server';
 import { PropertyDetail } from '@/components/property/PropertyDetail';
 import { notFound } from 'next/navigation';
 import { forecastPrices } from '@/lib/market/forecast';
+import { ViewTracker } from '@/components/property/ViewTracker';
 
 export default async function PropertyDetailPage({
   params,
@@ -57,11 +58,15 @@ export default async function PropertyDetailPage({
   );
 
   return (
-    <PropertyDetail
-      property={property}
-      initialCma={cmaReport?.report_data}
-      marketTrends={marketTrends}
-      forecast={forecast}
-    />
+    <>
+      {/* Client-side so a prefetch or re-render isn't counted as a visit. */}
+      <ViewTracker propertyId={property.id} />
+      <PropertyDetail
+        property={property}
+        initialCma={cmaReport?.report_data}
+        marketTrends={marketTrends}
+        forecast={forecast}
+      />
+    </>
   );
 }

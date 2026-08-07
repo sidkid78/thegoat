@@ -159,7 +159,13 @@ The **Recommended for You** shelf on `/dashboard` (`components/dashboard/Recomme
 
 Both are `l2_normalize`d before summing, because `gemini-embedding-001` at `outputDimensionality: 768` does **not** return unit vectors and the longer one would otherwise dominate. The sum is deliberately not halved — cosine distance is scale-invariant, so dividing by two is a no-op.
 
-It is **not** inferred from browsing behaviour. There's no such tracking in this app, and the requirements put behaviour analytics in Could Have, not Must Have. With neither signal present the RPC returns zero rows and the section renders an empty state naming the two ways to fix it — same principle as the hub's missing match badge.
+A **third signal** was added later (`20260806000002_recommendations_with_views.sql`): the centroid of the 20 most recently viewed listings from `property_views`, at **weight 0.5**. Weighting matters once views are in play — favourites and priorities are scarce and deliberate, views are neither, and at equal weight a browsing session would swamp preferences the buyer actually typed. pgvector has no `vector * scalar` operator, only element-wise `vector * vector`, so the weight is applied by multiplying with `array_fill(0.5, ARRAY[768])::vector`. Recency is a plain `ORDER BY last_viewed_at DESC LIMIT 20` rather than per-row decay weights, because there is no weighted aggregate and faking one would be opaque.
+
+**Viewed listings are excluded from results**, for the favourites reason but more acutely: the nearest neighbours to a centroid of viewed listings *are* those listings, so without the exclusion the shelf would replay the user's own browsing history back at them.
+
+The signals accumulate with NULL arithmetic (`NULL + vector` is NULL, so each `COALESCE` falls back to the term being added) rather than an empty-vector sentinel — `''` will not type-match `vector(768)`.
+
+With no signal at all the RPC returns zero rows and the section renders an empty state naming the ways to fix it — same principle as the hub's missing match badge. `basis` still reports `both` only for the two deliberate signals; `views` names the basis only when it is the *sole* input, since claiming a shelf is built on stated priorities when it is really built on page visits would misdescribe it.
 
 Two exclusions are baked into the SQL: already-favorited listings (finding them again teaches nothing) and the viewer's own listings (`owner_id`), since a seller's own property is never a recommendation for them to buy. Because favorites and preferences are both inputs, `toggleFavoriteAction` and `saveBuyerPreferencesAction` each `revalidatePath('/dashboard')` — without that the shelf silently goes stale. `getRecommendationsAction` swallows embedding failures into an empty result so a missing `GEMINI_API_KEY` can't take the whole dashboard render down. Expect favorites-only scores around 0.8+ (property-to-property similarity) versus the 0.5–0.7 the hub reports for query-to-property; blending a divergent preference in lowers the ceiling, which is correct rather than a regression.
 
@@ -180,6 +186,20 @@ Three decisions worth not undoing:
 The AI layer is on demand behind a button (paid reasoning call) and runs at `thinking_level: 'medium'` — at `'low'` it paraphrased figures from the table, once stating a month's median as $900,000 when the data said $890,000. The prompt now demands exact quotation and names that failure. It's also told not to give purchase advice and not to invent rates, migration, school or inventory numbers; verified output cited only figures from the payload.
 
 The chart is hand-drawn inline SVG — the project has no charting dependency and one line plus an area fill didn't justify adding one. It uses `preserveAspectRatio="none"` to stretch to the container, which is why the stroke needs `vectorEffect="non-scaling-stroke"` (without it the horizontal stretch visibly thins the line). There's no `city` column on `market_trends`: Redfin's zip-level file leaves `CITY` empty on every row, so it would be permanently NULL.
+
+### Behaviour tracking and settings
+
+`property_views` (`20260806000001_property_views.sql`) is the "enhanced user behaviour analytics" the requirements list as a Could Have, and it is the app's only behavioural data. Scope is deliberately narrow: it records that a signed-in user opened a property detail page, and nothing else — no search terms, no scroll depth, no dwell time, no anonymous visitors. RLS scopes every row to `auth.uid()`, and the only consumer is `match_recommendations` ranking listings for that same user. A seller cannot see who viewed their listing.
+
+One row per `(user, property)` rather than an append-only event log — the signal wanted is "which places is this person interested in", not a clickstream. That keeps the table small, makes "most recent N distinct" a plain `ORDER BY`, and stores markedly less about the person.
+
+Writes go through `record_property_view()`, which is **`SECURITY INVOKER`** unlike the `match_*` functions — it writes, so it stays behind RLS rather than around it. It exists because PostgREST cannot express "increment on conflict" and doing it as select-then-write races. It also re-checks the opt-out, so a client that keeps calling after the user opts out records nothing.
+
+Recording happens in `components/property/ViewTracker.tsx`, a client effect, **not** the page's server render: a Server Component can be re-rendered, prefetched or replayed, and counting that as a view would inflate the signal with pages nobody looked at. The `useRef` guard is load-bearing — React StrictMode runs effects twice in development, which would otherwise double every local view.
+
+`/settings` (`components/settings/SettingsView.tsx`) is the "detailed user profile management" Could Have: name, notification phone, buying priorities, and an Activity & privacy section. Tracking defaults **on**, with the toggle and a real "Clear history" (an actual `DELETE`; the table has a DELETE policy specifically so this works, unlike `offers`/`cma_reports`). The recently-viewed list is shown so the control is concrete rather than a description the user has to trust. **Switching the toggle off takes effect immediately even before history is cleared** — `match_recommendations` reads the flag itself and skips both the signal and the exclusion.
+
+Email and role are deliberately read-only there and say so: changing email needs an `email_change` path `/auth/confirm` doesn't handle yet, and role gates the properties INSERT policy, so it is a privilege rather than a preference. Buying priorities write the same `profiles.metadata.buyerPreferences` object `/evaluate` writes — a second door onto one setting, not a second copy.
 
 Content deep in the tree can raise the AI assistant by dispatching `window.dispatchEvent(new CustomEvent('dwellingly:open-ai'))`; `AppShell` listens for it. That avoids threading the open/close state through every page.
 

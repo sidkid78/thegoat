@@ -23,7 +23,12 @@ export interface RecommendedProperty {
  * recommendation is actually based on instead of presenting an unexplained
  * shelf of listings.
  */
-export type RecommendationBasis = 'both' | 'preferences' | 'favorites' | 'none';
+export type RecommendationBasis =
+  | 'both'
+  | 'preferences'
+  | 'favorites'
+  | 'views'
+  | 'none';
 
 export interface RecommendationResult {
   properties: RecommendedProperty[];
@@ -50,10 +55,14 @@ export async function getRecommendationsAction(limit = 6): Promise<Recommendatio
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) return EMPTY;
 
-  const [{ data: profile }, { count: favoriteCount }] = await Promise.all([
+  const [{ data: profile }, { count: favoriteCount }, { count: viewCount }] = await Promise.all([
     supabase.from('profiles').select('metadata').eq('id', user.id).single(),
     supabase
       .from('favorites')
+      .select('property_id', { count: 'exact', head: true })
+      .eq('user_id', user.id),
+    supabase
+      .from('property_views')
       .select('property_id', { count: 'exact', head: true })
       .eq('user_id', user.id),
   ]);
@@ -63,10 +72,24 @@ export async function getRecommendationsAction(limit = 6): Promise<Recommendatio
 
   const hasPrefs = Boolean(prefText);
   const hasFavorites = (favoriteCount ?? 0) > 0;
-  if (!hasPrefs && !hasFavorites) return EMPTY;
+  // Mirrors the SQL default: absent flag means tracking is on.
+  const tracking = profile?.metadata?.trackActivity !== false;
+  const hasViews = tracking && (viewCount ?? 0) > 0;
 
+  if (!hasPrefs && !hasFavorites && !hasViews) return EMPTY;
+
+  // `both` still means the two deliberate signals. Browsing history only names
+  // the basis when it is the sole thing available -- it is the weakest input,
+  // and claiming a shelf is built on stated priorities when it is really built
+  // on page visits would misdescribe it.
   const basis: RecommendationBasis =
-    hasPrefs && hasFavorites ? 'both' : hasPrefs ? 'preferences' : 'favorites';
+    hasPrefs && hasFavorites
+      ? 'both'
+      : hasPrefs
+        ? 'preferences'
+        : hasFavorites
+          ? 'favorites'
+          : 'views';
 
   // Wrapped so a missing Gemini key or an embedding timeout degrades to an
   // empty shelf rather than throwing out of the dashboard render.

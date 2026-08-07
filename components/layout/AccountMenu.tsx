@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useState, useTransition } from 'react';
 import { usePathname } from 'next/navigation';
-import { ArrowLeftRight, Check, LogOut, MessageSquare, UserCircle2 } from 'lucide-react';
+import { ArrowLeftRight, Check, LogOut, MessageSquare, Settings, UserCircle2 } from 'lucide-react';
 import { signOutAction, updateNotificationPhoneAction } from '@/app/actions/auth';
 
 export interface Account {
@@ -119,6 +119,17 @@ export function AccountMenu({ account }: { account: Account | null }) {
                 );
               })}
             </div>
+          )}
+
+          {account && (
+            <a
+              href="/settings"
+              role="menuitem"
+              onClick={() => setOpen(false)}
+              className="flex items-center gap-2 border-b border-hairline px-4 py-3 text-body-sm text-ink transition hover:bg-surface-container"
+            >
+              <Settings className="h-4 w-4" aria-hidden="true" /> Settings
+            </a>
           )}
 
           {account && <NotificationPhoneField initialPhone={account.phone} />}
